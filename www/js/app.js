@@ -214,7 +214,7 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
             .state('app.dashboard', {
                 url: "/dashboard",
                 params: {
-                    isAnimated: false
+                    isAnimated: true
                 },
                 views: {
                     'menuContent': {
@@ -225,20 +225,121 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
             })
            
 
-              .state('app.blank', {
-                  url: "/blank",
-                  params: {
-                      isAnimated: false
-                  },
-                  views: {
-                      'menuContent': {
-                          templateUrl: "templates/blank/html/blank.html",
-                          controller: 'blankCtrl'
-                      }
-                  }
-              })
-      
+    
+        .state('app.gallary', {
+            url: "/gallary",
+            params: {
+                isAnimated: true
+            },
+            views: {
+                'menuContent': {
+                    templateUrl: "templates/gallary/html/gallary.html",
+                    controller: 'gallaryCtrl'
+                }
+            }
+        })
 
+
+             .state('app.aboutus', {
+                 url: "/aboutus",
+                 params: {
+                     isAnimated: true
+                 },
+                 views: {
+                     'menuContent': {
+                         templateUrl: "templates/aboutus/html/aboutus.html",
+                         controller: 'aboutusCtrl'
+                     }
+                 }
+             })
+
+
+
+            .state('app.offers', {
+                url: "/offers",
+                params: {
+                    isAnimated: true
+                },
+                views: {
+                    'menuContent': {
+                        templateUrl: "templates/offers/html/offers.html",
+                        controller: 'offersCtrl'
+                    }
+                }
+            })
+
+
+
+          .state('app.ourteam', {
+              url: "/ourteam",
+              params: {
+                  isAnimated: true
+              },
+              views: {
+                  'menuContent': {
+                      templateUrl: "templates/ourteam/html/ourteam.html",
+                      controller: 'ourteamCtrl'
+                  }
+              }
+          })
+
+
+           .state('app.facebook', {
+               url: "/facebook",
+               params: {
+                   isAnimated: true
+               },
+               views: {
+                   'menuContent': {
+                       templateUrl: "templates/facebook/html/facebook.html",
+                       controller: 'facebookCtrl'
+                   }
+               }
+           })
+
+        
+
+                  .state('app.twitter', {
+                      url: "/twitter",
+                      params: {
+                          isAnimated: true
+                      },
+                      views: {
+                          'menuContent': {
+                              templateUrl: "templates/twitter/html/twitter.html",
+                              controller: 'twitterCtrl'
+                          }
+                      }
+                  })
+        
+
+
+                  .state('app.instagram', {
+                      url: "/instagram",
+                      params: {
+                          isAnimated: true
+                      },
+                      views: {
+                          'menuContent': {
+                              templateUrl: "templates/instagram/html/instagram.html",
+                              controller: 'instagramCtrl'
+                          }
+                      }
+                  })
+
+
+          .state('app.youtube', {
+              url: "/youtube",
+              params: {
+                  isAnimated: true
+              },
+              views: {
+                  'menuContent': {
+                      templateUrl: "templates/youtube/html/youtube.html",
+                      controller: 'youtubeCtrl'
+                  }
+              }
+          })
         //Use $urlRouterProvider.otherwise(Url);
         $urlRouterProvider.otherwise(window.globalVariable.startPage.url);
 

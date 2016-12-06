@@ -1,4 +1,4 @@
-<!--View Information-->
+﻿<!--View Information-->
 <!--View name : Menu-->
 <!--Controller name : menuCtrl-->
 <!--Controller path : www/templates/menu/js/controllers.js-->
@@ -22,9 +22,9 @@
                 <img class="user-img" src="img/profileAvatar.jpg">
 
                 <p>
-                    <span class="title">Ionic Material</span>
+                    <span class="title">مركز عناية وجمال لطب الاسنان</span>
                     <br/>
-                    <span class="sub-title">Material Design Application</span>
+                    <span class="sub-title">عناية متقدمة بصحة و جمال الفم والأسنان</span>
                 </p>
             </div><!--end menu header section-->
         </div> <!--menu content section-->
@@ -35,78 +35,77 @@
             <div ng-if="isAndroid" class="menu-list">
                 <div class="row menu-item" ng-click="navigateTo('app.dashboard')">
                     <div class="col-33">
-                        <i class="fa fa-database"></i>
+                        <i class="fa fa-dashboard"></i>
                     </div>
                     <div class="col-66">
-                        <span>Home</span>
+                        <span>الرئيسية</span>
                     </div>
                 </div>
-                <div class="row menu-item" ng-click="navigateTo('app.notelist')">
+                <div class="row menu-item" ng-click="navigateTo('app.gallary')">
                     <div class="col-33">
-                        <i class="fa fa-cube"></i>
+                        <i class="fa fa-photo"></i>
                     </div>
                     <div class="col-66">
-                        <span>Gallary</span>
+                        <span>المعرض</span>
                     </div>
                 </div>
               
-                <div class="row menu-item" ng-click="navigateTo('app.facebookLogin')">
+                <div class="row menu-item" ng-click="navigateTo('app.facebook')">
                     <div class="col-33">
                         <i class="fa fa-facebook"></i>
                     </div>
                     <div class="col-66">
-                        <span>Facebook</span>
+                        <span>فيس بوك</span>
                     </div>
                 </div>
-                <div class="row menu-item" ng-click="navigateTo('app.googlePlusLogin')">
+                <div class="row menu-item" ng-click="navigateTo('app.twitter')">
                     <div class="col-33">
-                        <i class="fa fa-google-plus"></i>
+                        <i class="fa fa-twitter"></i>
                     </div>
                     <div class="col-66">
-                        <span>Google Plus</span>
+                        <span>تويتر</span>
                     </div>
                 </div>
-                <div class="row menu-item" ng-click="navigateTo('app.instagramLogin')">
+                <div class="row menu-item" ng-click="navigateTo('app.instagram')">
                     <div class="col-33">
                         <i class="fa fa-instagram"></i>
                     </div>
                     <div class="col-66">
-                        <span>Instagram</span>
+                        <span>إنستجرام</span>
                     </div>
                 </div>
-              
-                <div class="row menu-item" ng-click="navigateTo('app.dropboxLogin')">
+                <div class="row menu-item" ng-click="navigateTo('app.youtube')">
                     <div class="col-33">
-                        <i class="fa fa-dropbox"></i>
+                        <i class="fa fa-youtube"></i>
                     </div>
                     <div class="col-66">
-                        <span>filckr</span>
+                        <span>يوتيوب</span>
                     </div>
                 </div>
                
                
-                <div class="row menu-item" ng-click="navigateTo('app.googleAdmob')">
+                <div class="row menu-item" ng-click="navigateTo('app.offers')">
                     <div class="col-33">
-                        <i class="fa fa-money"></i>
+                        <i class="fa fa-tags"></i>
                     </div>
                     <div class="col-66">
-                        <span>Offers</span>
+                        <span>عروضنا</span>
                     </div>
                 </div>
-                <div class="row menu-item" ng-click="navigateTo('app.singlePushNotification')">
+                <div class="row menu-item" ng-click="navigateTo('app.ourteam')">
                     <div class="col-33">
-                        <i class="fa fa-sign-in fa-rotate-90"></i>
+                        <i class="fa fa-sign-in fa-users"></i>
                     </div>
                     <div class="col-66">
-                        <span>Our Team</span>
+                        <span>فريقنا</span>
                     </div>
                 </div>
-                <div class="row menu-item" ng-click="navigateTo('app.blank')">
+                <div class="row menu-item" ng-click="navigateTo('app.aboutus')">
                     <div class="col-33">
-                        <i class="fa fa-clock-o"></i>
+                        <i class="fa fa-info-circle"></i>
                     </div>
                     <div class="col-66">
-                        <span>About Us</span>
+                        <span>عن المركز</span>
                     </div>
                 </div>
             
@@ -117,45 +116,46 @@
             <!--It will show animation when selecting row.-->
             <md-list ng-if="!isAndroid">
                 <md-list-item class="menu-list-item" ng-click="navigateTo('app.dashboard')">
-                    <i class="fa fa-database"></i>
-                    <span>Home</span>
+                    <i class="fa fa-dashboard"></i>
+                    <span>الرئيسية</span>
                 </md-list-item>
-                <md-list-item class="menu-list-item" ng-click="navigateTo('app.')">
-                    <i class="fa fa-cube"></i>
-                    <span>Gallary</span>
+                <md-list-item class="menu-list-item"ng-click="navigateTo('app.gallary')">
+                    <i class="fa fa-photo"></i>
+                    <span>المعرض</span>
                 </md-list-item>
                
-                <md-list-item class="menu-list-item" ng-click="navigateTo('app.facebookLogin')">
+                <md-list-item class="menu-list-item" ng-click="navigateTo('app.facebook')">
                     <i class="fa fa-facebook"></i>
-                    <span>Facebook</span>
+                    <span>فيس بوك</span>
                 </md-list-item>
-                <md-list-item class="menu-list-item" ng-click="navigateTo('app.googlePlusLogin')">
-                    <i class="fa fa-google-plus"></i>
-                    <span>Google Plus</span>
+                <md-list-item class="menu-list-item" ng-click="navigateTo('app.twitter')">
+                    <i class="fa fa-twitter"></i>
+                    <span>تويتر</span>
                 </md-list-item>
-                <md-list-item class="menu-list-item" ng-click="navigateTo('app.instagramLogin')">
+               
+                <md-list-item class="menu-list-item" ng-click="navigateTo('app.instagram')">
                     <i class="fa fa-instagram"></i>
-                    <span>Instagram</span>
+                    <span>إنستجرام</span>
+                </md-list-item>
+                <md-list-item class="menu-list-item" ng-click="navigateTo('app.youtube')">
+                    <i class="fa fa-youtube"></i>
+                    <span>يوتيوب</span>
                 </md-list-item>
              
-                <md-list-item class="menu-list-item" ng-click="navigateTo('app.dropboxLogin')">
-                    <i class="fa fa-dropbox"></i>
-                    <span>fickr</span>
-                </md-list-item>
               
                 
-                <md-list-item class="menu-list-item" ng-click="navigateTo('app.googleAdmob')">
-                    <i class="fa fa-money"></i>
-                    <span>Offers</span>
+                <md-list-item class="menu-list-item" ng-click="navigateTo('app.offers')">
+                    <i class="fa fa-tags"></i>
+                    <span>عروضنا</span>
                 </md-list-item>
                 
-                <md-list-item class="menu-list-item" ng-click="navigateTo('app.singlePushNotification')">
-                    <i class="fa fa-sign-in fa-rotate-90"></i>
-                    <span>Our Team</span>
+                <md-list-item class="menu-list-item"ng-click="navigateTo('app.ourteam')">
+                    <i class="fa fa-sign-in fa-users"></i>
+                    <span>فريقنا</span>
                 </md-list-item>
-                <md-list-item class="menu-list-item" ng-click="navigateTo('app.blank')">
-                    <i class="fa fa-clock-o"></i>
-                    <span>About Us</span>
+                <md-list-item class="menu-list-item" ng-click="navigateTo('app.aboutus')">
+                    <i class="fa fa-info-circle"></i>
+                    <span>عن المركز</span>
                 </md-list-item>
              
         </ion-content>

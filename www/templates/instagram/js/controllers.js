@@ -1,8 +1,8 @@
 ﻿//// Controller of dashboard.
 //var app = angular.module('starter', ['ionic']);
-appControllers.controller('blankCtrl', function ($scope) {
+appControllers.controller('instagramCtrl', function ($scope) {
 
-  
+
     $scope.message = 'hi';
 
 }); // End of dashboard controller.
