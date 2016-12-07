@@ -168,7 +168,7 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
         $mdThemingProvider
             .theme('default')
             .primaryPalette('light-green')
-            .accentPalette('light-green');
+            .accentPalette('red');
 
         appPrimaryColor = $mdColorPalette[$mdThemingProvider._THEMES.default.colors.primary.name]["500"]; //Use for get base color of theme.
 

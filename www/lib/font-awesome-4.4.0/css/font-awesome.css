@@ -2024,3 +2024,8 @@
 .fa-fonticons:before {
   content: "\f280";
 }
+
+@font-face {
+    font-family: 'NeoSansArabic';
+    src: url('../fonts/NeoSansArabic.ttf') format('truetype');
+}
