@@ -4,7 +4,7 @@ window.globalVariable = {
 
     startPage: {
         url: "/app/dashboard",//Url of start page.
-        state: "app.dashboard"//State name of start page.
+        state: "app.dashboard"
     },
     message: {
         errorMessage: "Technical error please try again later." //Default error message.
@@ -340,7 +340,7 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
                   }
               }
           })
-        //Use $urlRouterProvider.otherwise(Url);
+      
         $urlRouterProvider.otherwise(window.globalVariable.startPage.url);
 
     });
