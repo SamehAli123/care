@@ -3,11 +3,11 @@
 window.globalVariable = {
 
     startPage: {
-        url: "/app/dashboard",//Url of start page.
+        url: "/app/dashboard",
         state: "app.dashboard"
     },
     message: {
-        errorMessage: "Technical error please try again later." //Default error message.
+        errorMessage: "Technical error please try again later." 
     }
 
 };// End Global variable
