@@ -6,7 +6,6 @@ window.globalVariable = {
         url: "/app/dashboard",
         state: "app.dashboard"
 
-        //كده تمام
     },
     message: {
         errorMessage: "Technical error please try again later." 
