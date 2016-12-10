@@ -39,36 +39,37 @@ appControllers.controller('gallaryCtrl', function ($scope, $timeout, $state, $ht
    }
     ]
 
-    $scope.initialForm = function () {
-        // $scope.productList is the variable that store user product data.
-        $scope.productList = [];
-
-        // Loading progress.
-        $timeout(function () {
-            if ($scope.isAndroid) {
-                jQuery('#product-detail-loading-progress').show();
-            }
-            else {
-                jQuery('#product-detail-loading-progress').fadeIn(700);
-            }
-        }, 400);
-        $timeout(function () {
-            jQuery('#product-detail-loading-progress').hide();
-            jQuery('#product-detail-content').fadeIn();
-        }, 3000);
-    };
+ 
 
     $scope.navigateTo = function (targetPage, objectData) {
         $state.go(targetPage, {
             product: objectData
         });
-    };// End navigateTo.
+    };
 
-    // loadMore is for loadMore product list.
 
-    $scope.initialForm();
 
-}); // End of dashboard controller.
+
+    $scope.lastimages = [];
+
+
+    $scope.loadMore = function () {
+        $timeout(function () {
+
+            for (var image = 0; image < $scope.images.length; image++) {
+                $scope.lastimages.push($scope.images[image]);
+                console.log(image);
+            }
+
+            $scope.$broadcast('scroll.infiniteScrollComplete');
+
+        }, 2000);
+    };
+
+
+
+
+}); 
 
 appControllers.controller('gallary-only-imgCtrl', function ($scope, $mdToast, $mdBottomSheet, $timeout, $stateParams) {
 
