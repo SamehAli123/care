@@ -1,9 +1,21 @@
 ﻿
 <ion-view>
-    <ion-content ng-controller="ourteamCtrl">
-        <h1>
-            its our team page
-        </h1>
-    </ion-content>
+    <ion-content ng-controller="ourteamCtrl" scroll="false">
+        <ion-slide-box id="slide-catalog-content" active-slide="0">
+            <!--slide section-->
+            <ion-slide ng-repeat="image in images">
+                <!--pin section-->
+                <div class="pin">
+                    <img ng-src="{{image.img}}" class="full-image" />
+                    <h1>{{image.txt}}</h1>
+                    <p>
+                        {{image.desc}}
+                    </p>
 
+                </div><!--end pin section-->
+            </ion-slide>
+
+            <!--end slide section-->
+        </ion-slide-box>
+    </ion-content>
 </ion-view>
