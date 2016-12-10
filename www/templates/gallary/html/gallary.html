@@ -3,11 +3,11 @@
     <ion-content ng-controller="gallaryCtrl" id="product-detail-content" >
 
 
-        <div class="pin  gallary" ng-repeat="image in lastimages"
-             ng-click="navigateTo('app.gallary-only-img' , image)">
+        <div class="pin  gallary" ng-repeat="image in photos"
+             ng-click="navigateTo('app.gallary-only-img',image)">
             <img ng-src="{{image.img}}" />
         </div>
-        <ion-infinite-scroll on-infinite="loadMore()" distance="5%">
+        <ion-infinite-scroll on-infinite="loadMore()" distance="1%">
         </ion-infinite-scroll>
     </ion-content>
 

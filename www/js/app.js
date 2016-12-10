@@ -246,7 +246,7 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
     .state('app.gallary-only-img', {
         url: "/gallary-only-img",
         params: {
-            product: null,
+            photo: null,
         },
         views: {
             'menuContent': {

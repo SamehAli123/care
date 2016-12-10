@@ -39,32 +39,58 @@ appControllers.controller('gallaryCtrl', function ($scope, $timeout, $state, $ht
    }
     ]
 
- 
+
+
 
     $scope.navigateTo = function (targetPage, objectData) {
         $state.go(targetPage, {
-            product: objectData
+            photo: objectData
         });
     };
 
 
 
 
-    $scope.lastimages = [];
+    $scope.initialForm = function () {
+        // $scope.productList is the variable that store user product data.
+        $scope.productList = [];
 
+        // Loading progress.
+        $timeout(function () {
+            if ($scope.isAndroid) {
+                jQuery('#product-list-loading-progress').show();
+            }
+            else {
+                jQuery('#product-list-loading-progress').fadeIn(700);
+            }
+        }, 400);
+        $timeout(function () {
+            jQuery('#product-list-loading-progress').hide();
+            jQuery('#product-list-content').fadeIn();
+        }, 4000);// End loading progress.
+    };
+
+    $scope.photos = [];
 
     $scope.loadMore = function () {
         $timeout(function () {
-
+            //get product list from json  at paht: www/app-data/product-list.json
+            
+              
             for (var image = 0; image < $scope.images.length; image++) {
-                $scope.lastimages.push($scope.images[image]);
-                console.log(image);
-            }
-
-            $scope.$broadcast('scroll.infiniteScrollComplete');
-
+                $scope.photos.push($scope.images[image]);
+                    }
+                 
+               
         }, 2000);
-    };
+    };// End loadMore.
+
+    $scope.initialForm();
+
+
+
+
+
 
 
 
@@ -73,23 +99,11 @@ appControllers.controller('gallaryCtrl', function ($scope, $timeout, $state, $ht
 
 appControllers.controller('gallary-only-imgCtrl', function ($scope, $mdToast, $mdBottomSheet, $timeout, $stateParams) {
 
-
+   
     $scope.initialForm = function () {
+    
+        $scope.img = $stateParams.photo;
 
-        $scope.image = $stateParams.product;
-
-        $timeout(function () {
-            if ($scope.isAndroid) {
-                jQuery('#product-detail-loading-progress').show();
-            }
-            else {
-                jQuery('#product-detail-loading-progress').fadeIn(700);
-            }
-        }, 400);
-        $timeout(function () {
-            jQuery('#product-detail-loading-progress').hide();
-            jQuery('#product-detail-content').fadeIn();
-        }, 3000);
     };
 
     $scope.initialForm();
