@@ -134,10 +134,12 @@ ion-header-bar {
 .font-sale {
     text-decoration: line-through;
     color: black;
+    font-size:150%;
+
 }
 
 .font-hot-sale {
-    color: #ff5252;
+    color: #56c41f;
 }
 
 .nav-back-btn {
@@ -315,12 +317,12 @@ md-sidenav {
             }
 
             .pin div .pin-footer.text-left.font-hot-sale {
-                color: #ff5252;
+                color:black;
             }
 
             .pin div .pin-footer.text-right {
                 float: right;
-                background-color: #ff5252;
+                background-color: lightgreen;
                 border-radius: 80px;
                 color: white;
                 font-weight: 500;
@@ -2322,7 +2324,6 @@ md-sidenav {
                         }
 
 #slide-catalog-content {
-    background-color: #f6f6f6;
     height: 100%;
 }
 
@@ -2406,7 +2407,7 @@ md-sidenav {
 
                 #slide-catalog-content .pin div .pin-footer.text-right {
                     float: right;
-                    background-color: #ff5252;
+                    background-color: #0e7044;
                     border-radius: 80px;
                     color: white;
                     font-weight: 500;
