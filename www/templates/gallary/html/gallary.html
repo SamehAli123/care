@@ -1,9 +1,20 @@
 ﻿
-<ion-view>
+<ion-view view-title="المعرض">
     <ion-content ng-controller="gallaryCtrl">
-        <h1>
-            its gallary page
-        </h1>
+   
+              
+        <div class="pin  gallary" ng-repeat="image in images"
+             ng-click="navigateTo('app.gallary-only-img' , image)">
+            <img ng-src="{{image.img}}" />
+
+
+
+
+        </div>
+
     </ion-content>
+
+
+  
 
 </ion-view>

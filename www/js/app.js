@@ -241,6 +241,36 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
         })
 
 
+
+
+    .state('app.gallary-only-img', {
+        url: "/gallary-only-img",
+        params: {
+            product: null,
+        },
+        views: {
+            'menuContent': {
+                templateUrl: "templates/gallary/html/gallary-only-img.html",
+                controller: 'gallary-only-imgCtrl'
+            }
+        }
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
              .state('app.aboutus', {
                  url: "/aboutus",
                  params: {
@@ -341,6 +371,10 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
                   }
               }
           })
+
+
+
+        
       
         $urlRouterProvider.otherwise(window.globalVariable.startPage.url);
 
