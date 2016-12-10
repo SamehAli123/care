@@ -256,21 +256,6 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
         }
     })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
              .state('app.aboutus', {
                  url: "/aboutus",
                  params: {
