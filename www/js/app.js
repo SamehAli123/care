@@ -8,7 +8,7 @@ window.globalVariable = {
 
     },
     message: {
-        errorMessage: "Technical error please try again later." 
+        errorMessage: "Technical error please try again later."
     }
 
 };// End Global variable
@@ -224,9 +224,9 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
                     }
                 }
             })
-           
 
-    
+
+
         .state('app.gallary', {
             url: "/gallary",
             params: {
@@ -313,7 +313,7 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
                }
            })
 
-        
+
 
                   .state('app.twitter', {
                       url: "/twitter",
@@ -327,7 +327,7 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
                           }
                       }
                   })
-        
+
 
 
                   .state('app.instagram', {
@@ -357,10 +357,120 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
               }
           })
 
+            
 
 
-        
-      
+
+            .state('app.askdoc', {
+                url: "/askdoc",
+                params: {
+                    isAnimated: true
+                },
+                views: {
+                    'menuContent': {
+                        templateUrl: "templates/askdoc/html/askdoc.html",
+                        controller: 'askdocCtrl'
+                    }
+                }
+            })
+
+
+
+          .state('app.book', {
+              url: "/book",
+              params: {
+                  isAnimated: true
+              },
+              views: {
+                  'menuContent': {
+                      templateUrl: "templates/book/html/book.html",
+                      controller: 'bookingCtrl'
+                  }
+              }
+          })
+
+           .state('app.connectus', {
+               url: "/connectus",
+               params: {
+                   isAnimated: true
+               },
+               views: {
+                   'menuContent': {
+                       templateUrl: "templates/connectus/html/connectus.html",
+                       controller: 'connectCtrl'
+                   }
+               }
+           })
+
+
+
+
+          .state('app.insurence', {
+              url: "/insurence",
+              params: {
+                  isAnimated: true
+              },
+              views: {
+                  'menuContent': {
+                      templateUrl: "templates/insurence services/html/insurenceservices.html",
+                      controller: 'insurenceCtrl'
+                  }
+              }
+          })
+
+
+
+
+          .state('app.map', {
+              url: "/map",
+              params: {
+                  isAnimated: true
+              },
+              views: {
+                  'menuContent': {
+                      templateUrl: "templates/map/html/map.html",
+                      controller: 'mapCtrl'
+                  }
+              }
+          })
+
+
+
+
+
+            .state('app.services', {
+                url: "/services",
+                params: {
+                    isAnimated: true
+                },
+                views: {
+                    'menuContent': {
+                        templateUrl: "templates/services/html/services.html",
+                        controller: 'servicesCtrl'
+                    }
+                }
+            })
+
+
+
+
+
+           .state('app.suggestion', {
+               url: "/suggestion",
+               params: {
+                   isAnimated: true
+               },
+               views: {
+                   'menuContent': {
+                       templateUrl: "templates/suggestions/html/suggestion.html",
+                       controller: 'suggestionCtrl'
+                   }
+               }
+           })
+
+
+
+
         $urlRouterProvider.otherwise(window.globalVariable.startPage.url);
 
     });

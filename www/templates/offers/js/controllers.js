@@ -2,16 +2,16 @@
 appControllers.controller('offersCtrl', function ($scope) {
 
     $scope.offers = [{
-        img: 'img/make-tooth2.jpg',
+        img: 'img/contract_us_bg.jpg',
         name: 'زراعه اسنان',
         desc: 'تخفيضات  كبيره فى مجال زراعه الاسنان',
         from: '800ريال',
-        to:'500ريال'
+        to: '500ريال'
 
     },
 
     {
-        img: 'img/make-tooth2.jpg',
+        img: 'img/contract_us_bg.jpg',
         name: 'زراعه اسنان',
         desc: 'تخفيضات  كبيره فى مجال زراعه الاسنان',
         from: '800 ريال ',
@@ -19,7 +19,7 @@ appControllers.controller('offersCtrl', function ($scope) {
 
     },
     {
-        img: 'img/make-tooth2.jpg',
+        img: 'img/contract_us_bg.jpg',
         name: 'زراعه اسنان',
         desc: 'تخفيضات  كبيره فى مجال زراعه الاسنان',
         from: '800 ريال ',
@@ -27,7 +27,7 @@ appControllers.controller('offersCtrl', function ($scope) {
 
     },
     {
-        img: 'img/make-tooth2.jpg',
+        img: 'img/contract_us_bg.jpg',
         name: 'زراعه اسنان',
         desc: 'تخفيضات  كبيره فى مجال زراعه الاسنان',
         from: '800 ريال ',
@@ -35,7 +35,7 @@ appControllers.controller('offersCtrl', function ($scope) {
 
     },
     {
-        img: 'img/make-tooth2.jpg',
+        img: 'img/contract_us_bg.jpg',
         name: 'زراعه اسنان',
         desc: 'تخفيضات  كبيره فى مجال زراعه الاسنان',
         from: '800 ريال ',
@@ -43,7 +43,7 @@ appControllers.controller('offersCtrl', function ($scope) {
 
     },
     {
-        img: 'img/make-tooth2.jpg',
+        img: 'img/contract_us_bg.jpg',
         name: 'زراعه اسنان',
         desc: 'تخفيضات  كبيره فى مجال زراعه الاسنان',
         from: '800 ريال ',
@@ -51,7 +51,7 @@ appControllers.controller('offersCtrl', function ($scope) {
 
     },
     {
-        img: 'img/make-tooth2.jpg',
+        img: 'img/contract_us_bg.jpg',
         name: 'زراعه اسنان',
         desc: 'تخفيضات  كبيره فى مجال زراعه الاسنان',
         from: '800 ريال ',

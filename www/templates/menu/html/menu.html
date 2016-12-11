@@ -100,6 +100,67 @@
                         <span>فريقنا</span>
                     </div>
                 </div>
+                
+                
+                <div class="row menu-item" ng-click="navigateTo('app.book')">
+                    <div class="col-33">
+                        <i class="fa fa-thumb-tack"></i>
+                    </div>
+                    <div class="col-66">
+                        <span>حجز موعد </span>
+                    </div>
+                </div>
+
+                <div class="row menu-item" ng-click="navigateTo('app.suggestion')">
+                    <div class="col-33">
+                        <i class="fa fa-paper-plane"></i>
+                    </div>
+                    <div class="col-66">
+                        <span>الشكاوى والمقترحات</span>
+                    </div>
+                </div>
+
+                <div class="row menu-item" ng-click="navigateTo('app.services')">
+                    <div class="col-33">
+                        <i class="fa fa-pie-chart"></i>
+                    </div>
+                    <div class="col-66">
+                        <span>الخدمات</span>
+                    </div>
+                </div>
+                <div class="row menu-item" ng-click="navigateTo('app.insurence')">
+                    <div class="col-33">
+                        <i class="fa fa-life-ring"></i>
+                    </div>
+                    <div class="col-66">
+                        <span>الخدمات التأمينيه</span>
+                    </div>
+                </div>
+                <div class="row menu-item" ng-click="navigateTo('app.askdoc')">
+                    <div class="col-33">
+                        <i class="fa fa-user-md"></i>
+                    </div>
+                    <div class="col-66">
+                        <span>اسأل طبيبك</span>
+                    </div>
+                </div>
+                <div class="row menu-item" ng-click="navigateTo('app.map')">
+                    <div class="col-33">
+                        <i class="fa fa-location-arrow"></i>
+                    </div>
+                    <div class="col-66">
+                        <span>خريطه المركز</span>
+                    </div>
+                </div>
+                <div class="row menu-item" ng-click="navigateTo('app.connectus')">
+                    <div class="col-33">
+                        <i class="fa fa-commenting"></i>
+                    </div>
+                    <div class="col-66">
+                        <span>تواصل معنا</span>
+                    </div>
+                </div>
+
                 <div class="row menu-item" ng-click="navigateTo('app.aboutus')">
                     <div class="col-33">
                         <i class="fa fa-info-circle"></i>
@@ -108,12 +169,8 @@
                         <span>عن المركز</span>
                     </div>
                 </div>
-            
                 </div>
-            
-
-            <!--If device is not Android application will present below code.-->
-            <!--It will show animation when selecting row.-->
+   
             <md-list ng-if="!isAndroid">
                 <md-list-item class="menu-list-item" ng-click="navigateTo('app.dashboard')">
                     <i class="fa fa-dashboard"></i>
@@ -153,13 +210,41 @@
                     <i class="fa fa-sign-in fa-users"></i>
                     <span>فريقنا</span>
                 </md-list-item>
+             
+                <md-list-item class="menu-list-item" ng-click="navigateTo('app.book')">
+                    <i class="fa fa-thumb-tack"></i>
+                    <span>حجز موعد </span>
+                </md-list-item>
+                <md-list-item class="menu-list-item" ng-click="navigateTo('app.suggestion')">
+                    <i class="fa fa-paper-plane"></i>
+                    <span>الشكاوى والمقترحات </span>
+                </md-list-item>
+                <md-list-item class="menu-list-item" ng-click="navigateTo('app.services')">
+                    <i class="fa fa-pie-chart"></i>
+                    <span>الخدمات </span>
+                </md-list-item>
+                <md-list-item class="menu-list-item" ng-click="navigateTo('app.insurence')">
+                    <i class="fa fa-life-ring"></i>
+                    <span>الخدمات التأمينيه </span>
+                </md-list-item>
+                <md-list-item class="menu-list-item" ng-click="navigateTo('app.askdoc')">
+                    <i class="fa fa-user-md"></i>
+                    <span>اسأل طبيبك  </span>
+                </md-list-item>
+                <md-list-item class="menu-list-item" ng-click="navigateTo('app.map')">
+                    <i class="fa fa-location-arrow"></i>
+                    <span> خريطه المركز </span>
+                </md-list-item>
+                <md-list-item class="menu-list-item" ng-click="navigateTo('app.connectus')">
+                    <i class="fa fa-commenting"></i>
+                    <span> تواصل معنا </span>
+                </md-list-item>
                 <md-list-item class="menu-list-item" ng-click="navigateTo('app.aboutus')">
                     <i class="fa fa-info-circle"></i>
                     <span>عن المركز</span>
                 </md-list-item>
-             
         </ion-content>
-        <!--end menu section-->
+  
 
     </md-sidenav>
 </ion-side-menus>
