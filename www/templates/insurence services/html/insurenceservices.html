@@ -1,9 +1,13 @@
-﻿
-<ion-view>
+﻿<ion-view>
     <ion-content ng-controller="insurenceCtrl">
-        <h1>
-            its insurence page
-        </h1>
-    </ion-content>
+        <div class="pin  gallary" ng-repeat="image in images"
+             ng-click="navigateTo('app.insurenece-details',image)">
+            <img ng-src="{{image.img}}" />
+            <div class="pin-footer moreinfo">
+                <span class="pin-footer text-right morebtn">للمزيد--></span>
+                <span class="text-left morebtn">{{image.detail}}</span>
+            </div>
 
+        </div>
+    </ion-content>
 </ion-view>

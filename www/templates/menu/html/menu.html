@@ -1,11 +1,4 @@
-﻿<!--View Information-->
-<!--View name : Menu-->
-<!--Controller name : menuCtrl-->
-<!--Controller path : www/templates/menu/js/controllers.js-->
-<!--State name : app-->
-<!--URL : #app-->
-
-<ion-side-menus enable-menu-with-back-views="false">
+﻿<ion-side-menus enable-menu-with-back-views="false">
     <ion-side-menu-content>
         <ion-nav-bar class="bar-balanced  material-background-nav-bar">
             <ion-nav-buttons side="left">
@@ -20,18 +13,15 @@
             <!--menu header section-->
             <div class="menu-left-header">
                 <img class="user-img" src="img/icons/Logo.jpg">
-
                 <p>
                     <span class="title">مركز عناية وجمال لطب الاسنان</span>
-                    <br/>
+                    <br />
                     <span class="sub-title">عناية متقدمة بصحة و جمال الفم والأسنان</span>
                 </p>
-            </div><!--end menu header section-->
-        </div> <!--menu content section-->
+            </div>
+        </div> 
         <ion-content id="toggle-menu-left-content">
-            <!--If device is android application will present below code.-->
-            <!--It will disable animation to better performance on android.-->
-            <!--list section-->
+
             <div ng-if="isAndroid" class="menu-list">
                 <div class="row menu-item" ng-click="navigateTo('app.dashboard')">
                     <div class="col-33">
@@ -49,7 +39,7 @@
                         <span>المعرض</span>
                     </div>
                 </div>
-              
+
                 <div class="row menu-item" ng-click="navigateTo('app.facebook')">
                     <div class="col-33">
                         <i class="fa fa-facebook"></i>
@@ -82,8 +72,8 @@
                         <span>يوتيوب</span>
                     </div>
                 </div>
-               
-               
+
+
                 <div class="row menu-item" ng-click="navigateTo('app.offers')">
                     <div class="col-33">
                         <i class="fa fa-tags"></i>
@@ -100,8 +90,8 @@
                         <span>فريقنا</span>
                     </div>
                 </div>
-                
-                
+
+
                 <div class="row menu-item" ng-click="navigateTo('app.book')">
                     <div class="col-33">
                         <i class="fa fa-thumb-tack"></i>
@@ -110,7 +100,6 @@
                         <span>حجز موعد </span>
                     </div>
                 </div>
-
                 <div class="row menu-item" ng-click="navigateTo('app.suggestion')">
                     <div class="col-33">
                         <i class="fa fa-paper-plane"></i>
@@ -119,7 +108,6 @@
                         <span>الشكاوى والمقترحات</span>
                     </div>
                 </div>
-
                 <div class="row menu-item" ng-click="navigateTo('app.services')">
                     <div class="col-33">
                         <i class="fa fa-pie-chart"></i>
@@ -160,7 +148,6 @@
                         <span>تواصل معنا</span>
                     </div>
                 </div>
-
                 <div class="row menu-item" ng-click="navigateTo('app.aboutus')">
                     <div class="col-33">
                         <i class="fa fa-info-circle"></i>
@@ -169,18 +156,17 @@
                         <span>عن المركز</span>
                     </div>
                 </div>
-                </div>
-   
+            </div>
             <md-list ng-if="!isAndroid">
                 <md-list-item class="menu-list-item" ng-click="navigateTo('app.dashboard')">
                     <i class="fa fa-dashboard"></i>
                     <span>الرئيسية</span>
                 </md-list-item>
-                <md-list-item class="menu-list-item"ng-click="navigateTo('app.gallary')">
+                <md-list-item class="menu-list-item" ng-click="navigateTo('app.gallary')">
                     <i class="fa fa-photo"></i>
                     <span>المعرض</span>
                 </md-list-item>
-               
+
                 <md-list-item class="menu-list-item" ng-click="navigateTo('app.facebook')">
                     <i class="fa fa-facebook"></i>
                     <span>فيس بوك</span>
@@ -189,7 +175,7 @@
                     <i class="fa fa-twitter"></i>
                     <span>تويتر</span>
                 </md-list-item>
-               
+
                 <md-list-item class="menu-list-item" ng-click="navigateTo('app.instagram')">
                     <i class="fa fa-instagram"></i>
                     <span>إنستجرام</span>
@@ -198,19 +184,19 @@
                     <i class="fa fa-youtube"></i>
                     <span>يوتيوب</span>
                 </md-list-item>
-             
-              
-                
+
+
+
                 <md-list-item class="menu-list-item" ng-click="navigateTo('app.offers')">
                     <i class="fa fa-tags"></i>
                     <span>عروضنا</span>
                 </md-list-item>
-                
-                <md-list-item class="menu-list-item"ng-click="navigateTo('app.ourteam')">
+
+                <md-list-item class="menu-list-item" ng-click="navigateTo('app.ourteam')">
                     <i class="fa fa-sign-in fa-users"></i>
                     <span>فريقنا</span>
                 </md-list-item>
-             
+
                 <md-list-item class="menu-list-item" ng-click="navigateTo('app.book')">
                     <i class="fa fa-thumb-tack"></i>
                     <span>حجز موعد </span>
@@ -226,10 +212,12 @@
                 <md-list-item class="menu-list-item" ng-click="navigateTo('app.insurence')">
                     <i class="fa fa-life-ring"></i>
                     <span>الخدمات التأمينيه </span>
+                    <!--تدعيم شركات التأمين--> 
                 </md-list-item>
                 <md-list-item class="menu-list-item" ng-click="navigateTo('app.askdoc')">
                     <i class="fa fa-user-md"></i>
-                    <span>اسأل طبيبك  </span>
+                    <span>اسأل طبيبك</span>
+                    <!--الاسئله والاجوبه -->
                 </md-list-item>
                 <md-list-item class="menu-list-item" ng-click="navigateTo('app.map')">
                     <i class="fa fa-location-arrow"></i>
@@ -243,9 +231,8 @@
                     <i class="fa fa-info-circle"></i>
                     <span>عن المركز</span>
                 </md-list-item>
+        
         </ion-content>
-  
 
     </md-sidenav>
 </ion-side-menus>
-

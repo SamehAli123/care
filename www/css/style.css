@@ -2732,3 +2732,13 @@ md-sidenav {
     height: 45%;
     margin: 2.5%;
 }
+.moreinfo {
+
+border-top:1px solid #60a92e;
+
+
+}
+.morebtn {
+    margin:5px;
+    color:#31a94f;
+}

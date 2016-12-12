@@ -419,6 +419,27 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
           })
 
 
+             .state('app.insurenece-details', {
+                 url: "/gallary-only-img",
+                 params: {
+                     photo: null,
+                 },
+                 views: {
+                     'menuContent': {
+                         templateUrl: "templates/insurence services/html/insurence-details.html",
+                         controller: 'gallary-only-imgCtrl'
+                     }
+                 }
+             })
+
+
+
+
+
+
+
+
+
 
 
           .state('app.map', {
