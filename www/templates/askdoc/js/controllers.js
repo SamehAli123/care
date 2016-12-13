@@ -37,8 +37,7 @@ appControllers.controller('questionCtrl', function ($scope, $mdDialog, $state) {
     }
     $scope.save = function ($event) {
 
-        alert($scope.data.text.length);
-        if ($scope.data.text.length != 0) {
+        if ($scope.data.text.length != 0 && $scope.data.dep.length != 0) {
 
             $state.go('app.askdoc');
         }

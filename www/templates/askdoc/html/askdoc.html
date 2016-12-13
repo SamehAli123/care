@@ -1,25 +1,30 @@
 ﻿
 <ion-view view-title="اسأل طبيبك">
     <ion-content ng-controller="askdocCtrl">
-        <div class="wrapper">
-            <div class="shape bubble"><p>Comment</p></div>
-            <div class="shape bubble"><p>View all 121 comments</p></div>
+     
+        <ion-list class="list">
+            <li 
+                class="item item-avatar-right item-text-wrap no-padding">
 
-
-        </div>
-
-            <!--<div class="row">
-                <div class="col-20">
-                    <img ng-src="img/app_icon.png" class="img-ques" />
-                    <span>sameh ali</span>
+                <img ng-src="img/app_icon.png" class="img-ques" />
+                <div class="bubbleRight"
+                   style="width:100%">
+                    <h2 class="text-right"><b style="color:white" />مريم</h2>
+                    <p  class="text-right"> هل هناك اعراض جانبيه لأزاله  الشعر بالليزر؟ </p>
                 </div>
-                <div class="col-80 ">
-                    <i class="fa fa-comment-o comment" aria-hidden="true" ></i>
-                    <p>ان الحاله هذه  متكرره بشده فى الامكان الحساسه ويجب اخذ حقن مجهرى فى  هذه المنطقه</p>
 
+            </li>
+            <li class="item item-avatar-left item-text-wrap no-padding">
+                <img ng-src="img/icons/Logo.jpg" class="img-ques" />
+                <div class="bubbleLeft"
+                     style="width:100%">
+                    <h2 class="text-right"><b style="color:white" />د/سامح على </h2>
+                    <p class="text-right"> هلا استاذه مريم ان   كان  لديكى حساسيه لا  ينصح بأستخدام    الليزر فيما   غير ذلك ليس له  اعراض جانبيه </p>
                 </div>
-            </div>-->
 
+            </li>
+        </ion-list>
+           
         
     </ion-content>
 

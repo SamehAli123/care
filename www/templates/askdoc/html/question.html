@@ -10,18 +10,18 @@
 
         <md-card>
             <div>
-                <md-input-container md-no-float>
+                <md-input-container md-no-float class="border-bottom">
                     <md-select ng-model="data.dep" aria-label="md-option" placeholder="اختر القسم " required>
                         <md-option value="0">ازاله الشعر</md-option>
                         <md-option value="1">الاسنان</md-option>
                         <md-option value="2">الجلديه</md-option>
                         <md-option value="3">السمنه</md-option>
                     </md-select>
-
-
-                    <textarea rows="5" ng-model="data.text" maxlength="200"
-                              placeholder="ضع سؤالك  هنا ......."></textarea>
                 </md-input-container>
+                    <md-input-container md-no-float>
+                        <textarea rows="5" ng-model="data.text" maxlength="200"
+                                  placeholder="ضع سؤالك  هنا ......."></textarea>
+                    </md-input-container>
                 <span>
                     {{(data.text.length > 0 ? data.text.length :0) | json}}/200
                 </span>
