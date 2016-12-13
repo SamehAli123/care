@@ -2742,3 +2742,20 @@ border-top:1px solid #60a92e;
     margin:5px;
     color:#31a94f;
 }
+
+
+.no-border {
+
+border:0px solid white;
+background-color:white;
+color:green;
+
+}
+.full-input {
+
+
+}
+.md-select .md-select-label {
+
+width:100%
+}

@@ -3,7 +3,6 @@
 appControllers.controller('askdocCtrl', function ($scope) {
 
 
-    $scope.message = 'hi';
 
 }); // End of dashboard controller.
 

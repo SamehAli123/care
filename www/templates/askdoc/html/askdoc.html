@@ -1,9 +1,24 @@
 ﻿
-<ion-view>
+<ion-view view-title="اسأل طبيبك">
     <ion-content ng-controller="askdocCtrl">
-        <h1>
-            its ask doctor page
-        </h1>
+        
+        <md-select ng-model="mdSelectValue" aria-label="md-option" placeholder="اختر القسم " class="full-input">
+            <md-option value="0">ازاله الشعر</md-option>
+            <md-option value="1">الاسنان</md-option>
+            <md-option value="2">الجلديه</md-option>
+            <md-option value="3">السمنه</md-option>
+        </md-select>
+
+            <div class=" item-input-inset footer-item-input-inset">
+                <label class="item-input-wrapper">
+                    <i class="icon ion-android-chat placeholder-icon"></i>
+                    <input type="text" placeholder="ضع سؤالك هنا ليرد عليك الطبيب" ng-model="message" ng-enter="sendMessage()" class="no-border" />
+
+                </label>
+                <span class="button ion-android-send icon no-border"  ng-click="sendMessage()"></span>
+            </div>
+
+        
     </ion-content>
 
 </ion-view>
