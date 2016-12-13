@@ -11,7 +11,7 @@
         <md-card>
             <div>
                 <md-input-container md-no-float>
-                    <md-select ng-model="department" aria-label="md-option" placeholder="اختر القسم " required>
+                    <md-select ng-model="data.dep" aria-label="md-option" placeholder="اختر القسم " required>
                         <md-option value="0">ازاله الشعر</md-option>
                         <md-option value="1">الاسنان</md-option>
                         <md-option value="2">الجلديه</md-option>
@@ -19,11 +19,11 @@
                     </md-select>
 
 
-                    <textarea rows="5" ng-model="text" maxlength="200"
+                    <textarea rows="5" ng-model="data.text" maxlength="200"
                               placeholder="ضع سؤالك  هنا ......."></textarea>
                 </md-input-container>
                 <span>
-                    {{(text.length > 0 ? text.length :0) | json}}/200
+                    {{(data.text.length > 0 ? data.text.length :0) | json}}/200
                 </span>
                 <span>{{text}}</span>
             </div>

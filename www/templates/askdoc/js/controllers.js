@@ -27,20 +27,23 @@ appControllers.controller('questionCtrl', function ($scope, $mdDialog, $state) {
                 }
             }
         })
-    }// End showConfirmDialog.
-    $scope.text= '';
 
+    }
+    $scope.data
+    = {
+        dep: '',
+       text:''
+
+    }
     $scope.save = function ($event) {
 
-        alert($scope.text);
-        //if ($scope.text.length != 0 && $scope.department.length != 0) {
-        //    alert('not empty');
+        alert($scope.data.text.length);
+        if ($scope.data.text.length != 0) {
 
-        //    $state.go('app.app.askdoc');
-        //}
-        //else {
-        //    alert('all  empty');
-        //    $scope.showConfirmDialog($event)
-        //}
+            $state.go('app.askdoc');
+        }
+        else {
+            $scope.showConfirmDialog($event)
+        }
     }
 });
