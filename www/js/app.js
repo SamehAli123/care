@@ -374,6 +374,22 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
                 }
             })
 
+            .state('app.question', {
+                url: "/question",
+                params: {
+                    isAnimated: true
+                },
+                views: {
+                    'menuContent': {
+                        templateUrl: "templates/askdoc/html/question.html",
+                        controller: 'questionCtrl'
+                    }
+                }
+            })
+
+
+
+
 
 
           .state('app.book', {

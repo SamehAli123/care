@@ -2751,11 +2751,13 @@ background-color:white;
 color:green;
 
 }
-.full-input {
 
+.color {
+background-color:#1ea349 !important;
 
 }
-.md-select .md-select-label {
 
-width:100%
+.md-select-label {
+width:100%;
+
 }

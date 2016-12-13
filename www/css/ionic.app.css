@@ -3893,7 +3893,9 @@ a.subdued {
       padding-left: 8px;
       width: 94%;
       height: 28px;
-      background: transparent; }
+      background: transparent;
+     
+    }
   .bar.bar-light {
     border-color: #ddd;
     background-color: white;
@@ -6953,7 +6955,9 @@ textarea {
   padding-left: 4px;
   height: 29px;
   background: transparent;
-  line-height: 18px; }
+  line-height: 18px; 
+   width:100%;
+}
 
 .item-input-wrapper ~ .button {
   margin-left: 10.66667px; }
