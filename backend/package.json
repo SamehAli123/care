@@ -1,0 +1,9 @@
+{
+  "name": "Care",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "*",
+    "express": "*",
+    "mongoose": "*"
+  }
+}
