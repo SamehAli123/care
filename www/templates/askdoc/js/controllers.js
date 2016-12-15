@@ -23,9 +23,11 @@ appControllers.controller('questionCtrl', function ($scope, $mdDialog, $state) {
                 displayOption: {
                     title: "خطأ فى ادخال البيانات",
                     content: "يرجى اختيار القسم وكتابه السؤال",
-                    cancel: "انهاء"
+                    cancel: "انهاء",
+                 
                 }
-            }
+            },
+            fontfamily:'Neo Sans Arabic'
         })
 
     }

@@ -1,4 +1,4 @@
-﻿<ion-side-menus enable-menu-with-back-views="false">
+﻿ <ion-side-menus enable-menu-with-back-views="false" style="font-family:'Neo Sans Arabic'" >
     <ion-side-menu-content>
         <ion-nav-bar class="bar-balanced  material-background-nav-bar">
             <ion-nav-buttons side="left">
@@ -28,7 +28,7 @@
                         <i class="fa fa-dashboard"></i>
                     </div>
                     <div class="col-66">
-                        <span>الرئيسية</span>
+                        <span>الصفحة الرئيسية</span>
                     </div>
                 </div>
                 <div class="row menu-item" ng-click="navigateTo('app.gallary')">
@@ -157,10 +157,10 @@
                     </div>
                 </div>
             </div>
-            <md-list ng-if="!isAndroid">
+            <md-list ng-if="!isAndroid" >
                 <md-list-item class="menu-list-item" ng-click="navigateTo('app.dashboard')">
                     <i class="fa fa-dashboard"></i>
-                    <span>الرئيسية</span>
+                    <span>الصفحة الرئيسية</span>
                 </md-list-item>
                 <md-list-item class="menu-list-item" ng-click="navigateTo('app.gallary')">
                     <i class="fa fa-photo"></i>
