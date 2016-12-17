@@ -2914,3 +2914,28 @@ border:1px dashed #219c1c;
 border-bottom:1px solid #E1E1E1;
 
 }
+.login-img {
+width:100%;
+height:100%;
+border-radius:50%;
+}
+.profile {
+    width:20%;
+    margin-left:80%;
+
+}
+.title {
+left:10% !important;
+}
+.twitter-background {
+background-color:#0087BE !important;
+
+}
+.social-login-block {
+    margin-top: 20%;
+}
+.socialbtn {
+margin-bottom:10% !important;
+
+
+}

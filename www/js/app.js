@@ -507,6 +507,23 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
 
 
 
+          .state('app.login', {
+              url: "/login",
+              params: {
+                  isAnimated: true
+              },
+              views: {
+                  'menuContent': {
+                      templateUrl: "templates/login/html/login.html",
+                      controller: 'loginCtrl'
+                  }
+              }
+          })
+
+
+
+
+
 
         $urlRouterProvider.otherwise(window.globalVariable.startPage.url);
 

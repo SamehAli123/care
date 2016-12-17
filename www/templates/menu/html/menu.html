@@ -1,8 +1,40 @@
-﻿ <ion-side-menus enable-menu-with-back-views="false" style="font-family:'Neo Sans Arabic'" >
+﻿<ion-side-menus enable-menu-with-back-views="false" style="font-family:'Neo Sans Arabic'">
     <ion-side-menu-content>
         <ion-nav-bar class="bar-balanced  material-background-nav-bar">
             <ion-nav-buttons side="left">
                 <a class="button button-icon button-clear ion-navicon" menu-toggle="left" ng-click="toggleLeft()"></a>
+            </ion-nav-buttons>
+            <ion-nav-buttons side="secondary">
+                <div class="profile">
+                    <md-menu md-position-mode="target-right target" class="md-list-item-md-menu-right">
+                      
+                            <img ng-src="img/app_icon.png" class="login-img" ng-click="$mdOpenMenu()" />
+
+                       
+                        <md-menu-content width="3">
+                            <md-menu-item>
+                                <a class="md-button md-default-theme" ng-click=" navigateTo('app.login')">
+                                    <span class="menu-item-button"> تسجيل الدخول</span>
+                                </a>
+                            </md-menu-item>
+
+                        </md-menu-content>
+                    </md-menu>
+
+
+                </div>
+
+
+
+
+                <!--<div class="row noPadding pull-right">
+            <div class="col-50 text-right">
+                <span>sameh ali</span>
+            </div>
+            <div class="col-50 text-left">
+            </div>
+        </div>-->
+
             </ion-nav-buttons>
         </ion-nav-bar>
         <ion-nav-view name="menuContent"></ion-nav-view>
@@ -19,7 +51,7 @@
                     <span class="sub-title">عناية متقدمة بصحة و جمال الفم والأسنان</span>
                 </p>
             </div>
-        </div> 
+        </div>
         <ion-content id="toggle-menu-left-content">
 
             <div ng-if="isAndroid" class="menu-list">
@@ -157,7 +189,7 @@
                     </div>
                 </div>
             </div>
-            <md-list ng-if="!isAndroid" >
+            <md-list ng-if="!isAndroid">
                 <md-list-item class="menu-list-item" ng-click="navigateTo('app.dashboard')">
                     <i class="fa fa-dashboard"></i>
                     <span>الصفحة الرئيسية</span>
@@ -212,7 +244,7 @@
                 <md-list-item class="menu-list-item" ng-click="navigateTo('app.insurence')">
                     <i class="fa fa-life-ring"></i>
                     <span>الخدمات التأمينيه </span>
-                    <!--تدعيم شركات التأمين--> 
+                    <!--تدعيم شركات التأمين-->
                 </md-list-item>
                 <md-list-item class="menu-list-item" ng-click="navigateTo('app.askdoc')">
                     <i class="fa fa-user-md"></i>
@@ -231,7 +263,7 @@
                     <i class="fa fa-info-circle"></i>
                     <span>عن المركز</span>
                 </md-list-item>
-        
+
         </ion-content>
 
     </md-sidenav>
