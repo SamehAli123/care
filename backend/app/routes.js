@@ -1,16 +1,6 @@
 var mongoose = require('mongoose');
-var Contact = require('./models/contact');
-var Lead = require('./models/lead');
-var Opportunity = require('./models/opportunity');
-var User = require('./models/user');
-var Organization = require('./models/organization');
-var LeadStatus = require('./models/leadstatus');
-var CustomField = require('./models/customfield');
-var OpportunityStatus = require('./models/opportuintystatus');
-var EmailTemplate = require('./models/emailtemplate');
-var SmartView = require('./models/smartview');
-var Task = require('./models/task');
-var Activity = require('./models/activity');
+var AskDoc = require('./models/contact');
+
 module.exports = function (app, express) {
     var api = express.Router();
     ////////////////error custom format
