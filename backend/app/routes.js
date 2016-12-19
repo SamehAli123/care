@@ -45,7 +45,7 @@ module.exports = function (app) {
                 else {
                     if (user) {
                         console.log(user);
-                        res.json({ type:21,data: 'user here before ' });
+                        res.json({ type: 21, data: 'user here before ' });
                     }
                     else {
                         var user = new User({
@@ -70,26 +70,115 @@ module.exports = function (app) {
     });
     //// get all usres
 
-        app.get('/user', function (req, res) {
-            User.find({},function (err, user) {
-                if (err) {
-                    res.json(formatedError(err));
-                } else {
-                    if (user) {
-                        res.json({ type: 100, data: user });
-                    }
-                    else {
-                        res.json({ code: 21, message: 'no users exist' });
-                    }
+    app.get('/user', function (req, res) {
+        User.find({}, function (err, user) {
+            if (err) {
+                res.json(formatedError(err));
+            } else {
+                if (user) {
+                    res.json({ code: 100, data: user });
                 }
-            })
-        });
+                else {
+                    res.json({ code: 21, message: 'no users exist' });
+                }
+            }
+        })
+    });
+
+    ///////////////////////department
+    ///post --------
+    app.post('/dep', function (req, res) {
+        var name = req.body.Name.toLowerCase();
+        Dep.findOne({ Name: name }, function (err, dep) {
+            if (err) {
+                res.json(formatedError(err));
+
+            }
+            else {
+                if (dep) {
+                    res.json({ code: 21, message: "dep already exist" });
+                }
+                else {
+                    var dep = new Dep({
+                        Name: req.body.Name,
+                        WorkingDays: [{
+                            From: req.body.WorkingDaysFrom,
+                            to: req.body.WorkingDaysto
+                        }],
+                        Hours: [{
+                            From: req.body.HoursFrom,
+                            to: req.body.Hoursto
+                        }]
+
+                    });
+                    dep.save(function (err) {
+                        if (err) {
+                            res.json(formatedError(err));
+                        }
+                        else {
+                            res.json({ code: 100, data: dep });
+                        }
+                    })
+                }
+            }
+        })
+    });
+    //////////get all  ----------
+    app.get('/dep', function (req, res) {
+        Dep.find({}, function (err, dep) {
+            if (err)
+                res.json(formatedError(err));
+            else
+                res.json({ code: 100, data: dep });
+        })
+    });
+    ////  get one 
+    app.get('/dep/:_id', function (req, res) {
+        Dep.find({ _id: req.params._id }, function (err, dep) {
+            if (err)
+                res.json(formatedError(err));
+            else
+                res.json({ code: 100, data: dep });
+        })
+    });
+    //// put 
+    app.put('/dep/:_id', function (req, res) {
+        var name = req.body.Name.toLowerCase();
+        Dep.find({ Name: name }, function (err, dep) {
+            if (err) {
+                res.json(formatedError(err));
+
+            }
+            else {
+                if (dep.count < 1) {
+                    res.json({ code: 21, message: "dep already exist with same name " });
+                }
+                else {
+
+                    dep.Name = req.body.Name,
+                    dep.WorkingDays.From = req.body.WorkingDaysFrom,
+                    dep.WorkingDays.to = req.body.WorkingDaysFrom,
+                    dep.Hours.From = req.body.HoursFrom,
+                    dep.Hours.to = req.body.Hoursto
+
+                    dep.save(function (err) {
+                        if (err) {
+                            res.json(formatedError(err));
+                        }
+                        else {
+                            res.json({ code: 100, data: dep });
+                        }
+                    })
+                }
+            }
+        })
 
 
 
+    })
 
 
-    ///////////////////////doc
+
 
 
 
