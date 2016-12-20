@@ -1,11 +1,12 @@
 ﻿
 var mongoose = require('mongoose');
+var dep = ['الجلديه', 'الليزر', 'الاسنان'];
 
 var Schema = mongoose.Schema;
 var Offer = new Schema({
 
     Name: { type: String, requied: 'please enter your name ' },
-    Dep: { type: Schema.Types.ObjectId, ref: 'Dep', required: 'Please select department' },
+    Dep: { type:ٍSting,enum:dep },
     PriceBefore: { type: String, required: 'Please select price before offer' },
     PriceAfter: { type: String, required: 'Please select price after offer' },
     CreateDate: { type: Date, default: Date.now },

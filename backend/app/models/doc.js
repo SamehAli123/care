@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 var StatusDoc = ['Enable', 'Disable'];
-
+var dep = ['«·Ã·œÌÂ', '«··Ì“—', '«·«”‰«‰'];
 var Schema = mongoose.Schema;
 
 var Doc = new Schema({
@@ -10,7 +10,7 @@ var Doc = new Schema({
     Password: { type: String, required: 'Please Enter Your Password' },
     Status: { type: String, enum: StatusDoc },
     PicUrl: { type: String, required: 'Please Enter Your Password' },
-    Dep: { type: Schema.Types.ObjectId, ref: 'Dep', required: 'Please select department' }
+    Dep: { type: String,enum:dep }
 });
 
 module.exports = mongoose.model('Doc', Doc);

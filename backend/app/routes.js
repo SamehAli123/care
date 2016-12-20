@@ -1,6 +1,5 @@
 var mongoose = require('mongoose');
 var AskDoc = require('./models/askdoc');
-var Dep = require('./models/dep');
 var Doc = require('./models/doc');
 var Insurence = require('./models/insurence');
 var Offer = require('./models/offer');
@@ -85,97 +84,61 @@ module.exports = function (app) {
         })
     });
 
-    ///////////////////////department
-    ///post --------
-    app.post('/dep', function (req, res) {
+
+
+    //doc
+    // insert  new doc 
+    app.post('/doc', function (req, res) {
         var name = req.body.Name.toLowerCase();
-        Dep.findOne({ Name: name }, function (err, dep) {
-            if (err) {
-                res.json(formatedError(err));
+        var email = req.body.Email.toLowerCase();
 
-            }
-            else {
-                if (dep) {
-                    res.json({ code: 21, message: "dep already exist" });
-                }
-                else {
-                    var dep = new Dep({
-                        Name: req.body.Name,
-                        WorkingDays: [{
-                            From: req.body.WorkingDaysFrom,
-                            to: req.body.WorkingDaysto
-                        }],
-                        Hours: [{
-                            From: req.body.HoursFrom,
-                            to: req.body.Hoursto
-                        }]
-
-                    });
-                    dep.save(function (err) {
-                        if (err) {
-                            res.json(formatedError(err));
-                        }
-                        else {
-                            res.json({ code: 100, data: dep });
-                        }
-                    })
-                }
-            }
-        })
-    });
-    //////////get all  ----------
-    app.get('/dep', function (req, res) {
-        Dep.find({}, function (err, dep) {
+        Doc.findOne({ Name: name }, function (err, doc) {
             if (err)
                 res.json(formatedError(err));
-            else
-                res.json({ code: 100, data: dep });
-        })
-    });
-    ////  get one 
-    app.get('/dep/:_id', function (req, res) {
-        Dep.find({ _id: req.params._id }, function (err, dep) {
-            if (err)
-                res.json(formatedError(err));
-            else
-                res.json({ code: 100, data: dep });
-        })
-    });
-    //// put 
-    app.put('/dep/:_id', function (req, res) {
-        var name = req.body.Name.toLowerCase();
-        Dep.find({ Name: name }, function (err, dep) {
-            if (err) {
-                res.json(formatedError(err));
-
-            }
             else {
-                if (dep.count < 1) {
-                    res.json({ code: 21, message: "dep already exist with same name " });
+                if (doc) {
+                    res.json({ code: 21, message: 'depulicated user Name found' });
+
                 }
                 else {
-
-                    dep.Name = req.body.Name,
-                    dep.WorkingDays.From = req.body.WorkingDaysFrom,
-                    dep.WorkingDays.to = req.body.WorkingDaysFrom,
-                    dep.Hours.From = req.body.HoursFrom,
-                    dep.Hours.to = req.body.Hoursto
-
-                    dep.save(function (err) {
-                        if (err) {
+                    Doc.findOne({ Email: req.body.Email }, function (err, doc) {
+                        if (err)
                             res.json(formatedError(err));
-                        }
                         else {
-                            res.json({ code: 100, data: dep });
+                            if (doc) {
+                                res.json({ code: 22, message: 'depluated Email user ' });
+                            }
+                            else {
+
+                                var Doctor = new Doc({
+                                    Email: req.body.Email,
+                                    Name: req.body.Name,
+                                    Password: req.body.Password,
+                                    Status: req.body.Status,
+                                    PicUrl: req.body.PicUrl,
+                                    Dep: req.body.Dep
+
+                                });
+                                Doctor.save(function (err) {
+                                    if (err) {
+
+                                        res.json(formatedError(err));
+                                    }
+                                    else {
+                                        res.json({ code: 100, data: doc });
+                                    }
+                                });
+                            }
                         }
+
                     })
                 }
+
             }
         })
+    });
 
 
-
-    })
 
 
 

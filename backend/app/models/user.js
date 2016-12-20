@@ -1,9 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var social = ['facebook', 'twitter', 'google+'];
-
-
-
 var User = new Schema({
     Name: { type: String, requied: 'please enter your name ' },
     SocialId: { type: String, requied: 'please enter your social id  ' },
