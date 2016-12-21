@@ -6,7 +6,7 @@ var Schema = mongoose.Schema;
 var Offer = new Schema({
 
     Name: { type: String, requied: 'please enter your name ' },
-    Dep: { type:ٍSting,enum:dep },
+    Dep: { type: String, enum: dep },
     PriceBefore: { type: String, required: 'Please select price before offer' },
     PriceAfter: { type: String, required: 'Please select price after offer' },
     CreateDate: { type: Date, default: Date.now },
