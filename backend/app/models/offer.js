@@ -1,7 +1,7 @@
 ﻿
 var mongoose = require('mongoose');
-var dep = ['الجلديه', 'الليزر', 'الاسنان'];
-
+var dep = ['liser', 'Leather', 'teeth'];
+var status = ['Disable', 'Enable']
 var Schema = mongoose.Schema;
 var Offer = new Schema({
 
@@ -11,6 +11,7 @@ var Offer = new Schema({
     PriceAfter: { type: String, required: 'Please select price after offer' },
     CreateDate: { type: Date, default: Date.now },
     ExpireDate: { type: Date },
+    status: { type: String, enum: status, default: 'Enable' }
 
 });
 module.exports = mongoose.model('Offer', Offer);
