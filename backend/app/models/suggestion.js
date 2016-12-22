@@ -1,7 +1,6 @@
 
 var mongoose = require('mongoose');
-var dep = ['«·Ã·œÌÂ', '«··Ì“—', '«·«”‰«‰'];
-
+var dep = ['liser', 'Leather', 'teeth'];
 var Schema = mongoose.Schema;
 var Suggestion = new Schema({
 

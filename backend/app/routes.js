@@ -69,7 +69,6 @@ module.exports = function (app) {
         }
     });
     //// get all usres
-
     app.get('/user', function (req, res) {
         User.find({}, function (err, user) {
             if (err) {
@@ -84,9 +83,6 @@ module.exports = function (app) {
             }
         })
     });
-
-
-
     //doc....................................................
     // insert  new doc 
     app.post('/doc', function (req, res) {
@@ -215,7 +211,6 @@ module.exports = function (app) {
                 res.json({ code: 100, data: asks });
         });
     });
-
     ///// put 
     app.put('/askdoc/:id', function (req, res) {
         AskDoc.findOne({ _id: req.params.id }, function (err, ask) {
@@ -283,7 +278,6 @@ module.exports = function (app) {
             }
         });
     });
-
     ////  remove
     app.delete('/gallary/:id', function (req, res) {
         Gallary.findOne({ _id: req.params.id }, function (err, gallary) {
@@ -506,6 +500,7 @@ module.exports = function (app) {
         });
 
     });
+    ////  GET OFFERS  NOT  EXPIRED  AND STATUS  ENABLE
     app.get('/rightoffer', function (req, res) {
         Offer.find({ status: 'Enable', ExpireDate: { $gt: Date.now() } }, function (err, offer) {
             if (err) {
@@ -521,6 +516,237 @@ module.exports = function (app) {
         });
 
     });
+
+    ////////////////OPINION
+    app.post('/opinion', function (req, res) {
+        var opinion = new Opinion({
+            Creator: req.body.Creator,
+            text: req.body.text
+
+        });
+        opinion.save(function (err) {
+            if (err) {
+                if (err.errmsg) {
+                    res.json({ code: 20, message: err.errmsg });
+                }
+                else {
+                    res.json(formatedError(err));
+                }
+            }
+            else {
+                res.json({ code: 100, data: opinion });
+            }
+        });
+    });
+    ////  remove
+    app.delete('/opinion/:id', function (req, res) {
+        Opinion.findOne({ _id: req.params.id }, function (err, opinion) {
+            if (err) {
+                res.json(formatedError(err))
+            }
+            else {
+                if (opinion) {
+
+                    opinion.remove();
+                    res.json({ code: 100, mesg: 'removed!!' });
+                }
+
+
+            }
+
+        });
+
+    });
+    //edited offer
+    app.put('/opinion/:id', function (req, res) {
+        Opinion.findOne({ _id: req.params.id }, function (err, opinion) {
+            if (err) {
+                res.json(formatedError(err))
+            }
+            else {
+                if (opinion) {
+
+
+                    opinion.text = req.body.text,
+                    opinion.status = req.body.status
+
+
+
+
+                    opinion.save(function (err) {
+                        if (err) {
+                            res.json(formatedError(err));
+                        }
+                        else {
+                            res.json({ code: 100, data: opinion });
+
+                        }
+                    })
+                }
+
+
+            }
+
+        });
+
+    });
+    ////get all 
+    app.get('/opinion', function (req, res) {
+        Opinion.find({}, function (err, opinion) {
+            if (err) {
+                res.json(formatedError(err))
+            }
+            else {
+                if (opinion) {
+
+                    res.json({ code: 100, data: opinion });
+                }
+            }
+
+        });
+
+    });
+    ///////// get  all status true
+    /////  problem  here  !!!!!!!!!!!!!!!! 
+    app.get('/opinion_with_status', function (req, res) {
+
+        Opinion.find({ status: true }, function (err, opinion) {
+            if (err) {
+                res.json(formatedError(err))
+            }
+            else {
+                if (opinion) {
+
+                    res.json({ code: 100, data: opinion });
+                }
+            }
+
+        });
+
+    });
+
+    ////////get all  status false
+    app.get('/opinion_with_status_flase', function (req, res) {
+        Opinion.find({ status: false }, function (err, opinion) {
+            if (err) {
+                res.json(formatedError(err))
+            }
+            else {
+                if (opinion) {
+
+                    res.json({ code: 100, data: opinion });
+                }
+            }
+
+        });
+
+    });
+
+    ////  rating
+    app.post('/rating', function (req, res) {
+        var rating = new Rating({
+            creator: req.body.creator,
+            rating: req.body.rating,
+            depid: req.body.depid
+        });
+        rating.save(function (err) {
+            if (err) {
+                if (err.errmsg) {
+                    res.json({ code: 20, message: err.errmsg });
+                }
+                else {
+                    res.json(formatedError(err));
+                }
+            }
+            else {
+                res.json({ code: 100, data: rating });
+            }
+        });
+    });
+
+    //edited offer
+    app.put('/rating/:id', function (req, res) {
+        Rating.findOne({ _id: req.params.id }, function (err, rate) {
+            if (err) {
+                res.json(formatedError(err))
+            }
+            else {
+                if (rate) {
+                    rate.rating = req.body.rating
+
+                    rate.save(function (err) {
+                        if (err) {
+                            res.json(formatedError(err));
+                        }
+                        else {
+                            res.json({ code: 100, data: rate });
+
+                        }
+                    })
+                }
+
+
+            }
+
+        });
+
+    });
+    ////get all 
+    app.get('/rating', function (req, res) {
+        Rating.find({}, function (err, rating) {
+            if (err) {
+                res.json(formatedError(err))
+            }
+            else {
+                if (rating) {
+
+                    res.json({ code: 100, data: rating });
+                }
+            }
+
+        });
+
+    });
+    /////////// Suggestion
+    app.post('/suggestion', function (req, res) {
+        var suggestion = new Suggestion({
+            creator: req.body.creator,
+            note: req.body.note,
+            depid: req.body.depid
+        });
+        suggestion.save(function (err) {
+            if (err) {
+                if (err.errmsg) {
+                    res.json({ code: 20, message: err.errmsg });
+                }
+                else {
+                    res.json(formatedError(err));
+                }
+            }
+            else {
+                res.json({ code: 100, data: suggestion });
+            }
+        });
+    });
+    ////get all 
+    app.get('/suggestion', function (req, res) {
+        Suggestion.find({}, function (err, suggestion) {
+            if (err) {
+                res.json(formatedError(err))
+            }
+            else {
+                if (suggestion) {
+
+                    res.json({ code: 100, data: suggestion });
+                }
+            }
+
+        });
+
+    });
+
+
+
 
 
 
