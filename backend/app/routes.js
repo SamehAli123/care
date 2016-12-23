@@ -8,8 +8,8 @@ var Rating = require('./models/rating');
 var Suggestion = require('./models/suggestion');
 var User = require('./models/user');
 var Gallary = require('./models/gallary');
-
-
+var Days = require('./models/Days');
+var Book = require('./models/Booking');
 module.exports = function (app) {
     //var api = express.Router();
     ////////////////error custom format
@@ -744,9 +744,111 @@ module.exports = function (app) {
         });
 
     });
+    /////////////////////////////////////////////////////days
+    /////////// days
+    app.post('/days', function (req, res) {
+        var day = new Days({
+            day: req.body.day,
+            Time: [{
+                from: req.body.from,
+                to: req.body.to
+            }],
+            dep: req.body.dep
+        });
+        day.save(function (err) {
+            if (err) {
+                if (err.errmsg) {
+                    res.json({ code: 20, message: err.errmsg });
+                }
+                else {
+                    res.json(formatedError(err));
+                }
+            }
+            else {
+                res.json({ code: 100, data: day });
+            }
+        });
+    });
+    ////get all 
+    app.get('/days/:daystring', function (req, res) {
+        Days.findOne({ day: req.params.daystring }, function (err, day) {
+            if (err) {
+                res.json(formatedError(err))
+            }
+            else {
+                if (day) {
 
+                    res.json({ code: 100, data: day });
+                }
+            }
 
+        });
 
+    });
+
+    //////////get all days
+    app.get('/days', function (req, res) {
+        Days.find({}, function (err, day) {
+            if (err) {
+                res.json(formatedError(err))
+            }
+            else {
+                if (day) {
+
+                    res.json({ code: 100, data: day });
+                }
+            }
+
+        });
+
+    });
+
+    //////update embaded doc
+    app.put('/days/:_id/:id', function (req, res) {
+
+        Days.findById(req.params._id, function (err, day) {
+            if (err) {
+                res.json(formatedError(err));
+            }
+            else {
+                var time = day.Time.id(req.params.id);
+                time.from = req.body.from,
+                time.to = req.body.to;
+
+                day.save(function (err) {
+                    if (err) {
+                        res.json(formatedError(err));
+                    } else {
+                        res.json({ code: 100, data: day });
+                    }
+                });
+            }
+        });
+    });
+
+    //////////////////////////////////////////////////////////booking
+    app.post('/booking', function (req, res) {
+        var book = new Book({
+            day: req.body.day,
+            date:Date.now(),
+            time: req.body.time,
+            Creator: req.body.Creator
+    
+        });
+        book.save(function (err) {
+            if (err) {
+                if (err.errmsg) {
+                    res.json({ code: 20, message: err.errmsg });
+                }
+                else {
+                    res.json(formatedError(err));
+                }
+            }
+            else {
+                res.json({ code: 100, data: book });
+            }
+        });
+    });
 
 
 

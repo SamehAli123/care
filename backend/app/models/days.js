@@ -1,15 +1,13 @@
 ﻿
 var mongoose = require('mongoose');
-var dep = ['الجلديه', 'الليزر', 'الاسنان'];
-
+var dep = ['liser', 'Leather', 'teeth'];
 var Schema = mongoose.Schema;
-var askDoc = new Schema({
+var Day = new Schema({
     day: { type: String, requied: 'please  enter day ' },
     Time: [{
-        from: { type: String, requied: 'please  enter from start work ' },
-        to: { type: String, requied: 'please  enter from   end  work ' },
+        from: { type: String },
+        to: { type: String },
     }],
-
     dep: { type: String, enum: dep }
 });
-module.exports = mongoose.model('askDoc', askDoc);
+module.exports = mongoose.model('Day', Day);
