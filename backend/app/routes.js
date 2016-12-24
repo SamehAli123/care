@@ -830,10 +830,10 @@ module.exports = function (app) {
     app.post('/booking', function (req, res) {
         var book = new Book({
             day: req.body.day,
-            date:Date.now(),
+            date: req.body.date,
             time: req.body.time,
-            Creator: req.body.Creator
-    
+            Creator: req.body.Creator,
+            dep: req.body.dep
         });
         book.save(function (err) {
             if (err) {
@@ -849,26 +849,41 @@ module.exports = function (app) {
             }
         });
     });
+    ///// get 
+    app.get('/booking/:date/:dep', function (req, res) {
+        Book.find({ date: req.params.date, dep: req.params.dep }, function (err, books) {
+            if (err) {
+                res.json(formatedError(err))
+            }
+            else {
+                if (books) {
+
+                    res.json({ code: 100, data: books });
+                }
+            }
+
+        });
+
+    });
+    ///////// remove 
+    app.delete('/booking/:id', function (req, res) {
+        Book.findOne({ _id: req.params.id }, function (err, book) {
+            if (err) {
+                res.json(formatedError(err))
+            }
+            else {
+                if (book) {
+
+                    book.remove();
+                    res.json({ code: 100, mesg: 'removed!!' });
+                }
 
 
+            }
 
+        });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    });
 
 
 
