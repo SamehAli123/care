@@ -1,0 +1,13 @@
+﻿<ion-view view-title="الرئيسيه" style="font-family:'Neo Sans Arabic'">
+    <ion-content ng-controller="dashboardCtrl" scroll="false">
+
+        <ion-slide-box id="user-interface-content" active-slide="0">
+
+            <ion-slide ng-repeat="image in images">
+                <img ng-src="{{image.img}}" class="full-image" />
+            </ion-slide>
+
+        </ion-slide-box>
+    </ion-content>
+
+</ion-view>
