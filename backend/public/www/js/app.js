@@ -142,6 +142,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngMaterial', 'ngMess
                 url: "/dashboard",
                 params: {
                     isAnimated: true
+                  
                 },
                 views: {
                     'menuContent': {

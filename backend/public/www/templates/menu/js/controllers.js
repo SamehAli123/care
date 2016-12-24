@@ -3,7 +3,6 @@
 // https://material.angularjs.org/latest/#/demo/material.components.sidenav
 appControllers.controller('menuCtrl', function ($scope, $timeout, $mdUtil, $mdSidenav, $log, $ionicHistory, $state, $ionicPlatform, $mdDialog, $mdBottomSheet, $mdMenu, $mdSelect) {
     
-    $scope.login = '';
     $scope.toggleLeft = buildToggler('left');
 
     // buildToggler is for create menu toggle.

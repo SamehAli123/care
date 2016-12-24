@@ -1,6 +1,6 @@
 ﻿<ion-side-menus enable-menu-with-back-views="false" >
     <ion-side-menu-content>
-        <ion-nav-bar class="bar-balanced  material-background-nav-bar" ng-hide="!login">
+        <ion-nav-bar class="bar-balanced  material-background-nav-bar" >
             <ion-nav-buttons side="left">
                 <a class="button button-icon button-clear ion-navicon" menu-toggle="left" ng-click="toggleLeft()"></a>
             </ion-nav-buttons>
@@ -26,20 +26,11 @@
 
 
 
-
-                <!--<div class="row noPadding pull-right">
-                <div class="col-50 text-right">
-                    <span>sameh ali</span>
-                </div>
-                <div class="col-50 text-left">
-                </div>
-            </div>-->
-
             </ion-nav-buttons>
         </ion-nav-bar>
         <ion-nav-view name="menuContent"></ion-nav-view>
     </ion-side-menu-content>
-    <md-sidenav md-component-id="left" on-swipe-left="closeSideNav()" on-drag-left="closeSideNav()" ng-hide="!login">
+    <md-sidenav md-component-id="left" on-swipe-left="closeSideNav()" on-drag-left="closeSideNav()" >
         <!--menu section-->
         <div class="material-background" id="toggle-menu-left-header">
             <!--menu header section-->
@@ -60,7 +51,7 @@
                         <i class="fa fa-dashboard"></i>
                     </div>
                     <div class="col-66">
-                        <span>الصفحة الرئيسية</span>
+                        <span>احصائيات</span>
                     </div>
                 </div>
                 <div class="row menu-item" ng-click="navigateTo('app.gallary')">
@@ -72,38 +63,9 @@
                     </div>
                 </div>
 
-                <div class="row menu-item" ng-click="navigateTo('app.facebook')">
-                    <div class="col-33">
-                        <i class="fa fa-facebook"></i>
-                    </div>
-                    <div class="col-66">
-                        <span>فيس بوك</span>
-                    </div>
-                </div>
-                <div class="row menu-item" ng-click="navigateTo('app.twitter')">
-                    <div class="col-33">
-                        <i class="fa fa-twitter"></i>
-                    </div>
-                    <div class="col-66">
-                        <span>تويتر</span>
-                    </div>
-                </div>
-                <div class="row menu-item" ng-click="navigateTo('app.instagram')">
-                    <div class="col-33">
-                        <i class="fa fa-instagram"></i>
-                    </div>
-                    <div class="col-66">
-                        <span>إنستجرام</span>
-                    </div>
-                </div>
-                <div class="row menu-item" ng-click="navigateTo('app.youtube')">
-                    <div class="col-33">
-                        <i class="fa fa-youtube"></i>
-                    </div>
-                    <div class="col-66">
-                        <span>يوتيوب</span>
-                    </div>
-                </div>
+                
+                
+              
 
 
                 <div class="row menu-item" ng-click="navigateTo('app.offers')">
@@ -140,14 +102,7 @@
                         <span>الشكاوى والمقترحات</span>
                     </div>
                 </div>
-                <div class="row menu-item" ng-click="navigateTo('app.services')">
-                    <div class="col-33">
-                        <i class="fa fa-pie-chart"></i>
-                    </div>
-                    <div class="col-66">
-                        <span>الخدمات</span>
-                    </div>
-                </div>
+              
                 <div class="row menu-item" ng-click="navigateTo('app.insurence')">
                     <div class="col-33">
                         <i class="fa fa-life-ring"></i>
@@ -164,58 +119,21 @@
                         <span>اسأل طبيبك</span>
                     </div>
                 </div>
-                <div class="row menu-item" ng-click="navigateTo('app.map')">
-                    <div class="col-33">
-                        <i class="fa fa-location-arrow"></i>
-                    </div>
-                    <div class="col-66">
-                        <span>خريطه المركز</span>
-                    </div>
-                </div>
-                <div class="row menu-item" ng-click="navigateTo('app.connectus')">
-                    <div class="col-33">
-                        <i class="fa fa-commenting"></i>
-                    </div>
-                    <div class="col-66">
-                        <span>تواصل معنا</span>
-                    </div>
-                </div>
-                <div class="row menu-item" ng-click="navigateTo('app.aboutus')">
-                    <div class="col-33">
-                        <i class="fa fa-info-circle"></i>
-                    </div>
-                    <div class="col-66">
-                        <span>عن المركز</span>
-                    </div>
-                </div>
+             
+             
+                
             </div>
             <md-list ng-if="!isAndroid">
                 <md-list-item class="menu-list-item" ng-click="navigateTo('app.dashboard')">
                     <i class="fa fa-dashboard"></i>
-                    <span>الصفحة الرئيسية</span>
+                    <span>احصائيات</span>
                 </md-list-item>
                 <md-list-item class="menu-list-item" ng-click="navigateTo('app.gallary')">
                     <i class="fa fa-photo"></i>
                     <span>المعرض</span>
                 </md-list-item>
 
-                <md-list-item class="menu-list-item" ng-click="navigateTo('app.facebook')">
-                    <i class="fa fa-facebook"></i>
-                    <span>فيس بوك</span>
-                </md-list-item>
-                <md-list-item class="menu-list-item" ng-click="navigateTo('app.twitter')">
-                    <i class="fa fa-twitter"></i>
-                    <span>تويتر</span>
-                </md-list-item>
-
-                <md-list-item class="menu-list-item" ng-click="navigateTo('app.instagram')">
-                    <i class="fa fa-instagram"></i>
-                    <span>إنستجرام</span>
-                </md-list-item>
-                <md-list-item class="menu-list-item" ng-click="navigateTo('app.youtube')">
-                    <i class="fa fa-youtube"></i>
-                    <span>يوتيوب</span>
-                </md-list-item>
+                
 
 
 
@@ -237,10 +155,7 @@
                     <i class="fa fa-paper-plane"></i>
                     <span>الشكاوى والمقترحات </span>
                 </md-list-item>
-                <md-list-item class="menu-list-item" ng-click="navigateTo('app.services')">
-                    <i class="fa fa-pie-chart"></i>
-                    <span>الخدمات </span>
-                </md-list-item>
+                
                 <md-list-item class="menu-list-item" ng-click="navigateTo('app.insurence')">
                     <i class="fa fa-life-ring"></i>
                     <span>الخدمات التأمينيه </span>
@@ -251,18 +166,7 @@
                     <span>اسأل طبيبك</span>
                     <!--الاسئله والاجوبه -->
                 </md-list-item>
-                <md-list-item class="menu-list-item" ng-click="navigateTo('app.map')">
-                    <i class="fa fa-location-arrow"></i>
-                    <span> خريطه المركز </span>
-                </md-list-item>
-                <md-list-item class="menu-list-item" ng-click="navigateTo('app.connectus')">
-                    <i class="fa fa-commenting"></i>
-                    <span> تواصل معنا </span>
-                </md-list-item>
-                <md-list-item class="menu-list-item" ng-click="navigateTo('app.aboutus')">
-                    <i class="fa fa-info-circle"></i>
-                    <span>عن المركز</span>
-                </md-list-item>
+          
 
         </ion-content>
 
