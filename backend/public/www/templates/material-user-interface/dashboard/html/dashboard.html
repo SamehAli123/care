@@ -1,16 +1,65 @@
 ﻿<ion-view view-title="الرئيسيه" style="font-family:'Neo Sans Arabic'">
     <ion-content ng-controller="dashboardCtrl" scroll="false">
         <md-tabs md-dynamic-height md-border-bottom>
-            <md-tab label="  {{about.aboutcenter}}" ng-repeat="about in aboutus">
+            <md-tab label="الأطباء">
                 <md-content style="text-align:center">
-                    {{about.desc}}
+                   عدد الاطباء مقارنه بالأطباء  المبعديين
+                </md-content>
+            </md-tab>
+            <md-tab label="العملاء">
+                <md-content style="text-align:center">
+                    <md-card>
+                        <div class="info-box">
+                            <span class="info-box-icon google-plus-color-background"><i class="fa fa-google-plus"></i></span>
+                            <div class="info-box-content">
+                                <span class="info-box-text">عدد العملاء  من جوجل</span>
+                                <span class="info-box-number">41,410</span>
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                        <!-- /.info-box -->
+                    </md-card>
+
+               
+
+
+                    <md-card>
+                        <div class="info-box">
+                            <span class="info-box-icon twitter-background"><i class="fa fa-twitter"></i></span>
+                            <div class="info-box-content">
+                                <span class="info-box-text">عدد العملاء  من تويتر</span>
+                                <span class="info-box-number">41,410</span>
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                        <!-- /.info-box -->
+                    </md-card>
+
+
+                    <md-card>
+                        <div class="info-box">
+                            <span class="info-box-icon facebook-background"><i class="fa fa-facebook"></i></span>
+                            <div class="info-box-content">
+                                <span class="info-box-text">عدد العملاء  من فيس بوك  </span>
+                                <span class="info-box-number">41,410</span>
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                        <!-- /.info-box -->
+                    </md-card>
+
+               
                 </md-content>
             </md-tab>
 
-
-
+            <md-tab label="الاسئله">
+                <md-content style="text-align:center">
+                    كم لدينا اسئله تمت الاجابه  عنها وكم لم يتم 
+                </md-content>
+            </md-tab>
         </md-tabs>
      
     </ion-content>
 
 </ion-view>
+

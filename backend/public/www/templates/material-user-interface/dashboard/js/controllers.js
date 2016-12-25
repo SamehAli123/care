@@ -1,21 +1,21 @@
 // Controller of dashboard.
 appControllers.controller('dashboardCtrl', function ($scope, $timeout, $state,$stateParams, $ionicHistory) {
     
-    $scope.aboutus = [
-       {
-           "aboutcenter": "„‰ ‰Õ‰",
-           "desc": "„—ﬂ“ „ Œ’’ ›Ï ÿ» «·«”‰«‰"
-       },
-       {
-           "aboutcenter": "«·‰‘√…",
-           "desc": " „ «‰‘«¡ «·„—ﬂ“ ⁄«„ 1990"
-       },
-        {
-            "aboutcenter": "Œœ„ ‰«",
-            "desc": "‰ﬁœ„ «·ﬂÀÌ— „‰ «·Œœ„«  «· Ì ÌÕ «ÃÂ« «·›—œ ›Ì „Ã«· ÿ» «·«”‰«‰"
-        },
+    $({ someValue: 0 }).animate({ someValue: Math.floor(Math.random() * 3000) }, {
+        duration: 3000,
+        easing: 'swing', // can be anything
+        step: function () { // called on every step
+            // Update the element's text with rounded-up value:
+            $('.count').text(commaSeparateNumber(Math.round(this.someValue)));
+        }
+    });
 
-    ]
+    function commaSeparateNumber(val) {
+        while (/(d+)(d{3})/.test(val.toString())) {
+            val = val.toString().replace(/(d)(?=(ddd)+(?!d))/g, "$1,");
+        }
+        return val;
+    }
    
 
 
@@ -37,30 +37,7 @@ appControllers.controller('dashboardCtrl', function ($scope, $timeout, $state,$s
         }, ($scope.isAnimated  ? 300 : 0));
     }; // End of navigateTo.
 
-    // goToSetting is for navigate to Dashboard Setting page
-    $scope.options = {
-        loop: false,
-        effect: 'fade',
-        speed: 500,
-    }
-
-    $scope.$on("$ionicSlides.sliderInitialized", function (event, data) {
-        // data.slider is the instance of Swiper
-        $scope.slider = data.slider;
-    });
-
-    $scope.$on("$ionicSlides.slideChangeStart", function (event, data) {
-        console.log('Slide change is beginning');
-    });
-
-    $scope.$on("$ionicSlides.slideChangeEnd", function (event, data) {
-        // note: the indexes are 0-based
-        $scope.activeIndex = data.slider.activeIndex;
-        $scope.previousIndex = data.slider.previousIndex;
-    });
-
-
-    ///////////// for menu conroller
+   
 
 
 
