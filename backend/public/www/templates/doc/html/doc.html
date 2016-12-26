@@ -1,11 +1,40 @@
 ﻿
-<ion-view style="font-family:'Neo Sans Arabic'" view-title="الأطباء">
-    <ion-content  class="" ng-controller="docCtrl">
-      
-                <md-input-container md-no-float="" >
-                    <input placeholder="ابحث من هنا ">
-                </md-input-container>
+<ion-view view-title="الأطباء">
+    <ion-nav-buttons side="left">
+        <a ng-click="$ionicGoBack()" class="button back-button buttons  button-clear header-item nav-back-btn">
+            <i class="ion-android-arrow-back"></i>
+        </a>
+    </ion-nav-buttons>
+    <ion-content>
+
+
            
-    </ion-content>
+            
+                <md-input-container md-no-float="" class="search-box">
+                    <i class="ion-android-search"></i>
+                    <input ng-model="filterText" placeholder="ابحث من هنا ....">
+                </md-input-container>
+      
+
+
+
+
+        <ion-list>
+
+            <ion-item ng-repeat="docs in doc  | orderBy: 'Name' | filter: { Name: filterText }" class="item-remove-animate item-icon-right">
+                <h2>{{docs.Name}}</h2>
+                <p>   {{docs.email}}</p>
+                <i class="icon ion-arrow-right-b"></i>
+                <ion-option-button class="button-assertive ion-ios-trash-outline"
+                                   ng-click="remove(docs._id)">delete</ion-option-button>
+
+            </ion-item>
+
+</ion-content>
+    <div class="footer-fab-bar">
+        <a class="md-button md-accent md-fab fab-footer color" aria-label="Add" ng-click="navigateTo('app.question')">
+            <i class="icon ion-plus"></i>
+        </a>
+    </div>
 
 </ion-view>

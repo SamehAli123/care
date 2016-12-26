@@ -784,18 +784,18 @@ md-sidenav {
         margin-top: 5px;
     }
 
-        #note-list-content md-list md-list-item md-input-container.search-box {
+         md-input-container.search-box {
             width: 100%;
             margin-bottom: -20px;
         }
 
-            #note-list-content md-list md-list-item md-input-container.search-box i {
+            .search-box i {
                 position: absolute;
                 font-size: 22px;
                 color: gray;
             }
 
-            #note-list-content md-list md-list-item md-input-container.search-box input {
+           .search-box input {
                 margin-left: 20px;
             }
 

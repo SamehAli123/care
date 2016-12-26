@@ -172,10 +172,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngMaterial', 'ngMess
 
             .state('app.doc', {
                 url: "/doc",
-                params: {
-                    isAnimated: true,
-                    dep: null
-                },
+               
                 views: {
                     'menuContent': {
                         templateUrl: "templates/doc/html/doc.html",
