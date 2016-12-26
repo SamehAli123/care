@@ -1,6 +1,6 @@
 // Controller of dashboard.
-appControllers.controller('dashboardCtrl', function ($scope, $timeout, $state,$stateParams, $ionicHistory) {
-    
+appControllers.controller('dashboardCtrl', function ($scope, $timeout, $state, $stateParams, $ionicHistory) {
+
     $({ someValue: 0 }).animate({ someValue: Math.floor(Math.random() * 3000) }, {
         duration: 3000,
         easing: 'swing', // can be anything
@@ -16,10 +16,10 @@ appControllers.controller('dashboardCtrl', function ($scope, $timeout, $state,$s
         }
         return val;
     }
-   
 
 
-    $scope.isAnimated =  $stateParams.isAnimated;
+
+    $scope.isAnimated = $stateParams.isAnimated;
 
     // navigateTo is for navigate to other page 
     // by using targetPage to be the destination state. 
@@ -34,10 +34,10 @@ appControllers.controller('dashboardCtrl', function ($scope, $timeout, $state,$s
                 });
                 $state.go(stateName);
             }
-        }, ($scope.isAnimated  ? 300 : 0));
+        }, ($scope.isAnimated ? 300 : 0));
     }; // End of navigateTo.
 
-   
+
 
 
 
