@@ -113,12 +113,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngMaterial', 'ngMess
 
             initialRootScope();
 
-      
+
         });
 
     })
 
-    .config(function ( $stateProvider, $urlRouterProvider, $mdThemingProvider, $mdColorPalette, $mdIconProvider) {
+    .config(function ($stateProvider, $urlRouterProvider, $mdThemingProvider, $mdColorPalette, $mdIconProvider) {
 
 
         $mdThemingProvider
@@ -128,7 +128,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngMaterial', 'ngMess
 
         appPrimaryColor = $mdColorPalette[$mdThemingProvider._THEMES.default.colors.primary.name]["500"]; //Use for get base color of theme.
 
-   
+
         $stateProvider
             .state('app', {
                 url: "/app",
@@ -142,7 +142,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngMaterial', 'ngMess
                 url: "/dashboard",
                 params: {
                     isAnimated: true
-                  
+
                 },
                 views: {
                     'menuContent': {
@@ -165,7 +165,24 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngMaterial', 'ngMess
                       controller: 'loginCtrl'
                   }
               }
-          })
+          }
+          )
+
+
+
+            .state('app.doc', {
+                url: "/doc",
+                params: {
+                    isAnimated: true,
+                    dep: null
+                },
+                views: {
+                    'menuContent': {
+                        templateUrl: "templates/doc/html/doc.html",
+                        controller: 'docCtrl'
+                    }
+                }
+            })
         $urlRouterProvider.otherwise(window.globalVariable.startPage.url);
 
     });
