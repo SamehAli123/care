@@ -45,9 +45,6 @@ appControllers.controller('dashboardCtrl', function ($scope, $timeout, $state, $
 
 
 
-
-
-
 }); // End of dashboard controller.
 
 // Controller of Dashboard Setting.
