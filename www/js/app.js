@@ -20,7 +20,6 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
 
 
 
-        // End creating SQLite database table.
 
         // Create custom defaultStyle.
         function getDefaultStyle() {
