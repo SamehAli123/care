@@ -1,19 +1,14 @@
 ﻿<ion-view view-title="الرئيسيه" style="font-family:'Neo Sans Arabic'">
     <ion-content ng-controller="dashboardCtrl" scroll="false">
         <md-tabs md-dynamic-height md-border-bottom>
-            <md-tab label="الأطباء">
-                <md-content style="text-align:center">
-                    عدد الاطباء مقارنه بالأطباء  المبعديين
-                </md-content>
-            </md-tab>
-            <md-tab label="العملاء">
+            <md-tab label="المستخدمين">
                 <md-content style="text-align:center">
                     <md-card>
                         <div class="info-box">
                             <span class="info-box-icon google-plus-color-background"><i class="fa fa-google-plus"></i></span>
                             <div class="info-box-content">
-                                <span class="info-box-text">عدد العملاء  من جوجل</span>
-                                <span class="info-box-number">41,410</span>
+                                <span class="info-box-text">المستخدمين من جوجل</span>
+                                <span class="info-box-number">541</span>
                             </div>
                             <!-- /.info-box-content -->
                         </div>
@@ -27,8 +22,8 @@
                         <div class="info-box">
                             <span class="info-box-icon twitter-background"><i class="fa fa-twitter"></i></span>
                             <div class="info-box-content">
-                                <span class="info-box-text">عدد العملاء  من تويتر</span>
-                                <span class="info-box-number">41,410</span>
+                                <span class="info-box-text">المستخدمين  من تويتر</span>
+                                <span class="info-box-number">218</span>
                             </div>
                             <!-- /.info-box-content -->
                         </div>
@@ -40,8 +35,8 @@
                         <div class="info-box">
                             <span class="info-box-icon facebook-background"><i class="fa fa-facebook"></i></span>
                             <div class="info-box-content">
-                                <span class="info-box-text">عدد العملاء  من فيس بوك  </span>
-                                <span class="info-box-number">41,410</span>
+                                <span class="info-box-text">المستخدمين  من فيس بوك  </span>
+                                <span class="info-box-number">40</span>
                             </div>
                             <!-- /.info-box-content -->
                         </div>
@@ -51,10 +46,69 @@
 
                 </md-content>
             </md-tab>
+            <md-tab label="الأطباء">
+                <md-content style="text-align:center">
+                    <md-card>
+                        <div class="info-box">
+                            <span class="info-box-icon" style="background-color:#d17272"><i class="fa fa-female" aria-hidden="true"></i></span>
+                            <div class="info-box-content">
+                                <span class="info-box-text"> فى  قسم الجلديه</span>
+                                <span class="info-box-number">3</span>
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                        <!-- /.info-box -->
+                    </md-card>
+                    <md-card>
+                        <div class="info-box">
+                            <span class="info-box-icon " style="background-color:#c47f4e"><i class="fa fa-bolt"></i></span>
+                            <div class="info-box-content">
+                                <span class="info-box-text"> فى  قسم الليزر</span>
+                                <span class="info-box-number">2</span>
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                        <!-- /.info-box -->
+                    </md-card>
+                    <md-card>
+                        <div class="info-box">
+                            <span class="info-box-icon " style="background-color:#e0d07a"><i class="fa fa-user-md"></i></span>
+                            <div class="info-box-content">
+                                <span class="info-box-text"> فى  قسم الاسنان</span>
+                                <span class="info-box-number">9</span>
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                        <!-- /.info-box -->
+                    </md-card>
+                </md-content>
+            </md-tab>
+
 
             <md-tab label="الاسئله">
                 <md-content style="text-align:center">
-                    كم لدينا اسئله تمت الاجابه  عنها وكم لم يتم
+                    <md-card>
+                        <div class="info-box">
+                            <span class="info-box-icon" style="color:#e0d07a;background-color:green"> <i class="fa fa-star"></i></span>
+                            <div class="info-box-content">
+                                <span class="info-box-text">اسأله تم الاجابه  عنها </span>
+                                <span class="info-box-number">200</span>
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                        <!-- /.info-box -->
+                    </md-card>
+                    <md-card>
+                        <div class="info-box">
+                            <span class="info-box-icon"><i class="fa fa-question"></i></span>
+                            <div class="info-box-content">
+                                <span class="info-box-text">اسأله لم  يتم الاجابه  عنها </span>
+                                <span class="info-box-number">15</span>
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                        <!-- /.info-box -->
+                    </md-card>
                 </md-content>
             </md-tab>
         </md-tabs>

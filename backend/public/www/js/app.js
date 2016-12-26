@@ -14,7 +14,7 @@ window.globalVariable = {
 };// End Global variable
 
 
-angular.module('starter', ['ionic', 'starter.controllers', 'ngMaterial', 'ngMessages', 'ngCordova','chart.js'])
+angular.module('starter', ['ionic', 'starter.controllers', 'ngMaterial', 'ngMessages', 'ngCordova'])
     .run(function ($ionicPlatform, $rootScope, $ionicHistory, $state, $mdDialog, $mdBottomSheet) {
 
 
