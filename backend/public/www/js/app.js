@@ -172,7 +172,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngMaterial', 'ngMess
 
             .state('app.doc', {
                 url: "/doc",
-               
+
                 views: {
                     'menuContent': {
                         templateUrl: "templates/doc/html/doc.html",
@@ -180,6 +180,18 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngMaterial', 'ngMess
                     }
                 }
             })
+
+
+          .state('app.add-doc', {
+              url: "/doc",
+
+              views: {
+                  'menuContent': {
+                      templateUrl: "templates/doc/html/add-doc.html",
+                      controller: 'add-docCtrl'
+                  }
+              }
+          })
         $urlRouterProvider.otherwise(window.globalVariable.startPage.url);
 
     });

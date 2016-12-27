@@ -65,3 +65,13 @@
 
 
 });
+
+
+
+appControllers.controller('add-docCtrl', function ($scope, $state) {
+
+
+
+
+
+});

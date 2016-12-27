@@ -1,0 +1,58 @@
+﻿
+<ion-view view-title="اضافه الاطباء">
+    <ion-nav-buttons side="left">
+        <a ng-click="navigateTo('app.doc')" class="button back-button buttons  button-clear header-item nav-back-btn">
+            <i class="ion-android-arrow-back"></i>
+        </a>
+    </ion-nav-buttons>
+    <div id="add-doc" active-slide="0">
+
+        <div class="middle">
+
+                <ion-content id="default-input-content">
+                    <div class="inside">
+
+
+
+
+                        <md-input-container class="icon-title" md-no-float>
+                            <i class="fa fa-user"></i>
+                            <input name="name" placeholder="ادخل اسم المستخدم">
+                        </md-input-container>
+                        <md-input-container class="icon-title" md-no-float>
+                            <i class="ion-android-mail"></i>
+                            <input name="email" placeholder=" ادخل الايميل...">
+                        </md-input-container>
+                        <md-input-container class="icon-title" md-no-float>
+                            <i class="fa fa-unlock-alt"></i>
+                            <input type="password" name="password" placeholder="ادخل الباسورد ">
+                        </md-input-container>
+
+                        <div class="flot">
+                            <md-switch ng-model="switchData.switchNormal" aria-label="Switch" ng-true-value="'معطل'"
+                                       ng-false-value="'مفتوح '" class="md-warn">
+                                {{ switchData.switchNormal }}
+                                <span ng-hide="switchData.switchNormal">مفتوح</span>
+                            </md-switch>
+                         
+                        </div>
+                    </div>
+             
+                </ion-content>
+
+
+                <div class="footer-fab-bar">
+                    <a  class="md-button md-accent md-fab fab-footer color" aria-label="Add" ng-click="navigateTo('app.question')">
+                        <i class="fa fa-check"></i>
+                    </a>
+                </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+</ion-view>

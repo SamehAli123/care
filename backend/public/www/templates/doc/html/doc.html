@@ -21,7 +21,7 @@
 
         <ion-list>
 
-            <ion-item ng-repeat="docs in doc  | orderBy: 'Name' | filter: { Name: filterText }" class="item-remove-animate item-icon-right">
+            <ion-item ng-repeat="docs in doc  | orderBy: 'Name' | filter: { Name: filterText }" class="item-remove-animate item-icon-right" ng-click="navigateTo('app.add-doc')">
                 <h2>{{docs.Name}}</h2>
                 <p>   {{docs.email}}</p>
                 <i class="icon ion-arrow-right-b"></i>
@@ -32,7 +32,7 @@
 
 </ion-content>
     <div class="footer-fab-bar">
-        <a class="md-button md-accent md-fab fab-footer color" aria-label="Add" ng-click="navigateTo('app.question')">
+        <a class="md-button md-accent md-fab fab-footer color" aria-label="Add" ng-click="navigateTo('app.add-doc')">
             <i class="icon ion-plus"></i>
         </a>
     </div>
