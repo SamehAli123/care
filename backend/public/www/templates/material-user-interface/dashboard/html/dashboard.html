@@ -1,9 +1,9 @@
 ﻿<ion-view view-title="الرئيسيه" style="font-family:'Neo Sans Arabic'">
     <ion-content ng-controller="dashboardCtrl" scroll="false">
-        <md-tabs md-dynamic-height md-border-bottom>
+        <md-tabs md-dynamic-height>
             <md-tab label="المستخدمين">
                 <md-content style="text-align:center">
-                    <md-card>
+                    <md-card ng-click=" navigateTo('app.users')">
                         <div class="info-box">
                             <span class="info-box-icon google-plus-color-background"><i class="fa fa-google-plus"></i></span>
                             <div class="info-box-content">
@@ -82,8 +82,6 @@
                     </md-card>
                 </md-content>
             </md-tab>
-
-
             <md-tab label="الاسئله">
                 <md-content style="text-align:center">
                     <md-card>

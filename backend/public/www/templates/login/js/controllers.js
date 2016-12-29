@@ -3,6 +3,6 @@
 appControllers.controller('loginCtrl', function ($scope, $state) {
   
 
-
+$scope.LOGO= 'اانا سامح  على '
 
 }); 

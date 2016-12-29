@@ -3,8 +3,8 @@
 window.globalVariable = {
 
     startPage: {
-        url: "/app/login",
-        state: "app.login"
+        url: "/blank/login",
+        state: "blank.login"
 
     },
     message: {
@@ -138,11 +138,36 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngMaterial', 'ngMess
             })
 
 
+
+
+                   .state('blank', {
+                       url: "/blank",
+                       abstract: true,
+                       templateUrl: "templates/blank/html/blank.html",
+                       controller: 'blankCtrl'
+                   })
+
+
+
+             .state('blank.login', {
+                 url: "/login",
+                 params: {
+                     isAnimated: true
+                 },
+                 views: {
+                     'blankContent': {
+                         templateUrl: "templates/login/html/login.html",
+                         controller: 'loginCtrl'
+                     }
+                 }
+             }
+          )
+
+
             .state('app.dashboard', {
                 url: "/dashboard",
                 params: {
                     isAnimated: true
-
                 },
                 views: {
                     'menuContent': {
@@ -151,23 +176,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngMaterial', 'ngMess
                     }
                 }
             })
-
-
-
-          .state('app.login', {
-              url: "/login",
-              params: {
-                  isAnimated: true
-              },
-              views: {
-                  'menuContent': {
-                      templateUrl: "templates/login/html/login.html",
-                      controller: 'loginCtrl'
-                  }
-              }
-          }
-          )
-
 
 
             .state('app.doc', {
@@ -192,6 +200,18 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngMaterial', 'ngMess
                   }
               }
           })
+
+
+               .state('app.users', {
+                   url: "/user",
+
+                   views: {
+                       'menuContent': {
+                           templateUrl: "templates/user/html/user.html",
+                           controller: 'userCtrl'
+                       }
+                   }
+               })
         $urlRouterProvider.otherwise(window.globalVariable.startPage.url);
 
     });
