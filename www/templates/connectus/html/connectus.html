@@ -1,9 +1,60 @@
 ﻿
-<ion-view style="font-family:'Neo Sans Arabic'">
-    <ion-content ng-controller="connectCtrl">
-        <h1>
-            its connect us  page
-        </h1>
+<ion-view style="font-family:'Neo Sans Arabic';font-size:14px">
+   
+    <ion-content ng-controller="connectCtrl" style="text-align:right">
+        <md-toolbar class="md-tall md-primary toolbar-with-image" >
+            <div >
+                <h1>تواصل معنا</h1>
+                <h2>اهلا بكم في مركز عناية وجمال لطب الاسنان</h2>
+            </div>
+        </md-toolbar>
+        <!--end toolbar section-->
+        <!--button section-->
+        <a class="md-button md-accent md-fab fab-toolbar-medium"
+           ng-click="callTo(contractInfo.telephone)"
+           aria-label="Add" style="background-color:forestgreen">
+            <i class="ion-android-call"></i>
+        </a>
+        <div class="row header">
+            <div class="col">
+               :تواصل مع فريق عملنا 
+            </div>
+        </div> <!--end header section-->
+        <!--content section-->
+        <div class="row content">
+            <div class="col-75">
+                {{contractInfo.email}}
+            </div>
+            <div class="col-25">
+                <i class="ion-android-mail" ng-click="sentEmail(contractInfo.email)"></i>
+            </div>
+        </div>
+        <div class="row content">
+            <div class="col-75">
+                {{contractInfo.telephone}}
+            </div>
+            <div class="col-25">
+                <i class="ion-android-textsms" ng-click="sentSms(contractInfo.telephone)"></i>
+            </div>
+        </div>
+        <div class="row header">
+            <div class="col">
+                : العنوان 
+            </div>
+        </div>
+        <div class="row content">
+            <div class="col-90">
+                طريق الملك عبدالله، الهفوف‎ 36365
+         
+            </div>
+        </div>
+        <br />
+        <br />
+        <div class="row content">
+            <div class="col-90" style="text-align:center">
+              . من فضلك تواصل معنا اذا كنت تريد الاستفسار 
+            </div>
+        </div>
     </ion-content>
 
 </ion-view>

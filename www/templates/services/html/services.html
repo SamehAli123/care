@@ -1,9 +1,27 @@
 ﻿
-<ion-view style="font-family:'Neo Sans Arabic'">
+<ion-view style="font-family:'Neo Sans Arabic'" view-title="الخدمات">
     <ion-content ng-controller="servicesCtrl">
-        <h1>
-            its services page
-        </h1>
+        <ion-slide class="slide-12" ng-repeat="service in services ">
+           
+            <md-whiteframe class="md-whiteframe-z1" layout layout-align="center center" style="text-align:center" >
+             
+                    <span style="color:forestgreen">{{service.title}}</span>
+
+                
+                <br />
+   <br />
+          
+                <br />
+          </md-whiteframe>
+            <md-witeframe class="md-whiteframe-z2" layout layout-align="center center" style="text-align:center">
+
+                <span >{{service.desc}}</span>
+
+
+                <br />
+            </md-witeframe>
+         
+        </ion-slide>
     </ion-content>
 
 </ion-view>
