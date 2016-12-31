@@ -212,6 +212,31 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngMaterial', 'ngMess
                        }
                    }
                })
+
+
+            .state('app.reqs', {
+                url: "/reqs",
+
+                views: {
+                    'menuContent': {
+                        templateUrl: "templates/questions/html/questions.html",
+                        controller: 'quesCtrl'
+                    }
+                }
+            })
+
+
+
+        .state('app.justqes', {
+            url: "/justreqs",
+
+            views: {
+                'menuContent': {
+                    templateUrl: "templates/questions/html/queswithoutanswer.html",
+                    controller: 'justquesCtrl'
+                }
+            }
+        })
         $urlRouterProvider.otherwise(window.globalVariable.startPage.url);
 
     });

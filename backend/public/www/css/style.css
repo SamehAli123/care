@@ -784,62 +784,62 @@ md-sidenav {
         margin-top: 5px;
     }
 
-         md-input-container.search-box {
-            width: 100%;
-            margin-bottom: 10px;
+md-input-container.search-box {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.search-box i {
+    position: absolute;
+    font-size: 22px;
+    color: gray;
+}
+
+.search-box input {
+    margin-left: 20px;
+}
+
+#note-list-content md-list md-list-item md-card {
+    height: 136px;
+    width: 100%;
+}
+
+    #note-list-content md-list md-list-item md-card button {
+        margin: 0;
+    }
+
+        #note-list-content md-list md-list-item md-card button md-card-content {
+            text-align: left;
+            color: gray;
+            padding: 10px;
         }
 
-            .search-box i {
-                position: absolute;
-                font-size: 22px;
-                color: gray;
+            #note-list-content md-list md-list-item md-card button md-card-content .card-content {
+                margin-top: -24px;
+                margin-left: 10px;
             }
 
-           .search-box input {
-                margin-left: 20px;
-            }
-
-        #note-list-content md-list md-list-item md-card {
-            height: 136px;
-            width: 100%;
-        }
-
-            #note-list-content md-list md-list-item md-card button {
-                margin: 0;
-            }
-
-                #note-list-content md-list md-list-item md-card button md-card-content {
-                    text-align: left;
-                    color: gray;
-                    padding: 10px;
+                #note-list-content md-list md-list-item md-card button md-card-content .card-content h1 {
+                    margin-bottom: 5px;
                 }
 
-                    #note-list-content md-list md-list-item md-card button md-card-content .card-content {
-                        margin-top: -24px;
-                        margin-left: 10px;
+                    #note-list-content md-list md-list-item md-card button md-card-content .card-content h1 span {
+                        max-width: 260px;
+                        overflow: hidden;
+                        display: inline-block;
+                        text-overflow: ellipsis;
                     }
 
-                        #note-list-content md-list md-list-item md-card button md-card-content .card-content h1 {
-                            margin-bottom: 5px;
+                        #note-list-content md-list md-list-item md-card button md-card-content .card-content h1 span i {
+                            margin-right: 2px;
                         }
 
-                            #note-list-content md-list md-list-item md-card button md-card-content .card-content h1 span {
-                                max-width: 260px;
-                                overflow: hidden;
-                                display: inline-block;
-                                text-overflow: ellipsis;
-                            }
-
-                                #note-list-content md-list md-list-item md-card button md-card-content .card-content h1 span i {
-                                    margin-right: 2px;
-                                }
-
-                        #note-list-content md-list md-list-item md-card button md-card-content .card-content div {
-                            white-space: normal;
-                            line-height: 18px;
-                            font-size: 11px;
-                            height: 64px;
-                        }
+                #note-list-content md-list md-list-item md-card button md-card-content .card-content div {
+                    white-space: normal;
+                    line-height: 18px;
+                    font-size: 11px;
+                    height: 64px;
+                }
 
 #note-detail-content {
     margin: 0px 12px 0 12px;
@@ -1625,7 +1625,6 @@ md-sidenav {
 
     #add-doc .middle {
         top: 14%;
-      
     }
 
         #add-doc .middle #default-input-content {
@@ -1674,168 +1673,168 @@ md-sidenav {
                     #add-doc .middle #default-input-content md-input-container.icon-title input.input-mail {
                         width: 64%;
                     }
+
 .inside {
-
-margin-top:20%;
+    margin-top: 20%;
 }
+
 .flot {
-
-margin-left:5%;
+    margin-left: 5%;
 }
 
-    #add-doc .slide-03 {
-        top: 24%;
+#add-doc .slide-03 {
+    top: 24%;
+}
+
+    #add-doc .slide-03 div.md-label {
+        width: 100%;
     }
 
-        #add-doc .slide-03 div.md-label {
-            width: 100%;
-        }
-
-        #add-doc .slide-03 .switch-container {
-            margin-left: 20% !important;
-        }
-
-        #add-doc .slide-03 .checkbox-container {
-            margin-left: 28% !important;
-        }
-
-            #add-doc .slide-03 .checkbox-container md-checkbox .md-label {
-                padding-left: 10px;
-            }
-
-        #add-doc .slide-03 .radio-container {
-            margin-left: 26% !important;
-        }
-
-    #add-doc .slide-04 {
-        top: 20%;
-        padding-left: 6px;
+    #add-doc .slide-03 .switch-container {
+        margin-left: 20% !important;
     }
 
-        #add-doc .slide-04 md-card {
-            width: 240px;
-            margin: auto;
-        }
-
-    #add-doc .slide-05 {
-        top: 40%;
-        padding-left: 10px;
+    #add-doc .slide-03 .checkbox-container {
+        margin-left: 28% !important;
     }
 
-        #add-doc .slide-05 .col {
-            text-align: center;
+        #add-doc .slide-03 .checkbox-container md-checkbox .md-label {
+            padding-left: 10px;
         }
 
-        #add-doc .slide-05 a.material-background {
-            text-align: center;
-            width: 200px;
-            color: white !important;
-        }
-
-        #add-doc .slide-05 p {
-            margin-top: 14px;
-            padding-left: 11px;
-            font-size: 20px;
-            color: gray;
-        }
-
-    #add-doc .slide-06 {
-        top: 40%;
-        padding-left: 10px;
+    #add-doc .slide-03 .radio-container {
+        margin-left: 26% !important;
     }
 
-        #add-doc .slide-06 .col {
-            text-align: center;
-        }
+#add-doc .slide-04 {
+    top: 20%;
+    padding-left: 6px;
+}
 
-        #add-doc .slide-06 a.material-background {
-            width: 200px;
-            color: white !important;
-        }
-
-    #add-doc .slide-07 {
-        top: 40%;
-        padding-left: 10px;
+    #add-doc .slide-04 md-card {
+        width: 240px;
+        margin: auto;
     }
 
-        #add-doc .slide-07 .col {
-            text-align: center;
-        }
+#add-doc .slide-05 {
+    top: 40%;
+    padding-left: 10px;
+}
 
-        #add-doc .slide-07 a.material-background {
-            width: 200px;
-            color: white !important;
-        }
-
-    #add-doc .slide-08 {
-        top: 35%;
+    #add-doc .slide-05 .col {
         text-align: center;
     }
 
-        #add-doc .slide-08 md-menu {
-            font-size: 16px;
-            color: gray;
-        }
-
-        #add-doc .slide-08 md-select {
-            margin-top: -20px;
-        }
-
-            #add-doc .slide-08 md-select md-select-label {
-                width: 200px;
-            }
-
-    #add-doc .slide-09 {
+    #add-doc .slide-05 a.material-background {
         text-align: center;
-        top: 40%;
+        width: 200px;
+        color: white !important;
     }
 
-        #add-doc .slide-09 .ui-progress-circular {
-            position: fixed;
-            left: 44%;
+    #add-doc .slide-05 p {
+        margin-top: 14px;
+        padding-left: 11px;
+        font-size: 20px;
+        color: gray;
+    }
+
+#add-doc .slide-06 {
+    top: 40%;
+    padding-left: 10px;
+}
+
+    #add-doc .slide-06 .col {
+        text-align: center;
+    }
+
+    #add-doc .slide-06 a.material-background {
+        width: 200px;
+        color: white !important;
+    }
+
+#add-doc .slide-07 {
+    top: 40%;
+    padding-left: 10px;
+}
+
+    #add-doc .slide-07 .col {
+        text-align: center;
+    }
+
+    #add-doc .slide-07 a.material-background {
+        width: 200px;
+        color: white !important;
+    }
+
+#add-doc .slide-08 {
+    top: 35%;
+    text-align: center;
+}
+
+    #add-doc .slide-08 md-menu {
+        font-size: 16px;
+        color: gray;
+    }
+
+    #add-doc .slide-08 md-select {
+        margin-top: -20px;
+    }
+
+        #add-doc .slide-08 md-select md-select-label {
+            width: 200px;
         }
 
-        #add-doc .slide-09 .ui-progress-circular-content {
-            margin-top: 80px !important;
-            font-size: 18px;
-        }
+#add-doc .slide-09 {
+    text-align: center;
+    top: 40%;
+}
 
-    #add-doc .slide-10 {
-        top: 30%;
-        padding: 30px;
+    #add-doc .slide-09 .ui-progress-circular {
+        position: fixed;
+        left: 44%;
     }
 
-        #add-doc .slide-10 md-tabs {
-            border-top: #E1E1E1;
-            border-top-style: solid;
-            border-width: 1px;
-        }
-
-            #add-doc .slide-10 md-tabs md-content {
-                padding: 20px;
-            }
-
-    #add-doc .slide-11 {
-        top: 16%;
-        padding: 20px;
+    #add-doc .slide-09 .ui-progress-circular-content {
+        margin-top: 80px !important;
+        font-size: 18px;
     }
 
-    #add-doc .slide-12 {
-        top: 20%;
+#add-doc .slide-10 {
+    top: 30%;
+    padding: 30px;
+}
+
+    #add-doc .slide-10 md-tabs {
+        border-top: #E1E1E1;
+        border-top-style: solid;
+        border-width: 1px;
     }
 
-        #add-doc .slide-12 md-whiteframe {
-            background: #fff;
-            margin: 20px;
+        #add-doc .slide-10 md-tabs md-content {
             padding: 20px;
-            height: 40px;
         }
 
-    #add-doc .slide-13 {
-        background: url(../img/slide_01.png);
-        background-repeat: no-repeat;
-        background-size: 100%;
+#add-doc .slide-11 {
+    top: 16%;
+    padding: 20px;
+}
+
+#add-doc .slide-12 {
+    top: 20%;
+}
+
+    #add-doc .slide-12 md-whiteframe {
+        background: #fff;
+        margin: 20px;
+        padding: 20px;
+        height: 40px;
     }
+
+#add-doc .slide-13 {
+    background: url(../img/slide_01.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
 
 #product-checkout-sub-header {
     padding: 5px 0 0 0;
@@ -2882,61 +2881,67 @@ margin-left:5%;
 }
 
 .info-box {
-  display: block;
-  min-height: 90px;
-  background: #fff;
-  width: 100%;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
- 
+    display: block;
+    min-height: 90px;
+    background: #fff;
+    width: 100%;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }
 
-info-box-icon
-.info-box small {
-  font-size: 14px;
+info-box-icon .info-box small {
+    font-size: 14px;
 }
+
 .info-box .progress {
-  background: rgba(0, 0, 0, 0.2);
-  height: 2px;
+    background: rgba(0, 0, 0, 0.2);
+    height: 2px;
 }
-.info-box .progress,
-.info-box .progress .progress-bar {
-  border-radius: 0;
-}
-.info-box .progress .progress-bar {
-  background: #fff;
-}
+
+    .info-box .progress,
+    .info-box .progress .progress-bar {
+        border-radius: 0;
+    }
+
+        .info-box .progress .progress-bar {
+            background: #fff;
+        }
+
 .info-box-icon {
-  border-top-left-radius: 2px;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 2px;
-  display: block;
-  float: left;
-  height: 90px;
-  width: 90px;
-  text-align: center;
-  font-size: 45px;
-  line-height: 90px;
-  background: rgba(0, 0, 0, 0.2);
+    border-top-left-radius: 2px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 2px;
+    display: block;
+    float: left;
+    height: 90px;
+    width: 90px;
+    text-align: center;
+    font-size: 45px;
+    line-height: 90px;
+    background: rgba(0, 0, 0, 0.2);
 }
-.info-box-icon > img {
-  max-width: 100%;
-}
+
+    .info-box-icon > img {
+        max-width: 100%;
+    }
+
 .info-box-content {
-  padding: 5px 10px;
+    padding: 5px 10px;
 }
+
 .info-box-number {
-  display: block;
-  font-weight: bold;
-  font-size: 18px;
+    display: block;
+    font-weight: bold;
+    font-size: 18px;
 }
+
 .progress-description,
 .info-box-text {
-  display: block;
-  font-size: 14px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+    display: block;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 

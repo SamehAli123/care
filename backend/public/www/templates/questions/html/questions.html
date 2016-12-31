@@ -1,0 +1,35 @@
+﻿
+<ion-view style="font-family:'Neo Sans Arabic'" view-title=" اسئله  تم  الاجابه عنها">
+  
+
+    <ion-content ng-controller="quesCtrl">
+      
+            <md-select ng-model="mdSelectValue" aria-label="md-option" placeholder="اختر القسم من هنا ">
+                <md-option value="الليزر">الليزر</md-option>
+                <md-option value="الجلديه">الجلديه</md-option>
+                <md-option value="الاسنان">الاسنان</md-option>
+       
+            </md-select>
+    
+       
+        <ion-list class="list" ng-repeat=" qes in questions | filter: { dep: mdSelectValue }">
+            <li class="item item-avatar-right item-text-wrap no-padding">
+                <img ng-src="img/app_icon.png" class="img-ques" />
+                <div class="bubbleRight"
+                     style="width:100%">
+                    <h2 class="text-right"><b style="color:white" />{{qes.namepatient}}</h2>
+                    <p class="text-right"> {{qes.questions}} </p>
+                </div>
+            </li>
+            <li class="item item-avatar-left item-text-wrap no-padding no-border">
+                <img ng-src="img/icons/Logo.jpg" class="img-ques" />
+                <div class="bubbleLeft"
+                     style="width:100%">
+                    <h2 class="text-right"><b style="color:white" />{{qes.docname}}</h2>
+                    <p class="text-right"> {{qes.answer}} </p>
+                </div>
+            </li>
+        </ion-list>
+    </ion-content> 
+
+</ion-view>
