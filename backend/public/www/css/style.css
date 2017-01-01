@@ -2944,4 +2944,7 @@ info-box-icon .info-box small {
     text-overflow: ellipsis;
 }
 
+.size{
+    font-size:200% !important;
 
+}

@@ -237,6 +237,20 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngMaterial', 'ngMess
                 }
             }
         })
+
+
+
+          .state('app.gallary', {
+              url: "/gallary",
+
+              views: {
+                  'menuContent': {
+                      templateUrl: "templates/gallary/html/gallary.html",
+                      controller: 'gallaryCtrl'
+                  }
+              }
+          })
+
         $urlRouterProvider.otherwise(window.globalVariable.startPage.url);
 
     });
