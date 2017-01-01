@@ -281,6 +281,7 @@ md-sidenav {
     padding-bottom: 5px;
     opacity: 1;
     transition: all .2s ease;
+    position:relative;
 }
 
     .pin img {
@@ -2944,7 +2945,23 @@ info-box-icon .info-box small {
     text-overflow: ellipsis;
 }
 
-.size{
-    font-size:200% !important;
+.size {
+    font-size: 300% !important;
+    position:absolute;
+    top:10%;
+}
 
+.background {
+    color: #4b8514;
+    opacity: 100 !important;
+}
+
+.transparent {
+    opacity: 0.25;
+}
+.size-mid {
+font-size:200% !important;
+margin-left:48%;
+margin-top:3%;
+color:red;
 }

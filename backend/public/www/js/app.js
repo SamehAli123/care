@@ -242,7 +242,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngMaterial', 'ngMess
 
           .state('app.gallary', {
               url: "/gallary",
-
+              cashe:false,
               views: {
                   'menuContent': {
                       templateUrl: "templates/gallary/html/gallary.html",
