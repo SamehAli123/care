@@ -14,7 +14,6 @@
             <md-tab label="المعرض">
 
                 <md-content style="text-align:center">
-                
                     <md-card class="pin  gallary" ng-repeat="image in images" >
                         <span ng-hide="image.id">{{image.id}}</span>
                         <span ng-hide="image.status">{{image.status}}</span>
@@ -29,12 +28,11 @@
             <md-tab label="filckr">
                 <md-content style="text-align:center">
                     <md-card class="pin  gallary" ng-repeat="image in images">
+                        <span ng-hide="image.id">{{image.id}}</span>
+                        <span ng-hide="image.status">{{image.status}}</span>
 
-                        <div ng-click="navigateTo('app.gallary-only-img',image)">
-                            <img ng-src="{{image.url}}" />
-                            <!--<img src="img/aldr3.jpg" />-->
-                        </div>
-                       
+                        <img src="{{image.url}}" />
+                        <div class="fa fa-cloud-download size-mid  mid"></div>
 
                     </md-card>
 
