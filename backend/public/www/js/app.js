@@ -266,6 +266,24 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngMaterial', 'ngMess
                   }
               }
           })
+
+
+
+
+
+          .state('app.add-offers', {
+              url: "/offers",
+              cashe: false,
+              views: {
+                  'menuContent': {
+                      templateUrl: "templates/offers/html/add-offers.html",
+                      controller: 'add-offersCtrl'
+                  }
+              }
+          })
+
+
+
         $urlRouterProvider.otherwise(window.globalVariable.startPage.url);
 
     });

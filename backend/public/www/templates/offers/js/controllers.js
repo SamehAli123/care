@@ -1,93 +1,107 @@
 appControllers.controller('offersCtrl', function ($scope) {
-    $scope.questions = [{
-        namepatient: 'مريم',
-        questions: 'هل يلزم اخد مسكن   عند  ازاله الشعر بالليزر',
-        dep: 'الليزر',
-        answer: 'لا  يلزم  اخذ اى مسكانات',
-        docname: ' د/سامح على '
+    $scope.offers = [{
+        img: 'img/contract_us_bg.jpg',
+        name: 'زراعه اسنان',
+        desc: 'تخفيضات  كبيره فى مجال زراعه الاسنان',
+        from: '800ريال',
+        to: '500ريال'
 
     },
-{
-    namepatient: 'محمد ',
-    questions: 'اعانى كل يوم من   تقشير الجلد   التلقائى فهل له  علاج',
-    dep: 'الجلديه',
-    answer: 'نعم   يجب عليك  استخدام  المرطبات   وان   لم  ينفع هذا قم بزيارتنا ',
-    docname: 'د/المهندى العيساوى'
 
+    {
+        img: 'img/contract_us_bg.jpg',
+        name: 'زراعه اسنان',
+        desc: 'تخفيضات  كبيره فى مجال زراعه الاسنان',
+        from: '800 ريال ',
+        to: '500ريال '
 
-},
-{
-    namepatient: 'محمود ',
-    questions: 'كم تكلفه تركيب ضرس بروسليين',
-    dep: 'الاسنان',
-    answer: ' التكلفه تختلف من   شخص لأخر  حسب حجم الضرس  ',
-    docname: 'د/عبد الله  الراجح'
+    },
+    {
+        img: 'img/contract_us_bg.jpg',
+        name: 'زراعه اسنان',
+        desc: 'تخفيضات  كبيره فى مجال زراعه الاسنان',
+        from: '800 ريال ',
+        to: '500ريال '
 
-}, {
-    namepatient: 'مريم',
-    questions: 'هل يلزم اخد مسكن   عند  ازاله الشعر بالليزر',
-    dep: 'الليزر',
-    answer: 'لا  يلزم  اخذ اى مسكانات',
-    docname: ' د/سامح على '
+    },
+    {
+        img: 'img/contract_us_bg.jpg',
+        name: 'زراعه اسنان',
+        desc: 'تخفيضات  كبيره فى مجال زراعه الاسنان',
+        from: '800 ريال ',
+        to: '500ريال '
 
-},
-{
-    namepatient: 'محمد ',
-    questions: 'اعانى كل يوم من   تقشير الجلد   التلقائى فهل له  علاج',
-    dep: 'الجلديه',
-    answer: 'نعم   يجب عليك  استخدام  المرطبات   وان   لم  ينفع هذا قم بزيارتنا ',
-    docname: 'د/المهندى العيساوى'
+    },
+    {
+        img: 'img/contract_us_bg.jpg',
+        name: 'زراعه اسنان',
+        desc: 'تخفيضات  كبيره فى مجال زراعه الاسنان',
+        from: '800 ريال ',
+        to: '500ريال '
 
+    },
+    {
+        img: 'img/contract_us_bg.jpg',
+        name: 'زراعه اسنان',
+        desc: 'تخفيضات  كبيره فى مجال زراعه الاسنان',
+        from: '800 ريال ',
+        to: '500ريال '
 
-},
-{
-    namepatient: 'محمود ',
-    questions: 'كم تكلفه تركيب ضرس بروسليين',
-    dep: 'الاسنان',
-    answer: ' التكلفه تختلف من   شخص لأخر  حسب حجم الضرس  ',
-    docname: 'د/عبد الله  الراجح'
+    },
+    {
+        img: 'img/contract_us_bg.jpg',
+        name: 'زراعه اسنان',
+        desc: 'تخفيضات  كبيره فى مجال زراعه الاسنان',
+        from: '800 ريال ',
+        to: '500ريال '
 
-}]
+    }]
 
 });
-appControllers.controller('justquesCtrl', function ($scope) {
-    $scope.questions = [{
-        namepatient: 'مريم',
-        questions: 'هل يلزم اخد مسكن   عند  ازاله الشعر بالليزر',
-        dep: 'الليزر'
 
 
-    },
-{
-    namepatient: 'محمد ',
-    questions: 'اعانى كل يوم من   تقشير الجلد   التلقائى فهل له  علاج',
-    dep: 'الجلديه'
+appControllers.controller('add-offersCtrl', function ($scope) {
+   
+    $scope.images = [
+      {
 
+          id: '2',
+          url: 'http://0.tqn.com/d/painting/1/S/V/_/1/Stencil-Number2a.jpg',
+          status: 'true'
+      }, {
+          id: '3',
+          url: 'https://farm1.staticflickr.com/640/31872939632_0cf0080b3d.jpg',
+          status: 'true'
+      }, {
+          id: '4',
 
-},
-{
-    namepatient: 'محمود ',
-    questions: 'كم تكلفه تركيب ضرس بروسليين',
-    dep: 'الاسنان'
+          url: 'https://farm1.staticflickr.com/640/31872939632_0cf0080b3d.jpg',
+          status: 'true'
+      }, {
+          id: '5',
 
-}, {
-    namepatient: 'مريم',
-    questions: 'هل يلزم اخد مسكن   عند  ازاله الشعر بالليزر',
-    dep: 'الليزر'
+          url: 'https://farm1.staticflickr.com/640/31872939632_0cf0080b3d.jpg',
+          status: 'true'
+      }, {
+          id: '6',
 
-},
-{
-    namepatient: 'محمد ',
-    questions: 'اعانى كل يوم من   تقشير الجلد   التلقائى فهل له  علاج',
-    dep: 'الجلديه'
+          url: 'https://farm1.staticflickr.com/640/31872939632_0cf0080b3d.jpg',
+          status: 'true'
+      }, {
+          id: '7',
 
+          url: 'https://farm1.staticflickr.com/640/31872939632_0cf0080b3d.jpg',
+          status: 'true'
+      }, {
+          id: '8',
 
-},
-{
-    namepatient: 'محمود ',
-    questions: 'كم تكلفه تركيب ضرس بروسليين',
-    dep: 'الاسنان'
+          url: 'https://farm1.staticflickr.com/640/31872939632_0cf0080b3d.jpg',
+          status: 'true'
+      }, {
+          id: '9',
 
-}]
-
+          url: 'https://farm1.staticflickr.com/640/31872939632_0cf0080b3d.jpg',
+          status: 'true'
+      }
+    ]
 });

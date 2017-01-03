@@ -9,16 +9,16 @@
 
     <ion-content>
 
-      
+
         <md-tabs md-dynamic-height>
             <md-tab label="المعرض">
 
                 <md-content style="text-align:center">
-                    <md-card class="pin  gallary" ng-repeat="image in images" >
+                    <md-card class="pin  gallary" ng-repeat="image in images">
                         <span ng-hide="image.id">{{image.id}}</span>
                         <span ng-hide="image.status">{{image.status}}</span>
-                        
-                            <img  src="{{image.url}}" />
+
+                        <img src="{{image.url}}" />
                         <div class="fa fa-trash size-mid  mid"></div>
 
                     </md-card>
