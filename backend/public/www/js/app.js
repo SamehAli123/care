@@ -117,8 +117,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngMaterial', 'ngMess
         });
 
     })
-
+.config(['$compileProvider', function ($compileProvider) {
+    $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|file|blob|content):|data:image\//);
+}])
     .config(function ($stateProvider, $urlRouterProvider, $mdThemingProvider, $mdColorPalette, $mdIconProvider) {
+
 
 
         $mdThemingProvider
@@ -242,7 +245,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngMaterial', 'ngMess
 
           .state('app.gallary', {
               url: "/gallary",
-              cashe:false,
+              cashe: false,
               views: {
                   'menuContent': {
                       templateUrl: "templates/gallary/html/gallary.html",
