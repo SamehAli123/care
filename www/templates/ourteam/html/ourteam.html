@@ -1,20 +1,27 @@
 ﻿
-<ion-view style="font-family:'Neo Sans Arabic'">
+<ion-view style="font-family:'Neo Sans Arabic'"view-title="فريقنا">
     <ion-content ng-controller="ourteamCtrl" scroll="false">
         <ion-slide-box id="slide-catalog-content" active-slide="0">
             <!--slide section-->
-            <ion-slide ng-repeat="image in images">
+
+            <ion-slide ng-repeat="image in images" >
                 <!--pin section-->
-                <div class="pin">
-                    <img ng-src="{{image.img}}" class="full-image" />
-                    <h1>{{image.txt}}</h1>
-                    <p>
-                        {{image.desc}}
-                    </p>
+                <div style="margin-top:0px; margin-bottom:0px;">
+                
+                </div>
+              
+                    <div  style="" >
+                        
+                        <img ng-src="{{image.img}}" class="full-image"style="border-bottom:none; height:400px "/>
+                      
+                    </div>
 
-                </div><!--end pin section-->
+                <h1>{{image.txt}}</h1>
+                <p style="height:50px; ">
+                    {{image.desc}}
+                </p>
             </ion-slide>
-
+        
             <!--end slide section-->
         </ion-slide-box>
     </ion-content>

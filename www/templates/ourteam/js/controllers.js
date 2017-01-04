@@ -7,7 +7,7 @@ appControllers.controller('ourteamCtrl', function ($scope) {
         {
             "img": "img/app_icon.png",
             "txt": "the text1",
-            "desc": "the description"
+            "desc": "the descriptionjklklklkl"
 
 
         },
