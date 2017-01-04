@@ -1,0 +1,46 @@
+﻿
+<ion-view view-title="فريقنا " style="font-family:'Neo Sans Arabic'">
+    <ion-content ng-controller="offersCtrl">
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+        <ion-slide-box id="slide-catalog-content" active-slide="0">
+            <ion-slide ng-repeat="image in images">
+
+                <div class="pin">
+                    <img ng-src="{{image.img}}" height="400px" />
+                    <h1>{{image.txt}}</h1>
+                    <p>
+                        {{image.desc}}
+                    </p>
+                    <div class="pin-footer">
+                        <div class="fa fa-trash size-mid  mid"></div>
+
+                    </div>
+
+                </div>
+            </ion-slide>
+
+            
+
+        </ion-slide-box>
+
+
+    </ion-content>
+    <div class="footer-fab-bar">
+        <a class="md-button md-accent md-fab fab-footer color" aria-label="Add" ng-click="navigateTo('app.add-member')">
+            <i class="icon ion-plus"></i>
+        </a>
+    </div>
+
+</ion-view>

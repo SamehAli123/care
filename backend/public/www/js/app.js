@@ -283,6 +283,44 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngMaterial', 'ngMess
           })
 
 
+           .state('app.ourteam', {
+               url: "/ourteam",
+               cashe: false,
+               views: {
+                   'menuContent': {
+                       templateUrl: "templates/ourteam/html/ourteam.html",
+                       controller: 'ourteamCtrl'
+                   }
+               }
+           })
+
+            .state('app.add-member', {
+                url: "/add-member",
+                cashe: false,
+                views: {
+                    'menuContent': {
+                        templateUrl: "templates/ourteam/html/add-member.html",
+                        controller: 'add-memberCtrl'
+                    }
+                }
+            })
+
+
+
+
+
+             .state('app.suggestions', {
+                 url: "/suggestions",
+                 cashe: false,
+                 views: {
+                     'menuContent': {
+                         templateUrl: "templates/suggestions/html/suggestions.html",
+                         controller: 'suggestionsCtrl'
+                     }
+                 }
+             })
+
+
 
         $urlRouterProvider.otherwise(window.globalVariable.startPage.url);
 
