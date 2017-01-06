@@ -1,0 +1,24 @@
+﻿
+<ion-view view-title="الخدمات التأمينيه" style="font-family:'Neo Sans Arabic'">
+    <ion-content ng-controller="insurenceCtrl">
+
+        <div class="pin  gallary" ng-repeat="image in images"
+             ng-click="navigateTo('app.insurenece-details',image)">
+            <img ng-src="{{image.img}}" />
+            <div class="pin-footer moreinfo">
+                <span class="pin-footer text-right morebtn">للمزيد   <i class="fa fa-arrow-right" aria-hidden="true"></i>
+</span>
+                <span class="text-left morebtn">{{image.detail}}</span>
+            </div>
+
+        </div>
+
+
+    </ion-content>
+    <div class="footer-fab-bar">
+        <a class="md-button md-accent md-fab fab-footer color" aria-label="Add" ng-click="navigateTo('app.add-insurence')">
+            <i class="icon ion-plus"></i>
+        </a>
+    </div>
+
+</ion-view>

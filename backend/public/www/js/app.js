@@ -322,6 +322,47 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngMaterial', 'ngMess
 
 
 
+                 .state('app.insurence', {
+                     url: "/insurence",
+                     cashe: false,
+                     views: {
+                         'menuContent': {
+                             templateUrl: "templates/insurence/html/insuarence.html",
+                             controller: 'insurenceCtrl'
+                         }
+                     }
+                 })
+
+
+             .state('app.add-insurence', {
+                 url: "/add-insurence",
+                 cashe: false,
+                 views: {
+                     'menuContent': {
+                         templateUrl: "templates/insurence/html/add-insurence.html",
+                         controller: 'add-insurenceCtrl'
+
+                     }
+                 }
+             })
+
+
+ .state('app.insurenece-details', {
+     url: "/insurenece-details",
+     cashe: false,
+     params: {
+         photo: null,
+     },
+     views: {
+         'menuContent': {
+             templateUrl: "templates/insurence/html/insurence-details.html",
+             controller: 'insurence-detailsCtrl'
+         }
+     }
+ })
+
+
+
         $urlRouterProvider.otherwise(window.globalVariable.startPage.url);
 
     });

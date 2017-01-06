@@ -1,7 +1,7 @@
 ﻿
-<ion-view view-title="اضافه  الى فريقنا " ng-controller="add-memberCtrl">
+<ion-view view-title="اضافه تأمينيه" ng-controller="add-insurenceCtrl">
     <ion-nav-buttons side="left">
-        <a ng-click="navigateTo('app.ourteam')" class="button back-button buttons  button-clear header-item nav-back-btn">
+        <a ng-click="navigateTo('app.dashboard')" class="button back-button buttons  button-clear header-item nav-back-btn">
             <i class="ion-android-arrow-back"></i>
         </a>
 
@@ -15,27 +15,27 @@
 
                 <md-tabs md-dynamic-height>
 
-                    <md-tab label=" اضافه  الى الفريق ">
+                    <md-tab label="الخدمات التأمينيه ">
                         <div class="inside">
 
                             <md-content style="text-align:center">
                                 <div class="inside">
                                     <md-input-container class="icon-title" md-no-float>
-                                        <i class="fa fa-user-md"></i>
-                                        <input name="name" placeholder="ادخل اسم الدكتور ">
+                                        <i class="fa fa-building"></i>
+                                        <input name="name" placeholder="ادخل اسم  الشركه  ">
                                     </md-input-container>
                                     <md-input-container class="icon-title" md-no-float>
-                                        <i class="fa fa-fire"></i>
-                                        <input name="desc" placeholder="ادخل خبرات  عنه ">
+                                        <i class="fa fa-credit-card"></i>
+                                        <input name="desc" placeholder="ادخل  تفاصيل التأمين">
                                     </md-input-container>
-
+                                    
 
 
                                 </div>
                             </md-content>
                         </div>
                     </md-tab>
-                    <md-tab label="filckr اختر صوره من ">
+                    <md-tab label="filckr  صوره من ">
                         <md-content style="text-align:center">
                             <md-card class="pin  gallary" ng-repeat="image in images">
                                 <span ng-hide="image.id">{{image.id}}</span>
