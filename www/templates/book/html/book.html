@@ -1,9 +1,45 @@
 ﻿
-<ion-view style="font-family:'Neo Sans Arabic'">
-    <ion-content ng-controller="bookingCtrl">
-        <h1>
-            its booking page
-        </h1>
-    </ion-content>
+<ion-view style="font-family:'Neo Sans Arabic'"  ng-controller="bookingCtrl" view-title="حجز موعد">
+    <ion-content>
+    
+            <md-card  >
+                <div>
+                    <md-input-container md-no-float class="border-bottom">
+                        <md-select ng-model="data.dep" aria-label="md-option" placeholder="اختر القسم " required>
+                            <md-option value="0">ازاله الشعر</md-option>
+                            <md-option value="1">الاسنان</md-option>
+                            <md-option value="2">الجلديه</md-option>
+                            <md-option value="3">السمنه</md-option>
+                        </md-select>
+                    </md-input-container>
+                    <md-input-container md-no-float>
+                  <input ng-model="data.text" placeholder="الاسم"/>
+                    </md-input-container>
+                    <md-input-container md-no-float>
+                        <input ng-model="data.text1" placeholder="رقم الجوال"/>
+                    </md-input-container>
+                    <md-input-container md-no-float>
+                        <input ng-model="data.text2" placeholder="البريد الالكتروني" />
+                    </md-input-container>
 
+     
+                </div>
+                <div>
+                    <label >اختار التاريخ<input type="date" id="datein" ng-model="data.text3" /></label>
+                
+                </div>
+                <br />
+                <label>اختار الوقت<input type="time" ng-model="data.text4" /></label>
+
+
+            </md-card>
+        
+
+    
+      </ion-content>
+        <div class="footer-fab-bar">
+            <button class="md-button md-accent md-fab fab-footer color" aria-label="Add" ng-click="save($event)">
+                <i class="fa fa-check"></i>
+            </button>
+        </div>
 </ion-view>
