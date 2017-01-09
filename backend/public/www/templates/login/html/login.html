@@ -9,26 +9,27 @@
                 <div class="sub-header">تسجيل الدخول</div>
                 <div id="fakeLogin">
                     <md-input-container md-no-float="">
-                        <input class="user-name" placeholder="اسم المستخدم"ng-model="username">
+                        <input class="user-name" placeholder="اسم المستخدم" ng-model="credentials.email">
                     </md-input-container>
                     <hr />
                     <md-input-container md-no-float="">
-                        <input class="user-password" type="password" placeholder="كلمه المرور">
+                        <input class="user-password" type="password" placeholder="كلمه المرور" ng-model="credentials.password">
                     </md-input-container>
                 </div>
                 <div>
-                    <!--<a class="md-raised social-button md-button md-default-theme material-background" 
-                       
-                       
-                       ng-click=" navigateTo('app.dashboard',username)">-->
+                   
                     <a class="md-raised social-button md-button md-default-theme material-background"
-                       href="#/app/dashboard">
+                       ng-click="login()">
                         تسجيل الدخول
                     </a>
                 </div>
             </form>
         </md-card>
-        
+
+
+
+        <ion-spinner class="spinner-energized"></ion-spinner>
+
     </ion-content>
 
 </ion-view>
