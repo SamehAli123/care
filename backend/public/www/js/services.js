@@ -15,7 +15,7 @@
                 }
                 else {
 
-                     var showConfirmDialog = function ($event) {
+                    var showConfirmDialog = function ($event) {
                         $mdDialog.show({
                             controller: 'DialogController',
                             templateUrl: 'confirm-dialog.html',
@@ -32,17 +32,8 @@
                         })
 
                     }
-                    showConfirmDialog()
-
-                        //var alertPopup = $ionicPopup.alert({
-                        //    title: 'الادخال خطأ',
-                        //    template: 'من  فضلك  ادخل اسم  المستخدم  الصحيح  مع الباسورد'
-                        //});
+                    showConfirmDialog();
                 }
-
-           
-                
-              
             });
         },
         isLoggedIn: function () {
@@ -50,32 +41,3 @@
         }
     }
 });
-
-
-
-//angular.module('starter.user', [])
-
-//.service('User', function ($q,$http) {
-//    return {
-//        loginUser: function (credentials) {
-//            var deferred = $q.defer();
-//            var promise = deferred.promise;
-            
-
-//            //if (credentials.email == 'user' && credentials.password == 'secret') {
-//            //    deferred.resolve('Welcome ' + credentials.email + '!');
-//            //} else {
-//            //    deferred.reject('Wrong credentials.');
-//            //}
-//            promise.success = function (fn) {
-//                promise.then(fn);
-//                return promise;
-//            }
-//            promise.error = function (fn) {
-//                promise.then(null, fn);
-//                return promise;
-//            }
-//            return promise;
-//        }
-//    }
-//})
