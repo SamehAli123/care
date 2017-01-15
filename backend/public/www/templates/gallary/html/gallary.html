@@ -15,63 +15,32 @@
 
                 <md-content style="text-align:center">
                     <md-card class="pin  gallary" ng-repeat="image in images">
-                        <span ng-hide="image.id">{{image.id}}</span>
-                        <span ng-hide="image.status">{{image.status}}</span>
-
-                        <img src="{{image.url}}" />
+                        <img ng-src="https://farm{{image.farm-id}}.staticflickr.com/{{image.server-id}}/{{image.id}}_{{image.secret}}.jpg" />
                         <div class="fa fa-trash size-mid  mid"></div>
-
                     </md-card>
-
                 </md-content>
             </md-tab>
             <md-tab label="filckr">
                 <md-content style="text-align:center">
+                    <div class="fa fa-floppy-o size-mid  mid" style="width:100%;color:green" ng-hide="!appear" ng-click="save()"></div>
+                    <!--<h2 class="md-title">Selected Items</h2>
+                    <code style="display: block; padding: 8px;">{{selected | json}}</code>-->
+
                     <md-card class="pin  gallary" ng-repeat="image in images">
-                        <span ng-hide="image.id">{{image.id}}</span>
-                        <span ng-hide="image.status">{{image.status}}</span>
 
-                        <img src="{{image.url}}" />
-                        <div class="fa fa-cloud-download size-mid  mid"></div>
+
+                        <!--<img src="https://farm{{image.farm-id}}.staticflickr.com/{{image.server-id}}/{{image.id}}_{{image.secret}}.jpg" />-->
+                        <img src="https://farm{{image.farm}}.staticflickr.com/{{image.server}}/{{image.id}}_{{image.secret}}.jpg" />
+
+                        <md-checkbox ng-checked="exists(image, selected)" ng-click="toggle(image, selected)" class="mid" ng-model="checked">
+                            <span ng-if="exists(image, selected)">تم الاختيار</span>
+                        </md-checkbox>
 
                     </md-card>
 
+
                 </md-content>
             </md-tab>
-
         </md-tabs>
-
-
-
-
-
-        <!--<md-tabs>
-            <md-tab>
-                <label class="fa fa-picture-o size"></label>
-
-                <md-content style="text-align:center">
-
-                    <md-card>
-                        <img src="https://farm1.staticflickr.com/640/31872939632_0cf0080b3d.jpg" />
-                        <span>hi iam sameh </span>
-                    </md-card>
-
-                </md-content>
-            </md-tab>
-            <md-tab>
-                <label class="fa fa-flickr size">
-                    <span>filckr</span>
-                </label>
-
-                <md-content style="text-align:center">
-
-
-
-                </md-content>
-            </md-tab>
-
-        </md-tabs>-->
-
     </ion-content>
-
 </ion-view>

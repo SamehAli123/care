@@ -1,51 +1,46 @@
-﻿appControllers.controller('gallaryCtrl', function ($scope, $state) {
-    $scope.images = [
-        {
-           
-            id: '2',
-            url: 'http://0.tqn.com/d/painting/1/S/V/_/1/Stencil-Number2a.jpg',
-            status: 'true'
-        }, {
-            id: '3',
-            url: 'https://farm1.staticflickr.com/640/31872939632_0cf0080b3d.jpg',
-            status: 'true'
-        }, {
-            id: '4',
+﻿appControllers.controller('gallaryCtrl', function ($scope, $state, Filckr) {
+    getfilckr();
 
-            url: 'https://farm1.staticflickr.com/640/31872939632_0cf0080b3d.jpg',
-            status: 'true'
-        }, {
-            id: '5',
+    function getfilckr() {
+        Filckr.getfilckr().then(function (resualt) {
+            $scope.images = resualt.photos.photo;
+        });
+    };
 
-            url: 'https://farm1.staticflickr.com/640/31872939632_0cf0080b3d.jpg',
-            status: 'true'
-        }, {
-            id: '6',
+    $scope.save = function () {
+        for (var i = 0; i < $scope.selected.length; i++) {
+             $scope.link = 'https://farm'+ $scope.selected[i].farm + '.staticflickr.com/' + $scope.selected[i].server + '/' + $scope.selected[i].id + '_' + $scope.selected[i].secret + '.jpg';
 
-            url: 'https://farm1.staticflickr.com/640/31872939632_0cf0080b3d.jpg',
-            status: 'true'
-        }, {
-            id: '7',
-
-            url: 'https://farm1.staticflickr.com/640/31872939632_0cf0080b3d.jpg',
-            status: 'true'
-        }, {
-            id: '8',
-
-            url: 'https://farm1.staticflickr.com/640/31872939632_0cf0080b3d.jpg',
-            status: 'true'
-        }, {
-            id: '9',
-
-            url: 'https://farm1.staticflickr.com/640/31872939632_0cf0080b3d.jpg',
-            status: 'true'
+          
         }
-    ]
+
+    }
 
 
-   
+
+
+    $scope.selected = [];
+
+    $scope.toggle = function (item, list) {
+        var idx = list.indexOf(item);
+        if (idx > -1) {
+            if (idx == 0) {
+                $scope.appear = null;
+
+            }
+            list.splice(idx, 1);
+        }
+        else {
+            list.push(item);
+            $scope.appear = 'd';
+        }
+    };
+
+
+    $scope.exists = function (item, list) {
+        return list.indexOf(item) > -1;
+    };
 
 });
-
 
 

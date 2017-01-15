@@ -1,31 +1,98 @@
-// Controller of dashboard.
-appControllers.controller('dashboardCtrl', function ($scope, $timeout, $state, $stateParams, $ionicHistory) {
-
-
+appControllers.controller('dashboardCtrl', function ($scope, $state, $stateParams, Dashboard) {
+    google();
+    facebook();
+    twitter();
+    liser();
+    teeth();
+    Leather();
+    getnotasked();
+    getasked();
     $scope.isAnimated = $stateParams.isAnimated;
+    $scope.navigateToGoogles = function () {
+        $state.go('app.users', {
+            object: $scope.Googles
+        });
+    };
+    $scope.navigateToFacebook = function () {
+        $state.go('app.users', {
+            object: $scope.Facebook
+        });
+    };
+    $scope.navigateToTwitter = function () {
+        $state.go('app.users', {
+            object: $scope.Twitter
+        });
+    };
+    $scope.navigateToLiser = function () {
+        $state.go('app.doc', {
+            docs: $scope.Liser
+        });
+    };
+    $scope.navigateToLeather = function () {
+        $state.go('app.doc', {
+            docs: $scope.Leather
+        });
+    };
+    $scope.navigateToTeeth = function () {
+        $state.go('app.doc', {
+            docs: $scope.Teeth
+        });
+    };
+    $scope.navigateToNotasked = function () {
+        $state.go('app.justqes', {
+            qes: $scope.NotAsked
+        });
+    };
+    $scope.navigateTotasked = function () {
+        $state.go('app.reqs', {
+            qes: $scope.Asked
+        });
+    };
+    function twitter() {
+        Dashboard.gettwitter().then(function (twitter) {
+            $scope.Twitter = twitter.data;
+        });
+    };
+    function facebook() {
+        Dashboard.getfacebook().then(function (facebook) {
+            $scope.Facebook = facebook.data;
+        });
+    };
+    function google() {
+        Dashboard.getgoogle().then(function (google) {
+            $scope.Googles = google.data;
 
+        });
+    };
+    function liser() {
+        Dashboard.getliser().then(function (liser) {
+            $scope.Liser = liser.data;
 
+        });
+    };
+    function Leather() {
+        Dashboard.getLeather().then(function (leather) {
+            $scope.Leather = leather.data;
 
-    $scope.navigateTo = function (targetPage, objectData) {
-        $state.go(targetPage, {
-            photo: objectData
+        });
+    };
+    function teeth() {
+        Dashboard.getteeth().then(function (teeth) {
+            $scope.Teeth = teeth.data;
+
+        });
+    };
+    function getnotasked() {
+        Dashboard.getnotasked().then(function (resulat) {
+            $scope.NotAsked = resulat.data;
+
+        });
+    };
+    function getasked() {
+        Dashboard.getasked().then(function (resulat) {
+            $scope.Asked = resulat.data;
+
         });
     };
 
-
-
-
-    //$scope.navigateTo = function (stateName) {
-    //    $timeout(function () {
-    //        if ($ionicHistory.currentStateName() != stateName) {
-    //            $ionicHistory.nextViewOptions({
-    //                disableAnimate: false,
-    //                disableBack: true
-    //            });
-    //            $state.go(stateName);
-    //        }
-    //    }, ($scope.isAnimated ? 300 : 0));
-    //};
-
-}); 
-
+});

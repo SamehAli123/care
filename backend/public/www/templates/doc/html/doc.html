@@ -23,7 +23,7 @@
 
             <ion-item ng-repeat="docs in doc  | orderBy: 'Name' | filter: { Name: filterText }" class="item-remove-animate item-icon-right" ng-click="navigateTo('app.add-doc')">
                 <h2>{{docs.Name}}</h2>
-                <p>   {{docs.email}}</p>
+                <p>   {{docs.Email}}</p>
                 <i class="icon ion-arrow-right-b"></i>
                 <ion-option-button class="button-assertive ion-ios-trash-outline"
                                    ng-click="remove(docs._id)">delete</ion-option-button>

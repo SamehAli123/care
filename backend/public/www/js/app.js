@@ -14,12 +14,12 @@ window.globalVariable = {
 };// End Global variable
 
 
-angular.module('starter', ['ionic', 'starter.controllers', 'ngMaterial', 'ngMessages', 'ngCordova', 'starter.user'])
+angular.module('starter', ['ionic', 'starter.controllers', 'ngMaterial', 'ngMessages', 'ngCordova', 'starter.user', 'starter.dash','starter.filckr'])
     .run(function ($ionicPlatform, $rootScope, $ionicHistory, $state, $mdDialog, $mdBottomSheet) {
 
 
 
-   
+
 
         // End creating SQLite database table.
 
@@ -184,7 +184,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngMaterial', 'ngMess
 
             .state('app.doc', {
                 url: "/doc",
-
+                params: {
+                    docs: null
+                },
                 views: {
                     'menuContent': {
                         templateUrl: "templates/doc/html/doc.html",
@@ -208,6 +210,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngMaterial', 'ngMess
 
                .state('app.users', {
                    url: "/user",
+                   params: {
+                       object: null
+                   },
 
                    views: {
                        'menuContent': {
@@ -220,6 +225,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngMaterial', 'ngMess
 
             .state('app.reqs', {
                 url: "/reqs",
+                params: {
+                    qes: null
+                },
 
                 views: {
                     'menuContent': {
@@ -233,11 +241,13 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngMaterial', 'ngMess
 
         .state('app.justqes', {
             url: "/justreqs",
-
+            params: {
+                qes: null
+            },
             views: {
                 'menuContent': {
                     templateUrl: "templates/questions/html/queswithoutanswer.html",
-                    controller: 'justquesCtrl'
+                    controller: 'quesCtrl'
                 }
             }
         })
@@ -247,6 +257,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngMaterial', 'ngMess
           .state('app.gallary', {
               url: "/gallary",
               cashe: false,
+
               views: {
                   'menuContent': {
                       templateUrl: "templates/gallary/html/gallary.html",
