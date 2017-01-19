@@ -1,9 +1,30 @@
 ﻿
 <ion-view style="font-family:'Neo Sans Arabic'">
-    <ion-content ng-controller="facebookCtrl">
-        <h1>
-            its facebook page
-        </h1>
+    <ion-content  id="news-feed-content"  ng-controller="facebookCtrl">
+       
+        <div class="list card" ng-repeat="entry in entries">
+            <!--<div   ng-bind-html="entry"></div>-->
+            <div class="item item-avatar">
+                <img src="../../../img/app_icon.png">
+                <h2>Marty Mcs</h2>
+                <p>November 5, 1955</p>
+            </div>
+
+            <div class="item item-body" >
+                <img class="full-image" src="{{entry.picture}}">
+                <p>
+              {{entry.message}}
+                </p>
+                <p>
+                    <a href="#" class="subdued">{{entry.likes}} Likes</a>
+                    <a href="#" class="subdued">5 Comments</a>
+                </p>
+            </div>
+
+        </div>
+         
+            
+       
     </ion-content>
 
 </ion-view>
