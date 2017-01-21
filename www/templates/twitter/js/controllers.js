@@ -32,6 +32,7 @@ appControllers.controller('twitterCtrl', function ($scope, $ionicPlatform, $twit
 
         $scope.tweet = {};
 
+
         $ionicPlatform.ready(function () {
             myToken = JSON.parse(window.localStorage.getItem(twitterKey));
             if (myToken === '' || myToken === null) {
