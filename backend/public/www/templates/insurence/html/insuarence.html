@@ -2,15 +2,18 @@
 <ion-view view-title="الخدمات التأمينيه" style="font-family:'Neo Sans Arabic'">
     <ion-content ng-controller="insurenceCtrl">
 
-        <div class="pin  gallary" ng-repeat="image in images"
-             ng-click="navigateTo('app.insurenece-details',image)">
-            <img ng-src="{{image.img}}" />
-            <div class="pin-footer moreinfo">
-                <span class="pin-footer text-right morebtn">للمزيد   <i class="fa fa-arrow-right" aria-hidden="true"></i>
-</span>
-                <span class="text-left morebtn">{{image.detail}}</span>
-            </div>
 
+        <ion-spinner class="spinner-energized middl " ng-hide="images"></ion-spinner>
+        <ion-spinner class="spinner-energized middl" ng-hide="!appeared"></ion-spinner>
+        <div class="pin  gallary" ng-repeat="image in images">
+            <img ng-src="{{image.url}}" ng-click="navigateTo('app.insurenece-details',image)" height="200px" />
+            <div class="pin-footer moreinfo">
+                <span class="pin-footer text-right morebtn" ng-click="navigateTo('app.insurenece-details',image)">
+                    للمزيد   <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                </span>
+                <span class="text-left morebtn">{{image.Desc}}</span>
+            </div>
+            <div class="fa fa-trash size-mid middl " ng-click="remove(image._id)"></div>
         </div>
 
 

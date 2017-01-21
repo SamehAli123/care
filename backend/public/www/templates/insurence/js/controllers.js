@@ -1,51 +1,26 @@
-appControllers.controller('insurenceCtrl', function ($scope,$state) {
+appControllers.controller('insurenceCtrl', function ($scope, $state, $stateParams, Insurence, $ionicSlideBoxDelegate) {
+    if ($stateParams.back) {
+        get();
+    }
+    get();
+    function get() {
+        Insurence.get().then(function (res) {
+            $scope.images = res.data;
+        })
+    }
 
 
-    $scope.images = [
-      {
-          "img": "img/aldr3.jpg",
-          "detail": "ÔÑßå ÇáÏÑÚ ",
-          "desc": "äÏÚã Èßá ÇáÇÞÓÇã  ÈäÓÈå 50%"
-
-      },
-      {
-          "img": "img/arabia-t3awnia.jpg",
-          "detail": "ÔÑßå ÇáÚÑÈíå ÇáÊÚÇæäíå",
-          "desc": "äÏÚã Èßá ÇáÇÞÓÇã  ÈäÓÈå 50%"
-
-
-
-      },
-      {
-          "img": "img/brog.jpg",
-          "detail": "ÇáÈÑæÌ",
-          "desc": "äÏÚã Èßá ÇáÇÞÓÇã  ÈäÓÈå 50%"
+    $scope.remove = function (id) {
+        $scope.appeared = 'true';
+        Insurence.remove(id).then(function () {
+            get();
+            $scope.appeared = '';
+        });
+    };
 
 
 
-      },
-      {
-          "img": "img/elt3awnia.jpg",
-          "detail": " ÇáÔÑßå ÇáÊÚÇæäíå",
-          "desc": "äÏÚã Èßá ÇáÇÞÓÇã  ÈäÓÈå 50%"
 
-
-      },
-      {
-          "img": "img/malas.jpg",
-          "detail": "ÔÑßå ÇáãáÇÓ",
-          "desc": "äÏÚã Èßá ÇáÇÞÓÇã  ÈäÓÈå 50%"
-
-
-      }, {
-          "img": "img/rajhi.png",
-          "detail": "ÔÑßå ÇáÑÇÌÍì",
-          "desc": "äÏÚã Èßá ÇáÇÞÓÇã  ÈäÓÈå 50%"
-
-
-
-      }
-    ]
 
     $scope.navigateTo = function (targetPage, objectData) {
         $state.go(targetPage, {
@@ -56,50 +31,91 @@ appControllers.controller('insurenceCtrl', function ($scope,$state) {
 });
 
 
-appControllers.controller('add-insurenceCtrl', function ($scope, $state, $stateParams) {
-   
-    $scope.images = [
-      {
+appControllers.controller('add-insurenceCtrl', function ($scope, $state, $stateParams, Insurence, Filckr, $mdDialog) {
 
-          id: '2',
-          url: 'http://0.tqn.com/d/painting/1/S/V/_/1/Stencil-Number2a.jpg',
-          status: 'true'
-      }, {
-          id: '3',
-          url: 'https://farm1.staticflickr.com/640/31872939632_0cf0080b3d.jpg',
-          status: 'true'
-      }, {
-          id: '4',
+    $scope.navigateTo = function () {
+        $state.go('app.insurence', {
+            back: 'sucess'
+        });
+    };
+    $scope.data = {
+        Name: '',
+        Desc: '',
+        url: ''
+    }
+    getfilckr();
 
-          url: 'https://farm1.staticflickr.com/640/31872939632_0cf0080b3d.jpg',
-          status: 'true'
-      }, {
-          id: '5',
+    var x;
+    $scope.save = function ($event) {
+        if ($scope.data.Name.length != 0 && $scope.data.Desc.length != 0) {
+            $scope.finaldata = $scope.data;
+            $scope.finaldata.url = x;
+            Insurence.create($scope.finaldata).then(function () {
 
-          url: 'https://farm1.staticflickr.com/640/31872939632_0cf0080b3d.jpg',
-          status: 'true'
-      }, {
-          id: '6',
 
-          url: 'https://farm1.staticflickr.com/640/31872939632_0cf0080b3d.jpg',
-          status: 'true'
-      }, {
-          id: '7',
+                $mdDialog.show({
+                    controller: 'DialogController',
+                    templateUrl: 'confirm-dialog.html',
+                    targetEvent: $event,
+                    locals: {
+                        displayOption: {
+                            title: "ØªÙ… Ø­ÙØ¸  Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª",
+                            content: "ØªÙ…  Ø­ÙØ¸ Ø¨ÙŠØ§Ù†Ø§Øª Ø´Ø±ÙƒÙ‡ Ø§Ù„ØªØ£Ù…ÙŠÙ†",
+                            cancel: "Ø§Ù†Ù‡Ø§Ø¡"
+                        }
+                    },
+                    fontfamily: 'Neo Sans Arabic'
+                })
 
-          url: 'https://farm1.staticflickr.com/640/31872939632_0cf0080b3d.jpg',
-          status: 'true'
-      }, {
-          id: '8',
+                $scope.data = {
+                    Name: '',
+                    Desc: '',
+                    url: ''
+                }
+                $scope.selected = [];
+            });
+        }
+        else {
+            $mdDialog.show({
+                controller: 'DialogController',
+                templateUrl: 'confirm-dialog.html',
+                targetEvent: $event,
+                locals: {
+                    displayOption: {
+                        title: "Ø­Ø¯Ø« Ø®Ø·Ø£ ÙÙ‰ Ø§Ø¯Ø®Ø§Ù„ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª",
+                        content: "ÙŠØ±Ø¬Ù‰  ØªØ¹Ø¨Ø¦Ù‡ ÙƒØ§Ù…Ù„ Ø§Ù„Ù…Ù†ÙˆØ°Ø¬",
+                        cancel: "Ø§Ù†Ù‡Ø§Ø¡"
+                    }
+                },
+                fontfamily: 'Neo Sans Arabic'
+            })
+        }
 
-          url: 'https://farm1.staticflickr.com/640/31872939632_0cf0080b3d.jpg',
-          status: 'true'
-      }, {
-          id: '9',
 
-          url: 'https://farm1.staticflickr.com/640/31872939632_0cf0080b3d.jpg',
-          status: 'true'
-      }
-    ]
+
+    }
+    function getfilckr() {
+        Filckr.getfilckr().then(function (resualt) {
+            $scope.images = resualt.photos.photo;
+        });
+    };
+
+    $scope.selected = [];
+    $scope.toggle = function (item, list) {
+        var idx = list.indexOf(item);
+        if (idx > -1) {
+            if (idx == 0) {
+            }
+            list.splice(idx, 1);
+        }
+        else {
+            list.push(item);
+            x = 'https://farm' + item.farm + '.staticflickr.com/' + item.server + '/' + item.id + '_' + item.secret + '.jpg';
+        }
+    };
+    $scope.exists = function (item, list) {
+        return list.indexOf(item) > -1;
+    };
 });
 
 appControllers.controller('insurence-detailsCtrl', function ($scope, $state, $stateParams) {

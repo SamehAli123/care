@@ -1,26 +1,29 @@
-﻿appControllers.controller('docCtrl', function ($scope, $state, $stateParams, Dashboard,Doc) {
-    $scope.doc = $stateParams.docs;
-    if (!$stateParams.docs) {
-        teeth();
-        function teeth() {
-            Dashboard.getteeth().then(function (teeth) {
-                $scope.doc = teeth.data;
+﻿appControllers.controller('adminCtrl', function ($scope, $state, $stateParams, Admin) {
+    if ($stateParams.back) {
+        get();
+        function get() {
+            Admin.get().then(function (admins) {
+                $scope.admin = admins.data;
 
             });
         }
+    }
+    get();
 
-        };
-    function teeth() {
-        Dashboard.getteeth().then(function (teeth) {
-            $scope.doc = teeth.data;
+    function get() {
+        Admin.get().then(function (admins) {
+            $scope.admin = admins.data;
 
         });
     }
 
+
+
+
     $scope.remove = function (id) {
         $scope.appeared = 'true';
-        Doc.remove(id).then(function () {
-            teeth();
+        Admin.remove(id).then(function () {
+            get();
             $scope.appeared = '';
         });
     };
@@ -31,19 +34,29 @@
 
 
 
-appControllers.controller('add-docCtrl', function ($scope, $state,Doc, $mdDialog) {
+appControllers.controller('add-adminCtrl', function ($scope, $state, Admin, $mdDialog) {
+
+
+
+    $scope.navigateTo = function () {
+        $state.go('app.admin', {
+            back: 'sucess'
+        });
+    };
+
+
 
     $scope.data = {
-        Name: '',
-        Email: '',
-        Password:''
+
+        email: '',
+        password: ''
 
 
     }
 
     $scope.save = function ($event) {
-        if ($scope.data.Name.length != 0 && $scope.data.Email.length != 0 && $scope.data.Password.length != 0) {
-            Doc.create($scope.data).then(function () {
+        if ($scope.data.email.length != 0 && $scope.data.password.length != 0) {
+            Admin.create($scope.data).then(function () {
                 $mdDialog.show({
                     controller: 'DialogController',
                     templateUrl: 'confirm-dialog.html',
@@ -51,7 +64,7 @@ appControllers.controller('add-docCtrl', function ($scope, $state,Doc, $mdDialog
                     locals: {
                         displayOption: {
                             title: "تم  حفظ البيانات",
-                            content: "تم   حفظ  الدكتور",
+                            content: "تم   حفظ  المتحكم",
                             cancel: "انهاء"
                         }
                     },
@@ -59,9 +72,9 @@ appControllers.controller('add-docCtrl', function ($scope, $state,Doc, $mdDialog
                 })
 
                 $scope.data = {
-                    Name: '',
-                    Email: '',
-                    Password: ''
+
+                    email: '',
+                    password: ''
 
 
                 }

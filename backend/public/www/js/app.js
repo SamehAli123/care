@@ -11,19 +11,13 @@ window.globalVariable = {
         errorMessage: "Technical error please try again later."
     }
 
-};// End Global variable
+};
 
 
-angular.module('starter', ['ionic', 'starter.controllers', 'ngMaterial', 'ngMessages', 'ngCordova', 'starter.user', 'starter.dash','starter.filckr'])
+angular.module('starter', ['ionic', 'starter.controllers', 'ngMaterial', 'ngMessages', 'ngCordova', 'starter.user', 'starter.dash', 'starter.filckr', 'starter.gallary', 'starter.offer', 'starter.rea', 'starter.ourteam', 'starter.insurence', 'starter.suggestion', 'starter.doc', 'starter.admin'])
     .run(function ($ionicPlatform, $rootScope, $ionicHistory, $state, $mdDialog, $mdBottomSheet) {
 
 
-
-
-
-        // End creating SQLite database table.
-
-        // Create custom defaultStyle.
         function getDefaultStyle() {
             return "" +
                 ".material-background-nav-bar { " +
@@ -33,9 +27,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngMaterial', 'ngMess
                 ".md-primary-color {" +
                 "   color                     : " + appPrimaryColor + " !important;" +
                 "}";
-        }// End create custom defaultStyle
-
-        // Create custom style for product view.
+        }
         function getProductStyle() {
             return "" +
                 ".material-background-nav-bar { " +
@@ -270,7 +262,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngMaterial', 'ngMess
 
           .state('app.offers', {
               url: "/offers",
-              cashe: false,
+              params: {
+                  back: 'success'
+              },
               views: {
                   'menuContent': {
                       templateUrl: "templates/offers/html/offers.html",
@@ -286,6 +280,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngMaterial', 'ngMess
           .state('app.add-offers', {
               url: "/offers",
               cashe: false,
+            
               views: {
                   'menuContent': {
                       templateUrl: "templates/offers/html/add-offers.html",
@@ -337,6 +332,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngMaterial', 'ngMess
                  .state('app.insurence', {
                      url: "/insurence",
                      cashe: false,
+                     params: {
+                         back:null
+                     },
                      views: {
                          'menuContent': {
                              templateUrl: "templates/insurence/html/insuarence.html",
@@ -374,6 +372,34 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngMaterial', 'ngMess
  })
 
 
+             .state('app.add-admin', {
+                 url: "/add-admin",
+                 cashe: false,
+                
+                 views: {
+                     'menuContent': {
+                         templateUrl: "templates/admin/html/add-admin.html",
+                         controller: 'add-adminCtrl'
+
+                     }
+                 }
+             })
+
+
+             .state('app.admin', {
+                 url: "/admin",
+                 cashe: false,
+                 params: {
+                     back: null
+                 },
+                 views: {
+                     'menuContent': {
+                         templateUrl: "templates/admin/html/admin.html",
+                         controller: 'adminCtrl'
+
+                     }
+                 }
+             })
 
         $urlRouterProvider.otherwise(window.globalVariable.startPage.url);
 

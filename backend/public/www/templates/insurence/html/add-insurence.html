@@ -20,13 +20,13 @@
 
                             <md-content style="text-align:center">
                                 <div class="inside">
-                                    <md-input-container class="icon-title" md-no-float>
+                                    <md-input-container class="icon-title" md-no-float >
                                         <i class="fa fa-building"></i>
-                                        <input name="name" placeholder="ادخل اسم  الشركه  ">
+                                        <input name="name" placeholder="ادخل اسم  الشركه  " ng-model="data.Name">
                                     </md-input-container>
                                     <md-input-container class="icon-title" md-no-float>
                                         <i class="fa fa-credit-card"></i>
-                                        <input name="desc" placeholder="ادخل  تفاصيل التأمين">
+                                        <input name="desc" placeholder="ادخل  تفاصيل التأمين" ng-model="data.Desc">
                                     </md-input-container>
                                     
 
@@ -35,33 +35,25 @@
                             </md-content>
                         </div>
                     </md-tab>
-                    <md-tab label="filckr  صوره من ">
+                    <md-tab label="filckr اختر صوره من ">
                         <md-content style="text-align:center">
-                            <md-card class="pin  gallary" ng-repeat="image in images">
-                                <span ng-hide="image.id">{{image.id}}</span>
-                                <span ng-hide="image.status">{{image.status}}</span>
-
-                                <img src="{{image.url}}" />
-                                <div class="fa fa-cloud-download size-mid  mid"></div>
-
-                            </md-card>
-
-                        </md-content>
+                            <md-content style="text-align:center">
+                                <div>
+                                    <ion-spinner class="spinner-energized mid" ng-hide="images"></ion-spinner>
+                                    <!--ng-hide="checked"-->
+                                    <md-card class="pin  gallary" ng-repeat="image in images" class="check-element animate-show-hide">
+                                        <img src="https://farm{{image.farm}}.staticflickr.com/{{image.server}}/{{image.id}}_{{image.secret}}.jpg" />
+                                        <md-checkbox ng-click="toggle(image,selected)" class="mid" ng-model="checked" aria-label="  " ng-disabled="{{disable}}">
+                                            <span ng-if="exists(image, selected)">تم الاختيار</span>
+                                        </md-checkbox>
+                                    </md-card>
+                                </div>
+                            </md-content>
                     </md-tab>
-
                 </md-tabs>
-
-
-
-
-
-
             </ion-content>
-
-
-
             <div class="footer-fab-bar">
-                <a class="md-button md-accent md-fab fab-footer color" aria-label="Add" ng-click="navigateTo('app.question')">
+                <a class="md-button md-accent md-fab fab-footer color" aria-label="Add" ng-click="save()">
                     <i class="fa fa-check"></i>
                 </a>
             </div>

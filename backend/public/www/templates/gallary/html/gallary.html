@@ -4,41 +4,33 @@
         <a ng-click="navigateTo('app.dashboard')" class="button back-button buttons  button-clear header-item nav-back-btn">
             <i class="ion-android-arrow-back"></i>
         </a>
-
     </ion-nav-buttons>
-
-    <ion-content>
-
-
+    <ion-content delegate-handle="mainScroll">
         <md-tabs md-dynamic-height>
             <md-tab label="المعرض">
-
                 <md-content style="text-align:center">
-                    <md-card class="pin  gallary" ng-repeat="image in images">
-                        <img ng-src="https://farm{{image.farm-id}}.staticflickr.com/{{image.server-id}}/{{image.id}}_{{image.secret}}.jpg" />
-                        <div class="fa fa-trash size-mid  mid"></div>
+                    <div>
+                        <ion-spinner class="spinner-energized mid" ng-hide="!appeared"></ion-spinner>
+                    </div>
+                    <md-card class="pin  gallary" ng-repeat="image in photos | orderBy:orderProp" ">
+                        <img ng-src=" {{image.url}}" />
+                    <div class="fa fa-trash size-mid " ng-click="remove(image._id)"></div>
                     </md-card>
                 </md-content>
             </md-tab>
             <md-tab label="filckr">
                 <md-content style="text-align:center">
-                    <div class="fa fa-floppy-o size-mid  mid" style="width:100%;color:green" ng-hide="!appear" ng-click="save()"></div>
-                    <!--<h2 class="md-title">Selected Items</h2>
-                    <code style="display: block; padding: 8px;">{{selected | json}}</code>-->
-
-                    <md-card class="pin  gallary" ng-repeat="image in images">
-
-
-                        <!--<img src="https://farm{{image.farm-id}}.staticflickr.com/{{image.server-id}}/{{image.id}}_{{image.secret}}.jpg" />-->
-                        <img src="https://farm{{image.farm}}.staticflickr.com/{{image.server}}/{{image.id}}_{{image.secret}}.jpg" />
-
-                        <md-checkbox ng-checked="exists(image, selected)" ng-click="toggle(image, selected)" class="mid" ng-model="checked">
-                            <span ng-if="exists(image, selected)">تم الاختيار</span>
-                        </md-checkbox>
-
-                    </md-card>
-
-
+                    <div class="fa fa-floppy-o size-mid  mid btn-save" ng-hide="!appear" ng-click="save()"></div>
+                    <div>
+                        <ion-spinner class="spinner-energized mid" ng-hide="images"></ion-spinner>
+                        <!--ng-hide="checked"-->
+                        <md-card class="pin  gallary" ng-repeat="image in images" class="check-element animate-show-hide">
+                            <img src="https://farm{{image.farm}}.staticflickr.com/{{image.server}}/{{image.id}}_{{image.secret}}.jpg" />
+                            <md-checkbox ng-checked="exists(image, selected)" ng-click="toggle(image, selected)" class="mid" ng-model="checked" aria-label="  ">
+                                <span ng-if="exists(image, selected)">تم الاختيار</span>
+                            </md-checkbox>
+                        </md-card>
+                    </div>
                 </md-content>
             </md-tab>
         </md-tabs>

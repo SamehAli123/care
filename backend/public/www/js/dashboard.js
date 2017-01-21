@@ -22,21 +22,10 @@
                 return response.data;
             })
         },
-        getliser: function () {
 
-            return $http.get(apiUrl + 'doc/' + 'liser').then(function (response) {
-                return response.data;
-            })
-        },
-        getLeather: function () {
-
-            return $http.get(apiUrl + 'doc/' + 'Leather').then(function (response) {
-                return response.data;
-            })
-        },
         getteeth: function () {
 
-            return $http.get(apiUrl + 'doc/' + 'teeth').then(function (response) {
+            return $http.get(apiUrl + 'doc').then(function (response) {
                 return response.data;
             })
         },

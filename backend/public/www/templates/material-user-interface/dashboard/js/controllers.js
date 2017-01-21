@@ -2,9 +2,9 @@ appControllers.controller('dashboardCtrl', function ($scope, $state, $stateParam
     google();
     facebook();
     twitter();
-    liser();
+ 
     teeth();
-    Leather();
+
     getnotasked();
     getasked();
     $scope.isAnimated = $stateParams.isAnimated;
@@ -21,16 +21,6 @@ appControllers.controller('dashboardCtrl', function ($scope, $state, $stateParam
     $scope.navigateToTwitter = function () {
         $state.go('app.users', {
             object: $scope.Twitter
-        });
-    };
-    $scope.navigateToLiser = function () {
-        $state.go('app.doc', {
-            docs: $scope.Liser
-        });
-    };
-    $scope.navigateToLeather = function () {
-        $state.go('app.doc', {
-            docs: $scope.Leather
         });
     };
     $scope.navigateToTeeth = function () {
@@ -61,18 +51,6 @@ appControllers.controller('dashboardCtrl', function ($scope, $state, $stateParam
     function google() {
         Dashboard.getgoogle().then(function (google) {
             $scope.Googles = google.data;
-
-        });
-    };
-    function liser() {
-        Dashboard.getliser().then(function (liser) {
-            $scope.Liser = liser.data;
-
-        });
-    };
-    function Leather() {
-        Dashboard.getLeather().then(function (leather) {
-            $scope.Leather = leather.data;
 
         });
     };

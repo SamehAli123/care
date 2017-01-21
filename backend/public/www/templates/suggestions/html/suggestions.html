@@ -9,24 +9,24 @@
 
     <ion-content ng-controller="quesCtrl">
       
-            <md-select ng-model="mdSelectValue" aria-label="md-option" placeholder="اختر القسم من هنا ">
-                <md-option value="الليزر">الليزر</md-option>
-                <md-option value="الجلديه">الجلديه</md-option>
-                <md-option value="الاسنان">الاسنان</md-option>
+            <!--<md-select ng-model="mdSelectValue" aria-label="md-option" placeholder="اختر القسم من هنا ">
+                <!--<md-option value="الليزر">الليزر</md-option>
+                <md-option value="الجلديه">الجلديه</md-option>-->
+                <!--<md-option value="الاسنان">الاسنان</md-option>-->
        
-            </md-select>
+            <!--</md-select>-->
     
        
-        <ion-list class="list" ng-repeat=" qes in questions | filter: { dep: mdSelectValue }">
+        <ion-list class="list" ng-repeat=" suggestion in suggestions">
             <li class="item item-avatar-right item-text-wrap no-padding">
-                <img ng-src="img/app_icon.png" class="img-ques" />
+                <img ng-src="{{suggestion.creator.picUrl}}" class="img-ques" />
                 <div class="bubbleRight"
                      style="width:100%">
-                    <h2 class="text-right"><b style="color:white" />{{qes.namepatient}}</h2>
-                    <p class="text-right"> {{qes.questions}} </p>
+                    <h2 class="text-right"><b style="color:white" />{{suggestion.creator.Name}}</h2>
+                    <p class="text-right"> {{suggestion.note}} </p>
                 </div>
             </li>
-            
+
         </ion-list>
     </ion-content> 
 

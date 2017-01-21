@@ -11,27 +11,31 @@
 
     <ion-content ng-controller="offersCtrl">
 
+        <ion-spinner class="spinner-energized middl " ng-hide="offers"></ion-spinner>
+        <ion-spinner class="spinner-energized middl" ng-hide="!appeared"></ion-spinner>
 
-        <ion-slide-box id="slide-catalog-content" active-slide="0">
 
-            <ion-slide ng-repeat="offer in offers">
+        <ion-slide-box id="slide-catalog-content" ng-hide="!offers">
 
+            <ion-slide ng-repeat="offer in offers" repeat-done="repeatDone()" >
                 <div class="pin">
-                    <img ng-src="{{offer.img}}" height="300px" />
-                    <h1>{{offer.name}}</h1>
+                    <img ng-src="{{offer.url}}" height="350px" />
+                    <h1>{{offer.Name}}</h1>
                     <p>
-                        {{offer.desc}}
+                        {{offer.Details}}
                     </p>
                     <div class="pin-footer">
-                        <span class="pin-footer text-right font-sale">{{offer.from}}</span>
-                        <span class="pin-footer text-center  font-hot-sale ">{{offer.to}}</span>
+                        <span class="pin-footer text-right font-sale">{{offer.PriceBefore}}</span>
+                        <span class="pin-footer text-center  font-hot-sale ">{{offer.PriceAfter}}</span>
                     </div>
-                    <div class="fa fa-trash size-mid  mid"></div>
+                    <div class="fa fa-trash size-mid " ng-click="remove(offer._id)"></div>
+
 
                 </div>
+
+
+
             </ion-slide>
-
-
         </ion-slide-box>
 
 

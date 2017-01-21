@@ -40,28 +40,7 @@ appControllers.controller('menuCtrl', function ($scope, $timeout, $mdUtil, $mdSi
     };
     //End closeSideNav
 
-    //  $ionicPlatform.registerBackButtonAction(callback, priority, [actionId])
-    //
-    //     Register a hardware back button action. Only one action will execute
-    //  when the back button is clicked, so this method decides which of
-    //  the registered back button actions has the highest priority.
-    //
-    //     For example, if an actionsheet is showing, the back button should
-    //  close the actionsheet, but it should not also go back a page view
-    //  or close a modal which may be open.
-    //
-    //  The priorities for the existing back button hooks are as follows:
-    //  Return to previous view = 100
-    //  Close side menu         = 150
-    //  Dismiss modal           = 200
-    //  Close action sheet      = 300
-    //  Dismiss popup           = 400
-    //  Dismiss loading overlay = 500
-    //
-    //  Your back button action will override each of the above actions
-    //  whose priority is less than the priority you provide. For example,
-    //  an action assigned a priority of 101 will override the ‘return to
-    //  previous view’ action, but not any of the other actions.
+    
     //
     //  Learn more at : http://ionicframework.com/docs/api/service/$ionicPlatform/#registerBackButtonAction
 
@@ -138,6 +117,6 @@ appControllers.controller('menuCtrl', function ($scope, $timeout, $mdUtil, $mdSi
         }
 
     },100);
-    //End of $ionicPlatform.registerBackButtonAction
 
-}); // End of menu toggle controller.
+
+}); 

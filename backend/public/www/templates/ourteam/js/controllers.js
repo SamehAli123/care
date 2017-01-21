@@ -1,102 +1,110 @@
-appControllers.controller('ourteamCtrl', function ($scope) {
+appControllers.controller('ourteamCtrl', function ($scope, $ionicSlideBoxDelegate, Ourteam, $stateParams) {
+
+    if ($stateParams.back) {
+        get();
+    }
+    get();
+    function get() {
+        Ourteam.get().then(function (res) {
+            $scope.images = res.data;
+        })
+        $scope.repeatDone = function () {
+            $ionicSlideBoxDelegate.update();
+            $ionicSlideBoxDelegate.slide($scope.images.length - 1, 1);
+        };
+    }
+    $scope.del = function (id) {
+        $scope.appeared = 'true';
+        Ourteam.remove(id).then(function () {
+            get();
+            $scope.appeared = '';
+        });
+    };
 
 
-    $scope.images = [
-        {
-            "img": "img/app_icon.png",
-            "txt": "the text1",
-            "desc": "the description"
-
-
-        },
-        {
-            "img": "img/slide_08.png",
-            "txt": "the text1",
-            "desc": "the description"
-
-        },
-        {
-            "img": "img/slide_07.png",
-            "txt": "the text1",
-            "desc": "the description"
-
-        },
-        {
-            "img": "img/slide_06.png",
-            "txt": "the text1",
-            "desc": "the description"
-
-        },
-        {
-            "img": "img/slide_05.png",
-            "txt": "the text1",
-            "desc": "the description"
-
-        },
-        {
-            "img": "img/slide_04.png",
-            "txt": "the text1",
-            "desc": "the description"
-
-        },
-        {
-            "img": "img/slide_03.png",
-            "txt": "the text1",
-            "desc": "the description"
-
-        },
-        {
-            "img": "img/slide_02.png",
-            "txt": "the text1",
-            "desc": "the description"
-
-        }
-    ]
 });
 
 
-appControllers.controller('add-memberCtrl', function ($scope) {
+appControllers.controller('add-memberCtrl', function ($scope, Filckr, $ionicSlideBoxDelegate, Ourteam, $mdDialog) {
    
-    $scope.images = [
-      {
 
-          id: '2',
-          url: 'http://0.tqn.com/d/painting/1/S/V/_/1/Stencil-Number2a.jpg',
-          status: 'true'
-      }, {
-          id: '3',
-          url: 'https://farm1.staticflickr.com/640/31872939632_0cf0080b3d.jpg',
-          status: 'true'
-      }, {
-          id: '4',
 
-          url: 'https://farm1.staticflickr.com/640/31872939632_0cf0080b3d.jpg',
-          status: 'true'
-      }, {
-          id: '5',
 
-          url: 'https://farm1.staticflickr.com/640/31872939632_0cf0080b3d.jpg',
-          status: 'true'
-      }, {
-          id: '6',
+  getfilckr();
+    function getfilckr() {
+        Filckr.getfilckr().then(function (resualt) {
+            $scope.images = resualt.photos.photo;
+        });
+    };
 
-          url: 'https://farm1.staticflickr.com/640/31872939632_0cf0080b3d.jpg',
-          status: 'true'
-      }, {
-          id: '7',
+    $scope.data = {
+        Name: '',
+        Desc: '',
+        url:''
+    };
+    var x;
+    $scope.save = function ($event) {
+        if ($scope.data.Name.length != 0 && $scope.data.Desc.length != 0) {
+            $scope.finaldata = $scope.data;
+            $scope.finaldata.url = x;
+            Ourteam.create($scope.finaldata).then(function () {
 
-          url: 'https://farm1.staticflickr.com/640/31872939632_0cf0080b3d.jpg',
-          status: 'true'
-      }, {
-          id: '8',
 
-          url: 'https://farm1.staticflickr.com/640/31872939632_0cf0080b3d.jpg',
-          status: 'true'
-      }, {
-          id: '9',
+                $mdDialog.show({
+                    controller: 'DialogController',
+                    templateUrl: 'confirm-dialog.html',
+                    targetEvent: $event,
+                    locals: {
+                        displayOption: {
+                            title: "Êã  ÍÝÙ ÇáÈíÇäÇÊ",
+                            content: "Êã   ÍÝÙ  ÇáÏßÊæÑ",
+                            cancel: "ÇäåÇÁ"
+                        }
+                    },
+                    fontfamily: 'Neo Sans Arabic'
+                })
 
-          url: 'https://farm1.staticflickr.com/640/31872939632_0cf0080b3d.jpg',
-          status: 'true'
-      }
-    ]
+                $scope.data = {
+                    Name: '',
+                    Desc: '',
+                    url: ''
+                };
+                $scope.selected = [];
+            });
+        }
+        else {
+            $mdDialog.show({
+                controller: 'DialogController',
+                templateUrl: 'confirm-dialog.html',
+                targetEvent: $event,
+                locals: {
+                    displayOption: {
+                        title: "ÍÏË ÎØÃ Ýì ÇáÈíÇäÇÊ",
+                        content: "íÑÌì  ÊÚÈÆå ßÇãá ÇáäãæÐÌ",
+                        cancel: "ÇäåÇÁ"
+                    }
+                },
+                fontfamily: 'Neo Sans Arabic'
+            })
+        }
+
+
+
+    }
+    $scope.selected = [];
+    $scope.toggle = function (item, list) {
+        var idx = list.indexOf(item);
+        if (idx > -1) {
+            if (idx == 0) {
+            }
+            list.splice(idx, 1);
+        }
+        else {
+            list.push(item);
+            x = 'https://farm' + item.farm + '.staticflickr.com/' + item.server + '/' + item.id + '_' + item.secret + '.jpg';
+        }
+    };
+    $scope.exists = function (item, list) {
+        return list.indexOf(item) > -1;
+    };
 });

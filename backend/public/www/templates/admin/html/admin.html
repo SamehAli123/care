@@ -1,7 +1,7 @@
 ﻿
-<ion-view view-title="الأطباء">
+<ion-view view-title="المستخدم المتحكم">
     <ion-nav-buttons side="left">
-        <a ng-click="$ionicGoBack()" class="button back-button buttons  button-clear header-item nav-back-btn">
+        <a ng-click="navigateTo('app.dashboard')" class="button back-button buttons  button-clear header-item nav-back-btn">
             <i class="ion-android-arrow-back"></i>
         </a>
     </ion-nav-buttons>
@@ -14,25 +14,25 @@
                     <i class="ion-android-search"></i>
                     <input ng-model="filterText" placeholder="ابحث من هنا ....">
                 </md-input-container>
-        <ion-spinner class="spinner-energized middl " ng-hide="doc"></ion-spinner>
+        <ion-spinner class="spinner-energized middl " ng-hide="admin"></ion-spinner>
 
         <ion-spinner class="spinner-energized middl" ng-hide="!appeared"></ion-spinner>
 
 
         <ion-list>
 
-            <ion-item ng-repeat="docs in doc  | orderBy: 'Name' | filter: { Name: filterText }" class="item-remove-animate item-icon-right" ng-click="navigateTo('app.add-doc')">
-                <h2>{{docs.Name}}</h2>
-                <p>   {{docs.Email}}</p>
+            <ion-item ng-repeat="admins in admin  | orderBy: 'email' | filter: { email: filterText }" class="item-remove-animate item-icon-right">
+                <h2>{{admins.email}}</h2>
+          
                 <i class="icon ion-arrow-right-b"></i>
                 <ion-option-button class="button-assertive ion-ios-trash-outline"
-                                   ng-click="remove(docs._id)">delete</ion-option-button>
+                                   ng-click="remove(admins._id)">delete</ion-option-button>
 
             </ion-item>
 
 </ion-content>
     <div class="footer-fab-bar">
-        <a class="md-button md-accent md-fab fab-footer color" aria-label="Add" ng-click="navigateTo('app.add-doc')">
+        <a class="md-button md-accent md-fab fab-footer color" aria-label="Add" ng-click="navigateTo('app.add-admin')">
             <i class="icon ion-plus"></i>
         </a>
     </div>

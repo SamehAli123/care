@@ -10,7 +10,6 @@
     return {
         getfilckr: function () {
             return $http.get(apiUrl).then(function (response) {
-                console.log(response);
                 return response.data;
             })
         }

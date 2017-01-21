@@ -1,107 +1,123 @@
-appControllers.controller('offersCtrl', function ($scope) {
-    $scope.offers = [{
-        img: 'img/contract_us_bg.jpg',
-        name: 'زراعه اسنان',
-        desc: 'تخفيضات  كبيره فى مجال زراعه الاسنان',
-        from: '800ريال',
-        to: '500ريال'
+appControllers.controller('offersCtrl', function ($scope, Offer, $ionicSlideBoxDelegate, $stateParams) {
+    get();
 
-    },
+    if ($stateParams.back) {
+        get();
+        function get() {
+            Offer.get().then(function (res) {
+                $scope.offers = res.data;
+            })
+            $scope.repeatDone = function () {
+                $ionicSlideBoxDelegate.update();
+                $ionicSlideBoxDelegate.slide($scope.offers.length - 1, 1);
+            };
+        }
 
-    {
-        img: 'img/contract_us_bg.jpg',
-        name: 'زراعه اسنان',
-        desc: 'تخفيضات  كبيره فى مجال زراعه الاسنان',
-        from: '800 ريال ',
-        to: '500ريال '
+    }
+    function get() {
+        Offer.get().then(function (res) {
+            $scope.offers = res.data;
+        })
+        $scope.repeatDone = function() {
+            $ionicSlideBoxDelegate.update();
+            $ionicSlideBoxDelegate.slide($scope.offers.length - 1, 1);
+        };
+    }
 
-    },
-    {
-        img: 'img/contract_us_bg.jpg',
-        name: 'زراعه اسنان',
-        desc: 'تخفيضات  كبيره فى مجال زراعه الاسنان',
-        from: '800 ريال ',
-        to: '500ريال '
 
-    },
-    {
-        img: 'img/contract_us_bg.jpg',
-        name: 'زراعه اسنان',
-        desc: 'تخفيضات  كبيره فى مجال زراعه الاسنان',
-        from: '800 ريال ',
-        to: '500ريال '
-
-    },
-    {
-        img: 'img/contract_us_bg.jpg',
-        name: 'زراعه اسنان',
-        desc: 'تخفيضات  كبيره فى مجال زراعه الاسنان',
-        from: '800 ريال ',
-        to: '500ريال '
-
-    },
-    {
-        img: 'img/contract_us_bg.jpg',
-        name: 'زراعه اسنان',
-        desc: 'تخفيضات  كبيره فى مجال زراعه الاسنان',
-        from: '800 ريال ',
-        to: '500ريال '
-
-    },
-    {
-        img: 'img/contract_us_bg.jpg',
-        name: 'زراعه اسنان',
-        desc: 'تخفيضات  كبيره فى مجال زراعه الاسنان',
-        from: '800 ريال ',
-        to: '500ريال '
-
-    }]
+    $scope.remove = function (id) {
+        $scope.appeared = 'true';
+        Offer.remove(id).then(function () {
+            get();
+            $scope.appeared = '';
+        });
+    };
 
 });
+appControllers.controller('add-offersCtrl', function ($scope, Filckr, Offer, $mdDialog, $state) {
+    $scope.navigateTo = function () {
+        $state.go('app.offers', {
+            back: 'sucess'
+        });
+    };
+    $scope.data = {
+        Name: '',
+        PriceBefore: '',
+        PriceAfter: '',
+        Details: '',
+        url: ''
+    }
+    getfilckr();
+    var x;
+    $scope.save = function ($event) {
+        if ($scope.data.Name.length != 0 && $scope.data.PriceBefore.length != 0 && $scope.data.PriceAfter.length != 0 && $scope.data.Details.length != 0) {
+            $scope.finaldata = $scope.data;
+            $scope.finaldata.url = x;
+            Offer.create($scope.finaldata).then(function () {
 
 
-appControllers.controller('add-offersCtrl', function ($scope) {
-   
-    $scope.images = [
-      {
+                $mdDialog.show({
+                    controller: 'DialogController',
+                    templateUrl: 'confirm-dialog.html',
+                    targetEvent: $event,
+                    locals: {
+                        displayOption: {
+                            title: "تم  حفظ البيانات",
+                            content: "تم   حفظ  العرض",
+                            cancel: "انهاء"
+                        }
+                    },
+                    fontfamily: 'Neo Sans Arabic'
+                })
 
-          id: '2',
-          url: 'http://0.tqn.com/d/painting/1/S/V/_/1/Stencil-Number2a.jpg',
-          status: 'true'
-      }, {
-          id: '3',
-          url: 'https://farm1.staticflickr.com/640/31872939632_0cf0080b3d.jpg',
-          status: 'true'
-      }, {
-          id: '4',
+                $scope.data = {
+                    Name: '',
+                    PriceBefore: '',
+                    PriceAfter: '',
+                    Details: '',
+                    url: ''
+                }
+                $scope.selected = [];
+            });
+        }
+        else {
+            $mdDialog.show({
+                controller: 'DialogController',
+                templateUrl: 'confirm-dialog.html',
+                targetEvent: $event,
+                locals: {
+                    displayOption: {
+                        title: "حدث خطأ فى البيانات",
+                        content: "يرجى  تعبئه كامل النموذج",
+                        cancel: "انهاء"
+                    }
+                },
+                fontfamily: 'Neo Sans Arabic'
+            })
+        }
 
-          url: 'https://farm1.staticflickr.com/640/31872939632_0cf0080b3d.jpg',
-          status: 'true'
-      }, {
-          id: '5',
 
-          url: 'https://farm1.staticflickr.com/640/31872939632_0cf0080b3d.jpg',
-          status: 'true'
-      }, {
-          id: '6',
 
-          url: 'https://farm1.staticflickr.com/640/31872939632_0cf0080b3d.jpg',
-          status: 'true'
-      }, {
-          id: '7',
-
-          url: 'https://farm1.staticflickr.com/640/31872939632_0cf0080b3d.jpg',
-          status: 'true'
-      }, {
-          id: '8',
-
-          url: 'https://farm1.staticflickr.com/640/31872939632_0cf0080b3d.jpg',
-          status: 'true'
-      }, {
-          id: '9',
-
-          url: 'https://farm1.staticflickr.com/640/31872939632_0cf0080b3d.jpg',
-          status: 'true'
-      }
-    ]
+    }
+    function getfilckr() {
+        Filckr.getfilckr().then(function (resualt) {
+            $scope.images = resualt.photos.photo;
+        });
+    };
+    $scope.selected = [];
+    $scope.toggle = function (item, list) {
+        var idx = list.indexOf(item);
+        if (idx > -1) {
+            if (idx == 0) {
+            }
+            list.splice(idx, 1);
+        }
+        else {
+            list.push(item);
+            x = 'https://farm' + item.farm + '.staticflickr.com/' + item.server + '/' + item.id + '_' + item.secret + '.jpg';
+        }
+    };
+    $scope.exists = function (item, list) {
+        return list.indexOf(item) > -1;
+    };
 });

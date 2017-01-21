@@ -1,7 +1,7 @@
 ﻿
 <ion-view view-title="العروض" ng-controller="add-offersCtrl">
     <ion-nav-buttons side="left">
-        <a ng-click="navigateTo('app.offers')" class="button back-button buttons  button-clear header-item nav-back-btn">
+        <a ng-click="navigateTo()" class="button back-button buttons  button-clear header-item nav-back-btn">
             <i class="ion-android-arrow-back"></i>
         </a>
 
@@ -23,21 +23,21 @@
                                     <div class="inside">
                                         <md-input-container class="icon-title" md-no-float>
                                             <i class="fa fa-bell"></i>
-                                            <input name="name" placeholder="ادخل اسم العرض">
+                                            <input name="name" placeholder="ادخل اسم العرض" ng-model="data.Name">
                                         </md-input-container>
                                         <md-input-container class="icon-title" md-no-float>
                                             <i class="fa fa-align-center"></i>
-                                            <input name="desc" placeholder="ادخل تفاصيل العرض">
+                                            <input name="desc" placeholder="ادخل تفاصيل العرض" ng-model="data.Details">
                                         </md-input-container>
                                         <md-input-container class="icon-title" md-no-float>
                                             <i class="fa fa-money"></i>
-                                            <input name="name" placeholder="ادخل السعر قبل العرض">
+                                            <input name="name" placeholder="ادخل السعر قبل العرض" ng-model="data.PriceBefore">
                                         </md-input-container>
                                         <md-input-container class="icon-title" md-no-float>
                                             <i class="fa fa-gift"></i>
-                                            <input name="desc" placeholder="ادخل السعر بعد العرض">
+                                            <input name="desc" placeholder="ادخل السعر بعد العرض" ng-model="data.PriceAfter">
                                         </md-input-container>
-
+                                
                                         
                                     </div>
                                 </md-content>
@@ -45,31 +45,23 @@
 </md-tab>
                         <md-tab label="filckr اختر صوره من ">
                             <md-content style="text-align:center">
-                                <md-card class="pin  gallary" ng-repeat="image in images">
-                                    <span ng-hide="image.id">{{image.id}}</span>
-                                    <span ng-hide="image.status">{{image.status}}</span>
-
-                                    <img src="{{image.url}}" />
-                                    <div class="fa fa-cloud-download size-mid  mid"></div>
-
-                                </md-card>
-
-                            </md-content>
+                                <md-content style="text-align:center">
+                                    <div>
+                                        <ion-spinner class="spinner-energized mid" ng-hide="images"></ion-spinner>
+                                        <!--ng-hide="checked"-->
+                                        <md-card class="pin  gallary" ng-repeat="image in images" class="check-element animate-show-hide">
+                                            <img src="https://farm{{image.farm}}.staticflickr.com/{{image.server}}/{{image.id}}_{{image.secret}}.jpg" />
+                                            <md-checkbox ng-click="toggle(image,selected)" class="mid" ng-model="checked" aria-label="  " ng-disabled="{{disable}}">
+                                                <span ng-if="exists(image, selected)">تم الاختيار</span>
+                                            </md-checkbox>
+                                        </md-card>
+                                    </div>
+                                </md-content>
                         </md-tab>
-
                     </md-tabs>
-
-
-
-
-
-
             </ion-content>
-
-
-
             <div class="footer-fab-bar">
-                <a class="md-button md-accent md-fab fab-footer color" aria-label="Add" ng-click="navigateTo('app.question')">
+                <a class="md-button md-accent md-fab fab-footer color" aria-label="Add" ng-click="save()">
                     <i class="fa fa-check"></i>
                 </a>
             </div>

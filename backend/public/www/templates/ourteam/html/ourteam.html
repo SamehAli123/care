@@ -11,18 +11,19 @@
 
     <ion-content ng-controller="offersCtrl">
  
+        <ion-spinner class="spinner-energized middl " ng-hide="images"></ion-spinner>
+        <ion-spinner class="spinner-energized middl" ng-hide="!appeared"></ion-spinner>
 
-        <ion-slide-box id="slide-catalog-content" active-slide="0">
-            <ion-slide ng-repeat="image in images">
-
+        <ion-slide-box id="slide-catalog-content" active-slide="0" >
+            <ion-slide ng-repeat="image in images" repeat-done="repeatDone()">
                 <div class="pin">
-                    <img ng-src="{{image.img}}" height="400px" />
-                    <h1>{{image.txt}}</h1>
+                    <img ng-src="{{image.url}}" height="350px" />
+                    <h1>{{image.Name}}</h1>
                     <p>
-                        {{image.desc}}
+                        {{image.Desc}}
                     </p>
                     <div class="pin-footer">
-                        <div class="fa fa-trash size-mid  mid"></div>
+                        <div class="fa fa-trash size-mid " ng-click="del(image._id)"></div>
 
                     </div>
 
