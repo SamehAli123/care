@@ -27,7 +27,7 @@ appControllers.controller('youtubeCtrl', function ($scope, $http) {
     }
 
     $http.get('https://www.googleapis.com/youtube/v3/search', { params: $scope.youtubeParams }).success(function (response) {
-        //console.log(response);
+        console.log(response);
         angular.forEach(response.items, function (child) {
             
             $scope.videos.push(child);
