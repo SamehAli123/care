@@ -14,7 +14,7 @@ window.globalVariable = {
 };// End Global variable
 
 
-angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers', 'ngMaterial', 'ngMessages', 'ngCordova', 'youtube-embed'])
+angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers', 'ngMaterial', 'ngMessages', 'ngCordova', 'youtube-embed', 'ngTwitter'])
     .run(function ($ionicPlatform, $cordovaSQLite, $rootScope, $ionicHistory, $state, $mdDialog, $mdBottomSheet, $cordovaGeolocation) {
 
 
