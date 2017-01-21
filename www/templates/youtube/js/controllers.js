@@ -1,7 +1,18 @@
 ﻿//// Controller of dashboard.
 //var app = angular.module('starter', ['ionic']);
 appControllers.controller('youtubeCtrl', function ($scope, $http) {
- 
+    //$scope.videos = [
+    //{
+    //    title: "My first video",
+    //    date: "1-1-2015",
+    //    thumbnails: "http://i.ytimg.com/vi/bJp1ptX4F3M/maxresdefault.jpg",
+    //},
+    //{
+    //    title: "My second video",
+    //    date: "5-7-2015",
+    //    thumbnails: "http://i.ytimg.com/vi/NA2VerbOyt0/maxresdefault.jpg",
+    //}
+    //];
 
     $scope.videos = [];
 
@@ -22,12 +33,6 @@ appControllers.controller('youtubeCtrl', function ($scope, $http) {
             $scope.videos.push(child);
         });
     });
-
-    $scope.playerVars = {
-        rel: 0,
-        showinfo: 0,
-        modestbranding: 0,
-    }
 
  
 
