@@ -1,53 +1,52 @@
 ﻿
-<ion-view style="font-family:'Neo Sans Arabic'">
+<ion-view  style= "font-family:'NeoSansArabic'"  view-title="إنستجرام">
     <ion-content ng-controller="instagramCtrl">
+     
         <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()">
         </ion-refresher>
         <ion-list>
             <!--social card section-->
-            <!--social feed content section-->
-            <ion-content id="social-feed-content">
-                <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()">
-                </ion-refresher>
-                <ion-list>
-                    <!--social card section-->
-                    <md-card ng-repeat="item in feedList" class="social-card">
-                        <md-card-content>
-                            <md-list-item class="md-2-line md-no-proxy" role="listitem">
-                                <img ng-src="{{item.user.profile_picture}}"
-                                     class="md-avatar">
-                                <div class="md-list-item-text">
-                                    <h3>{{item.user.username}}</h3>
-                                    <p>{{item.created_time |epochToDate | date:"short"}}</p>
-                                    <p ng-show="item.location.name != null ?  true : false">
-                                        <i class="fa fa-location-arrow"></i>
-                                        {{item.location.name}}
-                                    </p>
-                                </div>
-                            </md-list-item>
-                            <p>{{item.caption.text}}</p>
-                        </md-card-content>
-                        <!--social card image section-->
+            <md-card ng-repeat="p in pics" class="social-card">
+                <md-card-content>
+                    <md-list-item class="md-2-line md-no-proxy" role="listitem">
+                        <img ng-src="{{p.user.profile_picture}}"
+                             class="md-avatar">
+                        <div class="md-list-item-text">
+                           
+                            <h3  style= "font-family:'NeoSansArabic'">{{p.user.full_name}}</h3>
+                            <p  style= "font-family:'NeoSansArabic'">{{p.user.username}}</p>
+                            <p ng-show="p.location.name != null ?  true : false"  style= "font-family:'NeoSansArabic'">
+                                <i class="fa fa-location-arrow"></i>
+                                {{p.location.name}}
+                            </p>
+                          
+                        </div>
                         <div class="social-card-image">
-                            <img ng-src="{{item.images.standard_resolution.url}}">
+                      
                         </div><!--end social card image section-->
-                        <!--social card footer section-->
-                        <div class="social-card-footer">
-                            <div class="row-content" layout="row">
-                                <div class="col-50">
-                                    {{item.likes.count | numberSuffix}} <span> Likes</span>
-                                </div>
-                                <div class="col-50">
-                                    {{item.comments.count | numberSuffix}} <span>Comments</span>
-                                </div>
-                            </div>
-                        </div><!--end social card footer section-->
-                    </md-card><!--end social card section-->
-                    <ion-infinite-scroll ng-if="!paging.shouldLoadData" on-infinite="loadMore()" distance="1%">
-                    </ion-infinite-scroll>
-            </ion-content><!--end social feed content section-->
-            <ion-infinite-scroll ng-if="!paging.shouldLoadData" on-infinite="loadMore()" distance="1%">
-            </ion-infinite-scroll>
+                      
+                    </md-list-item>
+                    <p  style= "font-family:'NeoSansArabic'">{{p.caption.text}}</p>
+                </md-card-content>
+                <img ng-src="{{p.images.standard_resolution.url}}">
+                <!--social card image section-->
+                <!--social card footer section-->
+                <div class="social-card-footer">
+                    <div class="row-content" layout="row">
+                        <div class="col-50">
+                            {{p.likes.count}} <span> Likes</span>
+                        </div>
+                        <div class="col-50">
+                            {{p.comments.count}} <span>Comments</span>
+                        </div>
+                    </div>
+                </div><!--end social card footer section-->
+            </md-card><!--end social card section-->
+            <!--<ion-infinite-scroll ng-if="!paging.shouldLoadData" on-infinite="loadMore()" distance="1%">
+            </ion-infinite-scroll>-->
+
+
+
 </ion-content>
 
 </ion-view>

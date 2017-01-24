@@ -1,29 +1,29 @@
 ﻿
-<ion-view ng-controller="suggestionCtrl" style="font-family:'Neo Sans Arabic'" view-title="الشكاوي">
+<ion-view ng-controller="suggestionCtrl"  style= "font-family:'NeoSansArabic'" view-title="الشكاوي">
     <ion-content >
         <md-card>
             <div>
-                <md-input-container md-no-float class="border-bottom">
+                <!--<md-input-container md-no-float class="border-bottom">
                     <md-select ng-model="data.dep" aria-label="md-option" placeholder="اختر القسم " required>
                         <md-option value="0">ازاله الشعر</md-option>
                         <md-option value="1">الاسنان</md-option>
                         <md-option value="2">الجلديه</md-option>
                         <md-option value="3">السمنه</md-option>
                     </md-select>
-                </md-input-container>
+                </md-input-container>-->
                 <md-input-container md-no-float>
-                    <textarea rows="5" ng-model="data.text" maxlength="200"
-                              placeholder="ضع الشكوي او الاقتراح هنا  ......."></textarea>
+                    <textarea rows="5" ng-model="data.Text" maxlength="200"
+                              placeholder="ضع الشكوي او الاقتراح هنا  ......."  style= "font-family:'NeoSansArabic'"></textarea>
                 </md-input-container>
-                <span>
-                    {{(data.text.length > 0 ? data.text.length :0) | json}}/200
+                <span  style= "font-family:'NeoSansArabic'">
+                    {{(data.Text.length > 0 ? data.Text.length :0) | json}}/200
                 </span>
-                <span>{{text}}</span>
+                <span  style= "font-family:'NeoSansArabic'">{{Text}}</span>
             </div>
         </md-card>
     </ion-content>
     <div class="footer-fab-bar">
-        <button class="md-button md-accent md-fab fab-footer color" aria-label="Add" ng-click="save($event,$event2)">
+        <button class="md-button md-accent md-fab fab-footer color" aria-label="Add" ng-click="save($event)">
             <i class="fa fa-check"></i>
         </button>
     </div>

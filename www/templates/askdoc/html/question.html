@@ -1,4 +1,4 @@
-﻿<ion-view ng-controller="questionCtrl" view-title="ضع سؤالك " style="font-family:'Neo Sans Arabic'">
+﻿<ion-view ng-controller="questionCtrl" view-title="ضع سؤالك " style= "font-family:'NeoSansArabic'">
 
     <ion-nav-buttons side="left">
         <a ng-click="$ionicGoBack()" class="button back-button buttons button-clear   nav-back-btn">
@@ -11,21 +11,21 @@
         <md-card>
             <div>
                 <md-input-container md-no-float class="border-bottom">
-                    <md-select ng-model="data.dep" aria-label="md-option" placeholder="اختر القسم " required>
-                        <md-option value="0">ازاله الشعر</md-option>
-                        <md-option value="1">الاسنان</md-option>
-                        <md-option value="2">الجلديه</md-option>
-                        <md-option value="3">السمنه</md-option>
+                    <md-select ng-model="data.dep" aria-label="md-option" placeholder="اختر القسم " required style= "font-family:'NeoSansArabic'">
+                        <md-option value="0" style= "font-family:'NeoSansArabic'">ازاله الشعر</md-option>
+                        <md-option value="1" style= "font-family:'NeoSansArabic'">الاسنان</md-option>
+                        <md-option value="2" style= "font-family:'NeoSansArabic'">الجلديه</md-option>
+                        <md-option value="3" style= "font-family:'NeoSansArabic'">السمنه</md-option>
                     </md-select>
                 </md-input-container>
-                    <md-input-container md-no-float>
+                    <md-input-container md-no-float style= "font-family:'NeoSansArabic'">
                         <textarea rows="5" ng-model="data.text" maxlength="200"
-                                  placeholder="ضع سؤالك  هنا ......."></textarea>
+                                  placeholder="ضع سؤالك  هنا ......." style= "font-family:'NeoSansArabic'"></textarea>
                     </md-input-container>
                 <span>
                     {{(data.text.length > 0 ? data.text.length :0) | json}}/200
                 </span>
-                <span>{{text}}</span>
+                <span style= "font-family:'NeoSansArabic'">{{text}}</span>
             </div>
         </md-card>
 

@@ -1,12 +1,12 @@
 ﻿
-<ion-view ng-controller="aboutusCtrl" style="font-family:'Neo Sans Arabic'" view-title="عن المركز" >
+<ion-view ng-controller="aboutusCtrl" style= "font-family:'NeoSansArabic'" view-title="عن المركز" >
     <ion-content >
         <!--device information section-->
         <!--lise section-->
         <ion-slide class="slide-10">
-            <md-tabs md-dynamic-height md-border-bottom>
-                <md-tab label="  {{about.aboutcenter}}" ng-repeat="about in aboutus">
-                    <md-content style="text-align:center">
+            <md-tabs md-dynamic-height md-border-bottom style= "font-family:'NeoSansArabic'">
+                <md-tab label="{{about.aboutcenter}}" ng-repeat="about in aboutus">
+                    <md-content style="text-align:center; font-family:'NeoSansArabic'">
                       {{about.desc}}
                     </md-content>
                 </md-tab>

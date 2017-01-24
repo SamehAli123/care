@@ -1,35 +1,35 @@
 ﻿
-<ion-view style="font-family:'Neo Sans Arabic'"  ng-controller="bookingCtrl" view-title="حجز موعد">
+<ion-view style= "font-family:'NeoSansArabic'" ng-controller="bookingCtrl" view-title="حجز موعد">
     <ion-content>
     
             <md-card  >
                 <div>
                     <md-input-container md-no-float class="border-bottom">
                         <md-select ng-model="data.dep" aria-label="md-option" placeholder="اختر القسم " required>
-                            <md-option value="0">ازاله الشعر</md-option>
-                            <md-option value="1">الاسنان</md-option>
-                            <md-option value="2">الجلديه</md-option>
-                            <md-option value="3">السمنه</md-option>
+                            <md-option value="0" style= "font-family:'NeoSansArabic'">ازاله الشعر</md-option>
+                            <md-option value="1" style= "font-family:'NeoSansArabic'">الاسنان</md-option>
+                            <md-option value="2" style= "font-family:'NeoSansArabic'">الجلديه</md-option>
+                            <md-option value="3" style= "font-family:'NeoSansArabic'">السمنه</md-option>
                         </md-select>
                     </md-input-container>
                     <md-input-container md-no-float>
-                  <input ng-model="data.text" placeholder="الاسم"/>
+                  <input ng-model="data.text" placeholder="الاسم" style= "font-family:'NeoSansArabic'"/>
                     </md-input-container>
                     <md-input-container md-no-float>
-                        <input ng-model="data.text1" placeholder="رقم الجوال"/>
+                        <input ng-model="data.text1" placeholder="رقم الجوال" style= "font-family:'NeoSansArabic'"/>
                     </md-input-container>
                     <md-input-container md-no-float>
-                        <input ng-model="data.text2" placeholder="البريد الالكتروني" />
+                        <input ng-model="data.text2" placeholder="البريد الالكتروني" style= "font-family:'NeoSansArabic'" />
                     </md-input-container>
 
      
                 </div>
                 <div>
-                    <label >اختار التاريخ<input type="date" id="datein" ng-model="data.text3" /></label>
+                    <label style= "font-family:'NeoSansArabic'" >اختار التاريخ<input type="date" id="datein" ng-model="data.text3" /></label>
                 
                 </div>
                 <br />
-                <label>اختار الوقت<input type="time" ng-model="data.text4" /></label>
+                <label style= "font-family:'NeoSansArabic'">اختار الوقت<input type="time" ng-model="data.text4" /></label>
 
 
             </md-card>

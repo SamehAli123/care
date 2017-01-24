@@ -1,11 +1,11 @@
-﻿<ion-view style="font-family:'Neo Sans Arabic'">
+﻿<ion-view  style= "font-family:'NeoSansArabic'">
     <ion-content ng-controller="insurenceCtrl">
         <div class="pin  gallary" ng-repeat="image in images"
              ng-click="navigateTo('app.insurenece-details',image)">
             <img ng-src="{{image.img}}" />
             <div class="pin-footer moreinfo">
-                <span class="pin-footer text-right morebtn">للمزيد--></span>
-                <span class="text-left morebtn">{{image.detail}}</span>
+                <span class="pin-footer text-right morebtn"  style= "font-family:'NeoSansArabic'">للمزيد--></span>
+                <span class="text-left morebtn"  style= "font-family:'NeoSansArabic'">{{image.detail}}</span>
             </div>
 
         </div>
