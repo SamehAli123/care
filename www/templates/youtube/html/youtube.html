@@ -1,25 +1,26 @@
 ﻿
-<ion-view  style= "font-family:'NeoSansArabic'" view-title="يوتيوب">
+<ion-view style="font-family:'Neo Sans Arabic'">
     <ion-content ng-controller="youtubeCtrl">
         <ion-refresher on-refresh="doRefresh()"></ion-refresher>
+        <ion-spinner class="spinner-energized spin " ng-hide="videos"></ion-spinner>
+
         <div class="list card" ng-repeat="video in videos">
             <div class="item item-text-wrap">
-                <h2  style= "font-family:'NeoSansArabic'">{{video.snippet.title}}</h2>
-                <p  style= "font-family:'NeoSansArabic'"><i class="ion ion-ios-calendar-outline"></i> {{video.snippet.publishedAt | limitTo: 10}}</p>
+                <h2>{{video.snippet.title}}</h2>
+                <p><i class="ion ion-ios-calendar-outline"></i> {{video.snippet.publishedAt | limitTo: 10}}</p>
             </div>
             <div class="item item-image">
                 <div class="embed-responsive embed-responsive-16by9">
-                  <youtube-video class="embed-responsive-item" video-id="video.id.videoId" player-vars="playerVars"></youtube-video>
+
+                    <youtube-video class="embed-responsive-item" video-id="video.id.videoId" player-vars="playerVars"></youtube-video>
                 </div>
                 <div class="item item-divider">
-                    <button class="button button-outline button-block button-balanced"  
-                        style= "font-family:'NeoSansArabic'" >
+                    <button class="button button-outline button-block button-balanced">
                         Share this Video
                     </button>
                 </div>
 
             </div>
-            </div>
+        </div>
     </ion-content>
-
 </ion-view>
