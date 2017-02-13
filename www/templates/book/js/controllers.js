@@ -1,76 +1,150 @@
-﻿//// Controller of dashboard.
-//var app = angular.module('starter', ['ionic']);
-appControllers.controller('bookingCtrl', function ($scope, $mdDialog, $state) {
+﻿
+appControllers.controller('bookingCtrl', function ($scope, $mdDialog, $state, Postall, $localstorage, Getall) {
 
 
 
 
-    $scope.data
- = {
-     dep: '',
-     text: '',
-     text1: '',
-     text2: '',
-     text3: '',
-     text4:''
 
- }
 
-    $scope.save = function ($event) {
 
-        if ($scope.data.text.length != 0 && $scope.data.dep.length != 0 && $scope.data.text1.length != 0 && $scope.data.text2.length != 0 && $scope.data.text3.length != 0 && $scope.data.text4.length != 0) {
 
-            $scope.showConfirmDialog = function ($event) {
-                $mdDialog.show({
-                    controller: 'DialogController',
-                    templateUrl: 'confirm-dialog.html',
-                    targetEvent: $event,
-                    locals: {
-                        displayOption: {
-                            title: "تم",
-                            content: "تم حجز الموعد سيصلك رساله تأكيد الى بريدك الالكتروني",
-                            cancel: "تم"
 
-                        }
-                    },
-                    fontfamily: 'Neo Sans Arabic'
-                })
+    $scope.face = $localstorage.getObject("localface");
+    $scope.google = $localstorage.getObject("localgoogle");
 
+    //function getid(SocialId,loginway) {
+    //    Getall.getuserid(SocialId,loginway).then(function (res) {
+    //        $scope.data = {
+    //            creator: res.id,
+    //            note: ''
+    //        }
+    //    });
+    //}
+
+    if ($scope.face.hasOwnProperty("name")) {
+        var x = 'facebook';
+        Getall.getuserid($scope.face.SocialId, x).then(function (res) {
+            $scope.data = {
+                name: '',
+                date: '',
+                creator: res.data._id,
+                mobileNo: '',
+                note: ''
             }
+        });
 
-            $scope.showConfirmDialog($event)
-            $scope.data
-= {
-    dep: '',
-    text: ''
+    }
+    else {
+        if ($scope.google.hasOwnProperty("email")) {
 
-}
+            var x = 'google+';
+            Getall.getuserid($scope.google.SocialId, x).then(function (res) {
+
+                $scope.data = {
+                    name: '',
+                    date: '',
+                    creator: res.data._id,
+                    mobileNo: '',
+                    note: ''
+                }
+            });
         }
         else {
-            $scope.showConfirmDialog = function ($event) {
-                $mdDialog.show({
-                    controller: 'DialogController',
-                    templateUrl: 'confirm-dialog.html',
-                    targetEvent: $event,
-                    locals: {
-                        displayOption: {
-                            title: "خطأ فى ادخال البيانات",
-                            content: "يرجى ادخال البيانات كاملة",
-                            cancel: "انهاء",
-
-                        }
-                    },
-                    fontfamily: 'Neo Sans Arabic'
-                })
-
+            $scope.data = {
+                name: '',
+                date: '',
+                creator: '',
+                mobileNo: '',
+                note: ''
             }
-            $scope.showConfirmDialog($event)
         }
     }
 
+    $scope.showConfirmDialog = function ($event) {
+
+
+
+        $mdDialog.show({
+            controller: 'DialogController',
+            templateUrl: 'confirm-dialog.html',
+            targetEvent: $event,
+            locals: {
+                displayOption: {
+                    title: "تم",
+                    content: "شكرا لك  سيتم  الاتصال بك   على جوالك  لتأكيد  الحجز ",
+                    cancel: "تم"
+                }
+            },
+            fontfamily: 'Neo Sans Arabic'
+        })
+    }
+    $scope.showConfirmDialog2 = function ($event) {
+        $mdDialog.show({
+            controller: 'DialogController',
+            templateUrl: 'confirm-dialog.html',
+            targetEvent: $event,
+            locals: {
+                displayOption: {
+                    title: "تنبيه ",
+                    content: "يرجى تسجيل الدخول",
+                    cancel: "انهاء",
+                    ok: "تسجيل الدخول"
+                }
+            },
+            fontfamily: 'Neo Sans Arabic'
+        }).then(function () {
+            $state.go('app.login');
+        }, function () {
+            // For cancel button actions.
+        });
+
+    }
+
+    $scope.showConfirmDialog3 = function ($event) {
+        $mdDialog.show({
+            controller: 'DialogController',
+            templateUrl: 'confirm-dialog.html',
+            targetEvent: $event,
+            locals: {
+                displayOption: {
+                    title: "خطأ فى ادخال البيانات",
+                    content: "يرجى ادخال كل البينات المطلوبه",
+                    cancel: "انهاء"
+
+
+                }
+            },
+            fontfamily: 'Neo Sans Arabic'
+        })
+
+    }
+
+
+
+    $scope.save = function ($event) {
+        if ($scope.data.name.length != 0 && $scope.data.date.length != 0 && $scope.data.mobileNo.length != 0 && $scope.data.note.length != 0) {
+            if ($scope.data.creator.length != 0) {
+
+                Postall.booking($scope.data).then(function () {
+                    $scope.showConfirmDialog($event);
+                    $scope.data = {
+                        name: '',
+                        date: '',
+                        mobileNo: '',
+                        note: ''
+                    }
+                });
+            }
+            else {
+                $scope.showConfirmDialog2($event)
+            }
+        }
+        else {
+            $scope.showConfirmDialog3($event)
+        }
+    }
 
 
 }); // End of dashboard controller.
 
 
-// Controller of Dashboard Setting.
