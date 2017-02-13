@@ -3893,18 +3893,13 @@ a.subdued {
       padding-left: 8px;
       width: 94%;
       height: 28px;
-      background: transparent;
-     
-    }
+      background: transparent; }
   .bar.bar-light {
     border-color: #ddd;
     background-color: white;
     background-image: linear-gradient(0deg, #ddd, #ddd 50%, transparent 50%);
     color: #444; }
-    .bar.bar-light 
-    
-    
-     {
+    .bar.bar-light .title {
       color: #444; }
     .bar.bar-light.bar-footer {
       background-image: linear-gradient(180deg, #ddd, #ddd 50%, transparent 50%); }
@@ -6958,9 +6953,7 @@ textarea {
   padding-left: 4px;
   height: 29px;
   background: transparent;
-  line-height: 18px; 
-   width:100%;
-}
+  line-height: 18px; }
 
 .item-input-wrapper ~ .button {
   margin-left: 10.66667px; }
@@ -9006,9 +8999,7 @@ a.button {
 [nav-bar-transition="ios"] [nav-bar="cached"] {
   display: block; }
   [nav-bar-transition="ios"] [nav-bar="cached"] .header-item {
-    display: none;
-
-  }
+    display: none; }
 
 [nav-view-transition="android"] [nav-view="entering"],
 [nav-view-transition="android"] [nav-view="leaving"] {
