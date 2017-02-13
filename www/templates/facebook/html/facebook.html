@@ -1,24 +1,21 @@
 ﻿
-<ion-view style= "font-family:'NeoSansArabic'" view-title="فيس بوك">
-    <ion-content id="news-feed-content" ng-controller="facebookCtrl"  >
-     
-       <div class="list card" ng-repeat="entry in data.data" >
-           <div class="facebookpagename" style= "font-family:'NeoSansArabic'">
-               <img ng-src="img/aldr3.jpg" class="img-circle" style="width:25px; height:25px;font-family:'Neo Sans Arabic'; border-radius:50px"  />
-       {{entry.from.name}}<br />
-               {{entry.created_time}}
-           </div>
-           
-        <div class="item item-body"  >
-            <img class="full-image" src="{{entry.picture}}">
-            <p style= "font-family:'NeoSansArabic'" >
-                {{entry.message}}
-            </p>
-            <p>
-                <a  class="subdued" style= "font-family:'NeoSansArabic'"> {{entry.likes.summary.total_count}}Likes</a>
-                <a class="subdued" style= "font-family:'NeoSansArabic'">{{entry.comments.summary.total_count}} Comments</a>
-            </p>
-        </div>
+<ion-view style="font-family:'Neo Sans Arabic'" view-title="صفحتنا على الفيس بوك">
+    <ion-content id="news-feed-content" ng-controller="facebookCtrl">
+
+        <ion-spinner class="spinner-energized spin " ng-hide="data"></ion-spinner>
+
+        <div class="list card" ng-repeat="entry in data.data">
+            {{entry.from.name}}
+            <div class="item item-body">
+                <img class="full-image" ng-src="{{entry.picture}}">
+                <p>
+                    {{entry.message}}
+                </p>
+                <p>
+                    <a class="subdued"> {{entry.likes.summary.total_count}}Likes</a>
+                    <a class="subdued">{{entry.comments.summary.total_count}} Comments</a>
+                </p>
+            </div>
 
         </div>
 
