@@ -1,28 +1,70 @@
 ﻿
-<ion-view  style= "font-family:'NeoSansArabic'"view-title="فريقنا">
+<ion-view style="font-family:'Neo Sans Arabic'" view-title="فريقنا">
     <ion-content ng-controller="ourteamCtrl" scroll="false">
-        <ion-slide-box id="slide-catalog-content" active-slide="0">
-            <!--slide section-->
+        <ion-spinner class="spinner-energized middl " ng-hide="images"></ion-spinner>
 
-            <ion-slide ng-repeat="image in images" >
-                <!--pin section-->
-                <div style="margin-top:0px; margin-bottom:0px;">
-                
+
+        <ion-slide-box id="slide-catalog-content" active-slide="0" does-continue="true" auto-play="true">
+            <ion-slide ng-repeat="image in images" repeat-done="repeatDone()">
+                <div class="pin">
+                    <img ng-src="{{image.url}}" height="300px" />
+                    <h1>{{image.Name}}</h1>
+                    <p>
+                        {{image.Desc}}
+                    </p>
                 </div>
-              
-                    <div  style="" >
-                        
-                        <img ng-src="{{image.img}}" class="full-image"style="border-bottom:none; height:400px "/>
-                      
-                    </div>
-
-                <h1  style= "font-family:'NeoSansArabic'">{{image.txt}}</h1>
-                <p style="font-family:'NeoSansArabic';height:50px; ">
-                    {{image.desc}}
-                </p>
+                <a class="md-button md-accent md-fab fab-toolbar-medium"
+                   ng-click="sharedProduct($event,image)"
+                   aria-label="showListBottomSheet">
+                    <i class="ion-android-share-alt"></i>
+                </a>
             </ion-slide>
-        
-            <!--end slide section-->
+
+
+
         </ion-slide-box>
+
     </ion-content>
+
+
+
+
+
+    <script type="text/ng-template" id="bottom-sheet-shared.html">
+        <md-bottom-sheet class="md-grid">
+            <!--list section-->
+            <md-list id="bottom-sheet-grid-md-list">
+                <md-list-item>
+                    <a class="md-grid-item-content" ng-click="sharedFacebook()">
+                        <md-icon md-svg-src="facebook"></md-icon>
+                        <div class="md-grid-text">فيسوبك</div>
+                    </a>
+                </md-list-item>
+                <md-list-item>
+                    <a class="md-grid-item-content" ng-click="sharedTwitter()">
+                        <md-icon md-svg-src="twitter"></md-icon>
+                        <div class="md-grid-text">تويتر</div>
+                    </a>
+                </md-list-item>
+
+
+                <md-list-item>
+                    <a class="md-grid-item-content" ng-click="sharedWhatts()">
+                        <i class="fa fa-whatsapp"></i>
+                        <div class="md-grid-text">واتس اب</div>
+                    </a>
+                </md-list-item>
+                <md-list-item>
+                    <a class="md-grid-item-content" ng-click="sharedMore()">
+                        <md-icon md-svg-src="share-arrow"></md-icon>
+                        <div class="md-grid-text">اخرى </div>
+                    </a>
+                </md-list-item>
+            </md-list> <!--end list section-->
+        </md-bottom-sheet>
+    </script>
+
+
+
+
 </ion-view>

@@ -1,62 +1,71 @@
 ﻿//// Controller of dashboard.
 //var app = angular.module('starter', ['ionic']);
-appControllers.controller('ourteamCtrl', function ($scope) {
+appControllers.controller('ourteamCtrl', function ($scope, Getall, $ionicSlideBoxDelegate, $mdBottomSheet) {
 
 
-    $scope.images = [
-        {
-            "img": "img/app_icon.png",
-            "txt": "the text1",
-            "desc": "the descriptionjklklklkl"
+    get();
+    function get() {
+        Getall.getourteam().then(function (res) {
+            $scope.images = res.data;
+        })
+        $scope.repeatDone = function () {
+            $ionicSlideBoxDelegate.update();
+        ///    $ionicSlideBoxDelegate.slide($scope.images.length - 1, 1);
+        };
+    }
 
-
-        },
-        {
-            "img": "img/slide_08.png",
-            "txt": "the text1",
-            "desc": "the description"
-
-        },
-        {
-            "img": "img/slide_07.png",
-            "txt": "the text1",
-            "desc": "the description"
-
-        },
-        {
-            "img": "img/slide_06.png",
-            "txt": "the text1",
-            "desc": "the description"
-
-        },
-        {
-            "img": "img/slide_05.png",
-            "txt": "the text1",
-            "desc": "the description"
-
-        },
-        {
-            "img": "img/slide_04.png",
-            "txt": "the text1",
-            "desc": "the description"
-
-        },
-        {
-            "img": "img/slide_03.png",
-            "txt": "the text1",
-            "desc": "the description"
-
-        },
-        {
-            "img": "img/slide_02.png",
-            "txt": "the text1",
-            "desc": "the description"
-
-        }
-    ]
-
+    $scope.sharedProduct = function ($event, member) {
+        $mdBottomSheet.show({
+            templateUrl: 'bottom-sheet-shared.html',
+            controller: 'sharedSocialBottomSheetCtrl',
+            targetEvent: $event,
+            locals: {
+                member: member
+            }
+        });
+    };
 
 
 }); // End of dashboard controller.
 
-// Controller of Dashboard Setting.
+appControllers.controller('sharedSocialBottomSheetCtrl', function ($scope, $mdBottomSheet, $timeout, member, $mdToast, $cordovaSocialSharing) {
+
+
+
+    $scope.sharedFacebook = function () {
+        $cordovaSocialSharing
+              .shareViaFacebook('مركز عنايه لجمال الاسنان', member.url, member.Name + ',' + member.Desc)
+              .then(function (result) {
+                  alert(sucess);
+              }, function (err) {
+                  alert(err);
+              });
+    }
+
+
+
+    $scope.sharedTwitter = function () {
+        $cordovaSocialSharing
+              .shareViaTwitter('مركز عنايه لجمال الاسنان', member.url, member.Name + ',' + member.Desc)
+              .then(function (result) {
+                  alert(sucess);
+              }, function (err) {
+                  alert(err);
+              });
+    }
+    $scope.sharedWhatts = function () {
+        $cordovaSocialSharing
+              .shareViaWhatsApp('مركز عنايه لجمال الاسنان', member.url, member.Name + ',' + member.Desc)
+              .then(function (result) {
+                  alert(sucess);
+              }, function (err) {
+                  alert(err);
+              });
+    }
+
+    $scope.sharedMore = function () {
+        $cordovaSocialSharing.share('مركز عنايه لجمال الاسنان', member.url, member.Name + ',' + member.Desc);
+
+    }
+
+});// End of share social bottom sheet controller.
