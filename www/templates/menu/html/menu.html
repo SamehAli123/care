@@ -1,54 +1,36 @@
-﻿<ion-side-menus enable-menu-with-back-views="false"  style= "font-family:'NeoSansArabic'">
+﻿<ion-side-menus enable-menu-with-back-views="false" style="font-family:'Neo Sans Arabic'">
     <ion-side-menu-content>
         <ion-nav-bar class="bar-balanced  material-background-nav-bar">
             <ion-nav-buttons side="left">
                 <a class="button button-icon button-clear ion-navicon" menu-toggle="left" ng-click="toggleLeft()"></a>
-            </ion-nav-buttons>
-            <ion-nav-buttons side="secondary">
-                <div class="profile">
-                    <md-menu md-position-mode="target-right target" class="md-list-item-md-menu-right">
-                      
-                            <img ng-src="img/app_icon.png" class="login-img" ng-click="$mdOpenMenu()" />
-
-                       
-                        <md-menu-content width="3">
-                            <md-menu-item>
-                                <a class="md-button md-default-theme" ng-click=" navigateTo('app.login')">
-                                    <span class="menu-item-button"  style= "font-family:'NeoSansArabic'"> تسجيل الدخول</span>
-                                </a>
-                            </md-menu-item>
-
-                        </md-menu-content>
-                    </md-menu>
-
-
+                <div class="postion">
+                    <img ng-src="{{parentobj.urlproperty}}" ng-hide="" class="login-img" ng-click="$mdOpenMenu()" />
                 </div>
 
-
-
-
-                <!--<div class="row noPadding pull-right">
-            <div class="col-50 text-right">
-                <span>sameh ali</span>
-            </div>
-            <div class="col-50 text-left">
-            </div>
-        </div>-->
-
             </ion-nav-buttons>
+
         </ion-nav-bar>
         <ion-nav-view name="menuContent"></ion-nav-view>
     </ion-side-menu-content>
+
     <md-sidenav md-component-id="left" on-swipe-left="closeSideNav()" on-drag-left="closeSideNav()">
         <!--menu section-->
         <div class="material-background" id="toggle-menu-left-header">
             <!--menu header section-->
             <div class="menu-left-header">
-                <img class="user-img" src="img/icons/Logo.jpg">
+                <img class="user-img" src="{{parentobj.urlproperty}}">
+                <a href="#/app/login" ng-hide="parentobj.isloginproperty">
+                    تسجيل الدخول
+
+
+                </a>
+                <a ng-hide="!parentobj.isloginproperty" ng-click="logout()">
+                    تسجيل الخروج
+                </a>
                 <p>
-                    <span class="title"  style= "font-family:'NeoSansArabic'">مركز عناية وجمال لطب الاسنان</span>
+                    <span class="title">{{parentobj.nameproperty}}</span>
                     <br />
-                    <span class="sub-title"  style= "font-family:'NeoSansArabic'">عناية متقدمة بصحة و جمال الفم والأسنان</span>
+                    <span class="title sub-title">{{parentobj.emailproperty}}</span>
                 </p>
             </div>
         </div>
@@ -60,7 +42,7 @@
                         <i class="fa fa-dashboard"></i>
                     </div>
                     <div class="col-66">
-                        <span  style= "font-family:'NeoSansArabic'">الصفحة الرئيسية</span>
+                        <span>الصفحة الرئيسية</span>
                     </div>
                 </div>
                 <div class="row menu-item" ng-click="navigateTo('app.gallary')">
@@ -68,42 +50,11 @@
                         <i class="fa fa-photo"></i>
                     </div>
                     <div class="col-66">
-                        <span  style= "font-family:'NeoSansArabic'">المعرض</span>
+                        <span>المعرض</span>
                     </div>
                 </div>
 
-                <div class="row menu-item" ng-click="navigateTo('app.facebook')">
-                    <div class="col-33">
-                        <i class="fa fa-facebook"></i>
-                    </div>
-                    <div class="col-66">
-                        <span  style= "font-family:'NeoSansArabic'">فيس بوك</span>
-                    </div>
-                </div>
-                <div class="row menu-item" ng-click="navigateTo('app.twitter')">
-                    <div class="col-33">
-                        <i class="fa fa-twitter"></i>
-                    </div>
-                    <div class="col-66">
-                        <span  style= "font-family:'NeoSansArabic'">تويتر</span>
-                    </div>
-                </div>
-                <div class="row menu-item" ng-click="navigateTo('app.instagram')">
-                    <div class="col-33">
-                        <i class="fa fa-instagram"></i>
-                    </div>
-                    <div class="col-66">
-                        <span  style= "font-family:'NeoSansArabic'">إنستجرام</span>
-                    </div>
-                </div>
-                <div class="row menu-item" ng-click="navigateTo('app.youtube')">
-                    <div class="col-33">
-                        <i class="fa fa-youtube"></i>
-                    </div>
-                    <div class="col-66">
-                        <span  style= "font-family:'NeoSansArabic'">يوتيوب</span>
-                    </div>
-                </div>
+
 
 
                 <div class="row menu-item" ng-click="navigateTo('app.offers')">
@@ -111,7 +62,7 @@
                         <i class="fa fa-tags"></i>
                     </div>
                     <div class="col-66">
-                        <span  style= "font-family:'NeoSansArabic'">عروضنا</span>
+                        <span>عروضنا</span>
                     </div>
                 </div>
                 <div class="row menu-item" ng-click="navigateTo('app.ourteam')">
@@ -119,7 +70,7 @@
                         <i class="fa fa-sign-in fa-users"></i>
                     </div>
                     <div class="col-66">
-                        <span  style= "font-family:'NeoSansArabic'">فريقنا</span>
+                        <span>فريقنا</span>
                     </div>
                 </div>
 
@@ -129,7 +80,7 @@
                         <i class="fa fa-thumb-tack"></i>
                     </div>
                     <div class="col-66">
-                        <span  style= "font-family:'NeoSansArabic'">حجز موعد </span>
+                        <span>حجز موعد </span>
                     </div>
                 </div>
                 <div class="row menu-item" ng-click="navigateTo('app.suggestion')">
@@ -137,7 +88,7 @@
                         <i class="fa fa-paper-plane"></i>
                     </div>
                     <div class="col-66">
-                        <span  style= "font-family:'NeoSansArabic'">الشكاوى والمقترحات</span>
+                        <span>الشكاوى والمقترحات</span>
                     </div>
                 </div>
                 <div class="row menu-item" ng-click="navigateTo('app.services')">
@@ -145,7 +96,7 @@
                         <i class="fa fa-pie-chart"></i>
                     </div>
                     <div class="col-66">
-                        <span  style= "font-family:'NeoSansArabic'">الخدمات</span>
+                        <span>الخدمات</span>
                     </div>
                 </div>
                 <div class="row menu-item" ng-click="navigateTo('app.insurence')">
@@ -153,7 +104,7 @@
                         <i class="fa fa-life-ring"></i>
                     </div>
                     <div class="col-66">
-                        <span  style= "font-family:'NeoSansArabic'">الخدمات التأمينيه</span>
+                        <span>الخدمات التأمينيه</span>
                     </div>
                 </div>
                 <div class="row menu-item" ng-click="navigateTo('app.askdoc')">
@@ -161,7 +112,7 @@
                         <i class="fa fa-user-md"></i>
                     </div>
                     <div class="col-66">
-                        <span  style= "font-family:'NeoSansArabic'">اسأل طبيبك</span>
+                        <span>اسأل طبيبك</span>
                     </div>
                 </div>
                 <div class="row menu-item" ng-click="navigateTo('app.map')">
@@ -169,7 +120,7 @@
                         <i class="fa fa-location-arrow"></i>
                     </div>
                     <div class="col-66">
-                        <span  style= "font-family:'NeoSansArabic'">خريطه المركز</span>
+                        <span>خريطه المركز</span>
                     </div>
                 </div>
                 <div class="row menu-item" ng-click="navigateTo('app.connectus')">
@@ -177,7 +128,7 @@
                         <i class="fa fa-commenting"></i>
                     </div>
                     <div class="col-66">
-                        <span  style= "font-family:'NeoSansArabic'">تواصل معنا</span>
+                        <span>تواصل معنا</span>
                     </div>
                 </div>
                 <div class="row menu-item" ng-click="navigateTo('app.aboutus')">
@@ -185,84 +136,118 @@
                         <i class="fa fa-info-circle"></i>
                     </div>
                     <div class="col-66">
-                        <span  style= "font-family:'NeoSansArabic'">عن المركز</span>
+                        <span>عن المركز</span>
                     </div>
                 </div>
+                <div class="row menu-item" ng-click="navigateTo('app.facebook')">
+                    <div class="col-33">
+                        <i class="fa fa-facebook"></i>
+                    </div>
+                    <div class="col-66">
+                        <span>فيس بوك</span>
+                    </div>
+                </div>
+                <!--<div class="row menu-item" ng-click="navigateTo('app.twitter')">
+                    <div class="col-33">
+                        <i class="fa fa-twitter"></i>
+                    </div>
+                    <div class="col-66">
+                        <span>تويتر</span>
+                    </div>
+                </div>-->
+                <div class="row menu-item" ng-click="navigateTo('app.instagram')">
+                    <div class="col-33">
+                        <i class="fa fa-instagram"></i>
+                    </div>
+                    <div class="col-66">
+                        <span>إنستجرام</span>
+                    </div>
+                </div>
+                <div class="row menu-item" ng-click="navigateTo('app.youtube')">
+                    <div class="col-33">
+                        <i class="fa fa-youtube"></i>
+                    </div>
+                    <div class="col-66">
+                        <span>يوتيوب</span>
+                    </div>
+                </div>
+
             </div>
             <md-list ng-if="!isAndroid">
                 <md-list-item class="menu-list-item" ng-click="navigateTo('app.dashboard')">
                     <i class="fa fa-dashboard"></i>
-                    <span  style= "font-family:'NeoSansArabic'">الصفحة الرئيسية</span>
+                    <span>الصفحة الرئيسية</span>
                 </md-list-item>
                 <md-list-item class="menu-list-item" ng-click="navigateTo('app.gallary')">
                     <i class="fa fa-photo"></i>
-                    <span  style= "font-family:'NeoSansArabic'">المعرض</span>
+                    <span>المعرض</span>
                 </md-list-item>
 
-                <md-list-item class="menu-list-item" ng-click="navigateTo('app.facebook')">
-                    <i class="fa fa-facebook"></i>
-                    <span  style= "font-family:'NeoSansArabic'">فيس بوك</span>
-                </md-list-item>
-                <md-list-item class="menu-list-item" ng-click="navigateTo('app.twitter')">
-                    <i class="fa fa-twitter"></i>
-                    <span  style= "font-family:'NeoSansArabic'">تويتر</span>
-                </md-list-item>
-
-                <md-list-item class="menu-list-item" ng-click="navigateTo('app.instagram')">
-                    <i class="fa fa-instagram"></i>
-                    <span  style= "font-family:'NeoSansArabic'">إنستجرام</span>
-                </md-list-item>
-                <md-list-item class="menu-list-item" ng-click="navigateTo('app.youtube')">
-                    <i class="fa fa-youtube"></i>
-                    <span  style= "font-family:'NeoSansArabic'">يوتيوب</span>
-                </md-list-item>
 
 
 
                 <md-list-item class="menu-list-item" ng-click="navigateTo('app.offers')">
                     <i class="fa fa-tags"></i>
-                    <span  style= "font-family:'NeoSansArabic'">عروضنا</span>
+                    <span>عروضنا</span>
                 </md-list-item>
 
                 <md-list-item class="menu-list-item" ng-click="navigateTo('app.ourteam')">
                     <i class="fa fa-sign-in fa-users"></i>
-                    <span  style= "font-family:'NeoSansArabic'">فريقنا</span>
+                    <span>فريقنا</span>
                 </md-list-item>
 
                 <md-list-item class="menu-list-item" ng-click="navigateTo('app.book')">
                     <i class="fa fa-thumb-tack"></i>
-                    <span  style= "font-family:'NeoSansArabic'">حجز موعد </span>
+                    <span>حجز موعد </span>
                 </md-list-item>
                 <md-list-item class="menu-list-item" ng-click="navigateTo('app.suggestion')">
                     <i class="fa fa-paper-plane"></i>
-                    <span  style= "font-family:'NeoSansArabic'">الشكاوى والمقترحات </span>
+                    <span>الشكاوى والمقترحات </span>
                 </md-list-item>
                 <md-list-item class="menu-list-item" ng-click="navigateTo('app.services')">
                     <i class="fa fa-pie-chart"></i>
-                    <span  style= "font-family:'NeoSansArabic'">الخدمات </span>
+                    <span>الخدمات </span>
                 </md-list-item>
                 <md-list-item class="menu-list-item" ng-click="navigateTo('app.insurence')">
                     <i class="fa fa-life-ring"></i>
-                    <span  style= "font-family:'NeoSansArabic'">الخدمات التأمينيه </span>
+                    <span>الخدمات التأمينيه </span>
                     <!--تدعيم شركات التأمين-->
                 </md-list-item>
                 <md-list-item class="menu-list-item" ng-click="navigateTo('app.askdoc')">
                     <i class="fa fa-user-md"></i>
-                    <span  style= "font-family:'NeoSansArabic'">اسأل طبيبك</span>
+                    <span>اسأل طبيبك</span>
                     <!--الاسئله والاجوبه -->
                 </md-list-item>
                 <md-list-item class="menu-list-item" ng-click="navigateTo('app.map')">
                     <i class="fa fa-location-arrow"></i>
-                    <span  style= "font-family:'NeoSansArabic'"> خريطه المركز </span>
+                    <span> خريطه المركز </span>
                 </md-list-item>
                 <md-list-item class="menu-list-item" ng-click="navigateTo('app.connectus')">
                     <i class="fa fa-commenting"></i>
-                    <span  style= "font-family:'NeoSansArabic'"> تواصل معنا </span>
+                    <span> تواصل معنا </span>
                 </md-list-item>
                 <md-list-item class="menu-list-item" ng-click="navigateTo('app.aboutus')">
                     <i class="fa fa-info-circle"></i>
-                    <span  style= "font-family:'NeoSansArabic'">عن المركز</span>
+                    <span>عن المركز</span>
                 </md-list-item>
+                <md-list-item class="menu-list-item" ng-click="navigateTo('app.facebook')">
+                    <i class="fa fa-facebook"></i>
+                    <span>فيس بوك</span>
+                </md-list-item>
+                <!--<md-list-item class="menu-list-item" ng-click="navigateTo('app.twitter')">
+                    <i class="fa fa-twitter"></i>
+                    <span>تويتر</span>
+                </md-list-item>-->
+
+                <md-list-item class="menu-list-item" ng-click="navigateTo('app.instagram')">
+                    <i class="fa fa-instagram"></i>
+                    <span>إنستجرام</span>
+                </md-list-item>
+                <md-list-item class="menu-list-item" ng-click="navigateTo('app.youtube')">
+                    <i class="fa fa-youtube"></i>
+                    <span>يوتيوب</span>
+                </md-list-item>
+
 
         </ion-content>
 
