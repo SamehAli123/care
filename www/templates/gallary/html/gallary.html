@@ -1,17 +1,53 @@
 ﻿
 <ion-view view-title="المعرض" style="font-family:'Neo Sans Arabic'">
     <ion-content ng-controller="gallaryCtrl" id="product-detail-content" >
-
-
-        <div class="pin  gallary" ng-repeat="image in photos"
-             ng-click="navigateTo('app.gallary-only-img',image)">
-            <img ng-src="{{image.img}}" />
+        <div>
+            <ion-spinner class="spinner-energized middle" ng-hide="images"></ion-spinner>
         </div>
-        <ion-infinite-scroll on-infinite="loadMore()" distance="1%">
-        </ion-infinite-scroll>
+        <md-card class="pin  gallary" ng-repeat="image in images | orderBy:orderProp" >
+            <img ng-src=" {{image.url}}" ng-click="navigateTo('app.gallary-only-img',image)" />
+            <a class="md-button md-accent md-fab fab-toolbar-medium"
+               ng-click="sharedProduct($event,image)"
+               aria-label="showListBottomSheet">
+                <i class="ion-android-share-alt"></i>
+            </a>
+
+        </md-card>
     </ion-content>
 
 
-  
+    <script type="text/ng-template" id="bottom-sheet-shared.html">
+        <md-bottom-sheet class="md-grid">
+            <!--list section-->
+            <md-list id="bottom-sheet-grid-md-list">
+                <md-list-item>
+                    <a class="md-grid-item-content" ng-click="sharedFacebook()">
+                        <md-icon md-svg-src="facebook"></md-icon>
+                        <div class="md-grid-text">فيسوبك</div>
+                    </a>
+                </md-list-item>
+                <md-list-item>
+                    <a class="md-grid-item-content" ng-click="sharedTwitter()">
+                        <md-icon md-svg-src="twitter"></md-icon>
+                        <div class="md-grid-text">تويتر</div>
+                    </a>
+                </md-list-item>
+
+
+                <md-list-item>
+                    <a class="md-grid-item-content" ng-click="sharedWhatts()">
+                        <i class="fa fa-whatsapp"></i>
+                        <div class="md-grid-text">واتس اب</div>
+                    </a>
+                </md-list-item>
+                <md-list-item>
+                    <a class="md-grid-item-content" ng-click="sharedMore()">
+                        <md-icon md-svg-src="share-arrow"></md-icon>
+                        <div class="md-grid-text">اخرى </div>
+                    </a>
+                </md-list-item>
+            </md-list> <!--end list section-->
+        </md-bottom-sheet>
+    </script>
 
 </ion-view>
