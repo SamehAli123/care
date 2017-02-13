@@ -1,12 +1,18 @@
-﻿<ion-view view-title="الرئيسيه"  style= "font-family:'NeoSansArabic'">
+<ion-view view-title="">
+    <ion-nav-title>
+
+        <span>الرئيسيه</span>
+    </ion-nav-title>
+
     <ion-content ng-controller="dashboardCtrl" scroll="false">
 
-        <ion-slide-box id="user-interface-content" active-slide="0">
-
-            <ion-slide ng-repeat="image in images">
-                <img ng-src="{{image.img}}" class="full-image" />
+        <ion-spinner class="spinner-energized spin " ng-hide="images"></ion-spinner>
+        <ion-slide-box id="slide-catalog-content" ng-hide="!images" does-continue="true" auto-play="true">
+            <ion-slide ng-repeat="image in images" repeat-done="repeatDone()">
+                <div class="pin">
+                    <img ng-src="{{image.url}}" height="350px" />
+                </div>
             </ion-slide>
-
         </ion-slide-box>
     </ion-content>
 
