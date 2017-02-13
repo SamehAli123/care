@@ -1,20 +1,31 @@
 ﻿
 
 window.globalVariable = {
-
+    //custom color style variable
+    color: {
+        appPrimaryColor: "",
+        dropboxColor: "#017EE6",
+        facebookColor: "#3C5C99",
+        foursquareColor: "#F94777",
+        googlePlusColor: "#D73D32",
+        instagramColor: "#517FA4",
+        wordpressColor: "#0087BE"
+    },// End custom color style variable
     startPage: {
-        url: "/app/dashboard",
-        state: "app.dashboard"
-
+        url: "/app/dashboard",//Url of start page.
+        state: "app.dashboard"//State name of start page.
     },
     message: {
-        errorMessage: "Technical error please try again later."
+        errorMessage: "Technical error please try again later." //Default error message.
+    },
+    oAuth: {
+        facebook: "1178450775605770",//Use for Facebook API appID.
+        instagram: "your_api_key",//Use for Instagram API clientID.
+        googlePlus: "441613439219-mnfbn6ate9e013acr7li3e0n0vens5pf.apps.googleusercontent.com",//Use for Google API clientID.
     }
+};
 
-};// End Global variable
-
-
-angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers', 'ngMaterial', 'ngMessages', 'ngCordova', 'youtube-embed', 'ngTwitter'])
+angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers', 'ngMaterial', 'ngMessages', 'ngCordova', 'youtube-embed', 'starter.getall', 'starter.rea', 'starter.localstorge', 'starter.postall'])
     .run(function ($ionicPlatform, $cordovaSQLite, $rootScope, $ionicHistory, $state, $mdDialog, $mdBottomSheet, $cordovaGeolocation) {
 
 
@@ -172,38 +183,8 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
 
         appPrimaryColor = $mdColorPalette[$mdThemingProvider._THEMES.default.colors.primary.name]["500"]; //Use for get base color of theme.
 
-        //$stateProvider is using for add or edit HTML view to navigation bar.
-
-        //
-        //Schema :
-        //state_name(String)      : Name of state to use in application.
-        //page_name(String)       : Name of page to present at localhost url.
-        //cache(Bool)             : Cache of view and controller default is true. Change to false if you want page reload when application navigate back to this view.
-        //html_file_path(String)  : Path of html file.
-        //controller_name(String) : Name of Controller.
-        //
-        //Learn more about ionNavView at http://ionicframework.com/docs/api/directive/ionNavView/
-        //Learn more about  AngularUI Router's at https://github.com/angular-ui/ui-router/wiki
-
-        //$stateProvider.state('blank', {
-        //    url: '/blank',
-        //    templateUrl: 'templates/blank/html/blank.html',
-        //    controller: 'blankCtrl'
-        //});
 
 
-
-        //$stateProvider.state('menuDashboard', {
-        //    url: '/menuDashboard',
-        //    templateUrl: 'templates/themes/menu-dashboard/html/menu-dashboard.html',
-        //});
-
-
-        //$stateProvider.state('app', {
-        //    url: '/app',
-        //    templateUrl: 'templates/menu/html/menu.html',
-        //    controller: 'menuCtrl'
-        //});
         $stateProvider
             .state('app', {
                 url: "/app",
@@ -211,8 +192,32 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
                 templateUrl: "templates/menu/html/menu.html",
                 controller: 'menuCtrl'
             })
+
+
+
+
+
+             .state('app.login', {
+                 url: "/login",
+                 cashe: false,
+                 params: {
+                     isAnimated: true
+                 },
+                 views: {
+                     'menuContent': {
+                         templateUrl: "templates/login/html/login.html",
+                         controller: 'loginCtrl'
+                     }
+                 }
+             })
+
+
+
+
+
             .state('app.dashboard', {
                 url: "/dashboard",
+                cashe: false,
                 params: {
                     isAnimated: true
                 },
@@ -223,9 +228,6 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
                     }
                 }
             })
-
-
-
         .state('app.gallary', {
             url: "/gallary",
             params: {
@@ -238,8 +240,6 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
                 }
             }
         })
-
-
 
 
     .state('app.gallary-only-img', {
@@ -356,15 +356,12 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
               }
           })
 
-            
+
 
 
 
             .state('app.askdoc', {
                 url: "/askdoc",
-                params: {
-                    isAnimated: true
-                },
                 views: {
                     'menuContent': {
                         templateUrl: "templates/askdoc/html/askdoc.html",
@@ -372,6 +369,7 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
                     }
                 }
             })
+
 
             .state('app.question', {
                 url: "/question",
@@ -506,18 +504,12 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
 
 
 
-          .state('app.login', {
-              url: "/login",
-              params: {
-                  isAnimated: true
-              },
-              views: {
-                  'menuContent': {
-                      templateUrl: "templates/login/html/login.html",
-                      controller: 'loginCtrl'
-                  }
-              }
-          })
+
+
+
+
+
+
 
 
 
