@@ -1,25 +1,17 @@
-﻿
-<ion-view ng-controller="suggestionCtrl"  style= "font-family:'NeoSansArabic'" view-title="الشكاوي">
-    <ion-content >
+<ion-view ng-controller="suggestionCtrl" style="font-family:'Neo Sans Arabic'" view-title="الشكاوي">
+    <ion-content>
         <md-card>
             <div>
-                <!--<md-input-container md-no-float class="border-bottom">
-                    <md-select ng-model="data.dep" aria-label="md-option" placeholder="اختر القسم " required>
-                        <md-option value="0">ازاله الشعر</md-option>
-                        <md-option value="1">الاسنان</md-option>
-                        <md-option value="2">الجلديه</md-option>
-                        <md-option value="3">السمنه</md-option>
-                    </md-select>
-                </md-input-container>-->
                 <md-input-container md-no-float>
-                    <textarea rows="5" ng-model="data.Text" maxlength="200"
-                              placeholder="ضع الشكوي او الاقتراح هنا  ......."  style= "font-family:'NeoSansArabic'"></textarea>
+                    <textarea rows="5" ng-model="data.note" maxlength="200"
+                              placeholder="ضع الشكوي او الاقتراح هنا  ......."></textarea>
                 </md-input-container>
-                <span  style= "font-family:'NeoSansArabic'">
-                    {{(data.Text.length > 0 ? data.Text.length :0) | json}}/200
+                <span>
+                    {{(data.note.length > 0 ? data.note.length :0) | json}}/200
                 </span>
-                <span  style= "font-family:'NeoSansArabic'">{{Text}}</span>
+
             </div>
+            {{response}}
         </md-card>
     </ion-content>
     <div class="footer-fab-bar">
