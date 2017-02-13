@@ -1,37 +1,32 @@
-﻿
-<ion-view view-title="اسأل طبيبك" style= "font-family:'NeoSansArabic'">
-    <ion-content ng-controller="askdocCtrl" style= "font-family:'NeoSansArabic'">
-     
+﻿<ion-view ng-controller="questionCtrl" view-title="اسأل طبيبك" style="font-family:'Neo Sans Arabic'">
+    <ion-content>
+        <ion-refresher on-refresh="doRefresh()"></ion-refresher>
+
         <ion-list class="list">
-            <li 
-                class="item item-avatar-right item-text-wrap no-padding">
+            <ion-spinner class="spinner-energized spin " ng-hide="questions.data"></ion-spinner>
 
-                <img ng-src="img/app_icon.png" class="img-ques" />
-                <div class="bubbleRight"
-                   style="width:100%;font-family:'NeoSansArabic'">
-                    <h2 class="text-right"><b style="color:white" />مريم</h2>
-                    <p  class="text-right"> هل هناك اعراض جانبيه لأزاله  الشعر بالليزر؟ </p>
+            <div ng-repeat="ques in questions.data">
+
+                <div class="item item-avatar-right">
+                    <img ng-src="{{ques.question_creator.url}}" class="img-ques" />
+                    <div class="bubbleRight">
+                        <h2 class="text-right white">{{ques.question_creator.name}}</h2>
+                        <p class="text-right"> {{ques.question}}</p>
+                    </div>
                 </div>
-
-            </li>
-            <li class="item item-avatar-left item-text-wrap no-padding">
-                <img ng-src="img/icons/Logo.jpg" class="img-ques" />
-                <div class="bubbleLeft"
-                     style="width:100%;font-family:'NeoSansArabic'">
-                    <h2 class="text-right"><b style="color:white" />د/سامح على </h2>
-                    <p class="text-right"> هلا استاذه مريم ان   كان  لديكى حساسيه لا  ينصح بأستخدام    الليزر فيما   غير ذلك ليس له  اعراض جانبيه </p>
+                <div class="item item-avatar-left" ng-hide="!ques.answer">
+                    <img ng-src="img/icons/Logo.jpg" class="img-ques" />
+                    <div class="bubbleLeft">
+                        <h2 class="text-right white">{{ques.answer_creator.Name}}</h2>
+                        <p class="text-right"> {{ques.answer}}</p>
+                    </div>
                 </div>
-
-            </li>
+            </div>
         </ion-list>
-           
-        
     </ion-content>
-
     <div class="footer-fab-bar">
         <a class="md-button md-accent md-fab fab-footer color" aria-label="Add" ng-click="navigateTo('app.question')">
             <i class="icon ion-plus"></i>
         </a>
     </div>
-
 </ion-view>
