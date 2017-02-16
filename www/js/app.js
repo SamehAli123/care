@@ -197,19 +197,7 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
 
 
 
-             .state('app.login', {
-                 url: "/login",
-                 cashe: false,
-                 params: {
-                     isAnimated: true
-                 },
-                 views: {
-                     'menuContent': {
-                         templateUrl: "templates/login/html/login.html",
-                         controller: 'loginCtrl'
-                     }
-                 }
-             })
+           
 
 
 
