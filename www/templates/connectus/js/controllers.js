@@ -10,8 +10,11 @@ appControllers.controller('connectCtrl', function ($scope, $cordovaSocialSharing
     $scope.initialForm = function () {
         // $scope.contractInfo is store contract us data
         $scope.contractInfo = {
-            telephone: "013 588 5664",
-            email: "CareBeaty@gmail.com"
+            telephone: "013 588 5664 ",
+            telephone2: "013 588 5664/013 581 2822",
+            Fax: "0135883099",
+            whatsapp: "0564756555",
+            email: "Cbc777dn@gmail.com"
         };
     };// End initialForm.
 

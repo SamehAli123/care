@@ -1,71 +1,45 @@
 ﻿//// Controller of dashboard.
 //var app = angular.module('starter', ['ionic']);
-appControllers.controller('instagramCtrl', function ($scope, $state, $ionicHistory, $stateParams, $cordovaOauth, $http) {
-    $scope.initialForm = function () {
-
-        // $scope.paging is the variable that store page index of feed data.
-        $scope.paging = {
-            next: "",
-            shouldLoadData: false
-        };
-        // $scope.userInfo is the variable for store user profile information.
-        // It get data from localStorage service.
+appControllers.controller('instagramCtrl', function ($scope, $http) {
 
 
-        // $scope.loading is the variable for loading progress.
-        $scope.isLoading = false;
+    //Place your own Instagram client_id below. Go to https://instagram.com/developer/clients/manage/ and register your app to get a client ID
+    var client_id = '883bf943cec14f559694e62003b6219b';
 
-        // $scope.feedList  is the variable that store feed data.
-        $scope.feedList = [];
-    }// End initialForm.
+    //To get your user ID go to http://jelled.com/instagram/lookup-user-id and enter your Instagram user name to get your user ID
+    var user_id = '3280942984';
 
-    // getFeedData is for get feed by calling to instagram API.
-    // Parameter :  
-    // IsInit(bool) = for check that page are loading more data or refresh data.
-    $scope.getFeedData = function (IsInit) {
+    //https://www.instagram.com/oauth/authorize/?client_id=64a12cb0db7b41da8cd2a8736770c466&redirect_uri=http://127.0.0.1:8080/test&response_type=token
+    var access_token = '3280942984.883bf94.d900627a693f489baf67d1014796298e';
 
-        // Call http service with this api to get instagram feed data.
-        // By send parameter access_token that get from instagram user profile from localStorage.
-        $http.get("https://api.instagram.com/v1/users/self/feed", {
-            params: {
-                access_token: "3280942984.883bf94.d900627a693f489baf67d1014796298e"
-            }
-        })
-            .then(function (result) {
-                // Success retrieve data by calling http service.
 
-                // store feed data to $scope.feedList variable to show in feed.
-                $scope.feedList = result.data.data;
+    $scope.layout = 'grid';
+    $scope.data = {};
+    $scope.pics = [];
 
-                // If it don't have data. Loading progress will stop and appear empty feed.
-                if ($scope.feedList == []) {
-                    $scope.paging.shouldLoadData = true;
-                }
-                // Checking for next page data
-                if (result.data.pagination.next_url == null) {
 
-                    $scope.paging.shouldLoadData = true;
-                }
-                else {
-                    $scope.paging.next = result.data.pagination.next_url;
-                }// End checking for next page data.
 
-                // To stop loading progress.
-                if (IsInit == true) {
-                    $scope.$broadcast('scroll.infiniteScrollComplete');
-                } else {
-                    $scope.$broadcast('scroll.refreshComplete');
-                }
 
-                $scope.isLoading = false;
-            }
-            , function (error) {
-                // Error retrieve data it will log out.
-                if (error.data.meta.code = 400) {
-                    $scope.logout();
-                }
-            });
-    };// End getFeedData.
-   
-       
-    });
+    var endpoint = 'https://api.instagram.com/v1/users/';
+    endpoint += user_id;
+    endpoint += '/media/recent/?';
+    endpoint += '?count=99';
+    endpoint += '&callback=JSON_CALLBACK';
+    endpoint += '&access_token=' + access_token;
+    $http.jsonp(endpoint)
+    .success(function (response) {
+        response.data;
+        console.log(response.data);
+
+        $scope.pics = response.data;
+
+
+    })
+    .error(function (xhr, status, err) {
+        console.error(status, err);
+    })
+
+
+
+
+});

@@ -389,7 +389,7 @@ md-sidenav {
     max-height: 210px !important;
     height: 210px !important;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-    background-image: url(../img/contract_us_bg.jpg);
+    /*background-image: url(../img/contactus_green.jpg);*/
     background-size: cover;
 }
 

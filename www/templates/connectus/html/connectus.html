@@ -31,12 +31,37 @@
         </div>
         <div class="row content">
             <div class="col-75">
-                {{contractInfo.telephone}}
+                {{contractInfo.telephone2}}
             </div>
             <div class="col-25">
-                <i class="ion-android-textsms" ng-click="sentSms(contractInfo.telephone)"></i>
+                <i class="ion-android-call" ng-click="sentSms(contractInfo.telephone2)"></i>
             </div>
         </div>
+
+        <div class="row content">
+            <div class="col-75">
+                {{contractInfo.whatsapp}}
+            </div>
+            <div class="col-25">
+                <i class="ion-social-whatsapp" ng-click="sentSms(contractInfo.whatsapp)"></i>
+            </div>
+        </div>
+
+      
+
+        <div class="row header">
+            <div class="col">
+                : مواعيد العمل
+            </div>
+        </div>
+        <div class="row content">
+            <div class="col-90">
+                من الساعة التاسعة صباحاً حتى العاشرة مساءً
+
+            </div>
+        </div>
+        <br />
+        <br />
         <div class="row header">
             <div class="col">
                 : العنوان
@@ -50,6 +75,8 @@
         </div>
         <br />
         <br />
+    
+
         <div class="row content">
             <div class="col-90" style="text-align:center">
                 . من فضلك تواصل معنا اذا كنت تريد الاستفسار

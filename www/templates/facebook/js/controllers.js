@@ -34,7 +34,7 @@ appControllers.controller('facebookCtrl', function ($scope, $http) {
         accessTokenRq.send(null);
         var access_token;
         access_token = accessTokenRq.responseText;
-        $http.get('https://graph.facebook.com/v2.8/685694824818480/feed?access_token=1257305947664713|wey--uLw9agY9ceePw9WSmAgQkE&fields=id,message,picture,icon,likes.summary(true),comments.summary(true),created_time,from,object_id&limit=10)').then(function (response) {
+        $http.get('https://graph.facebook.com/v2.8/349904815136979/feed?access_token=1257305947664713|wey--uLw9agY9ceePw9WSmAgQkE&fields=id,message,picture,icon,likes.summary(true),comments.summary(true),created_time,from,object_id&limit=10)').then(function (response) {
             $scope.data = response.data;
 
            
