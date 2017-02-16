@@ -1,5 +1,4 @@
-﻿//// Controller of dashboard.
-//var app = angular.module('starter', ['ionic']);
+﻿//var app = angular.module('starter', ['ionic']);
 appControllers.controller('instagramCtrl', function ($scope, $http) {
 
 
