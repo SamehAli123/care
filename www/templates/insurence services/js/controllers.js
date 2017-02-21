@@ -1,17 +1,15 @@
 ﻿//// Controller of dashboard.
 //var app = angular.module('starter', ['ionic']);
-appControllers.controller('insurenceCtrl', function ($scope, $state,$ionicSlideBoxDelegate,Getall) {
+appControllers.controller('insurenceCtrl', function ($scope, $state,Getall) {
 
 
     get();
     function get() {
         Getall.getinsurence().then(function (res) {
+       
             $scope.images = res.data;
-        })
-        $scope.repeatDone = function () {
-            $ionicSlideBoxDelegate.update();
-            $ionicSlideBoxDelegate.slide($scope.images.length - 1, 1);
-        };
+
+        });
     }
 
     $scope.navigateTo = function (targetPage, objectData) {
@@ -19,7 +17,19 @@ appControllers.controller('insurenceCtrl', function ($scope, $state,$ionicSlideB
             photo: objectData
         });
     };
+    $scope.doRefresh = function () {
+        if ($scope.images.length > 0) {
 
+            //Stop the ion-refresher from spinning
+            $scope.$broadcast('scroll.refreshComplete');
+            $scope.images = [];
+        } else {
+            get();
+            //Stop the ion-refresher from spinning
+            $scope.$broadcast('scroll.refreshComplete');
+
+        }
+    };
 
 }); 
 

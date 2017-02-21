@@ -1,4 +1,4 @@
-﻿<ion-side-menus enable-menu-with-back-views="false" style="font-family:'Neo Sans Arabic'">
+﻿<ion-side-menus enable-menu-with-back-views="false" style="font-family:'NeoSansArabic'">
     <ion-side-menu-content>
         <ion-nav-bar class="bar-balanced  material-background-nav-bar">
             <ion-nav-buttons side="left">
@@ -19,7 +19,7 @@
             <!--menu header section-->
             <div class="menu-left-header">
                 <img class="user-img" src="{{parentobj.urlproperty}}">
-                <a href="#/app/login" ng-hide="parentobj.isloginproperty">
+                <a ng-click="navigateTo('app.login')" ng-hide="parentobj.isloginproperty">
                     تسجيل الدخول
 
 
@@ -163,14 +163,14 @@
                         <span>إنستجرام</span>
                     </div>
                 </div>
-                <div class="row menu-item" ng-click="navigateTo('app.youtube')">
+                <!--<div class="row menu-item" ng-click="navigateTo('app.youtube')">
                     <div class="col-33">
                         <i class="fa fa-youtube"></i>
                     </div>
                     <div class="col-66">
                         <span>يوتيوب</span>
                     </div>
-                </div>
+                </div>-->
 
             </div>
             <md-list ng-if="!isAndroid">

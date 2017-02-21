@@ -1,17 +1,24 @@
-﻿<ion-view view-title="الرئيسيه"  style= "font-family:'NeoSansArabic'">
+<ion-view view-title="" style="font-family:'NeoSansArabic'">
+    <ion-nav-title>
+
+        <span>الرئيسيه</span>
+    </ion-nav-title>
+
     <ion-content ng-controller="dashboardCtrl" scroll="false">
 
-        <ion-slide-box id="user-interface-content" active-slide="0">
-
-            <ion-slide ng-repeat="image in images">
-                <img ng-src="{{image.img}}" class="full-image" />
+        <ion-spinner class="spinner-energized spin " ng-hide="images"></ion-spinner>
+        <ion-slide-box id="slide-catalog-content" ng-hide="!images" does-continue="true" auto-play="true" >
+            <ion-slide ng-repeat="image in images" repeat-done="repeatDone()">
+                <div class="pin">
+                    <img ng-src="{{image.url}}" height="350px" />
+                </div>
             </ion-slide>
-
         </ion-slide-box>
+
         <div style="margin-right:17px">
-        <button class="md-button md-accent md-fab fab-footer color" aria-label="Add" ng-click="navigateTo('app.book')">
-    <i class="fa fa-calendar"></i>
-</button>
+            <button class="md-button md-accent md-fab fab-footer color" aria-label="Add" ng-click="navigateTo('app.book')">
+                <i class="fa fa-calendar"></i>
+            </button>
 
             <button class="md-button md-accent md-fab fab-footer color" aria-label="Add" ng-click="navigateTo('app.askdoc')">
                 <i class="fa fa-question"></i>
@@ -22,10 +29,9 @@
             <button class="md-button md-accent md-fab fab-footer color" aria-label="Add" ng-click="navigateTo('app.connectus')">
                 <i class="fa fa-phone"></i>
             </button>
-           
-</div>
-        
-     
+
+        </div>
+
     </ion-content>
 
 </ion-view>

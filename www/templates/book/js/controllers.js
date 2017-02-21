@@ -1,63 +1,12 @@
 ﻿
 appControllers.controller('bookingCtrl', function ($scope, $mdDialog, $state, Postall, $localstorage, Getall) {
 
-
-
-
-
-
-
-
-
-    $scope.face = $localstorage.getObject("localface");
-    $scope.google = $localstorage.getObject("localgoogle");
-
-    //function getid(SocialId,loginway) {
-    //    Getall.getuserid(SocialId,loginway).then(function (res) {
-    //        $scope.data = {
-    //            creator: res.id,
-    //            note: ''
-    //        }
-    //    });
-    //}
-
-    if ($scope.face.hasOwnProperty("name")) {
-        var x = 'facebook';
-        Getall.getuserid($scope.face.SocialId, x).then(function (res) {
-            $scope.data = {
-                name: '',
-                date: '',
-                creator: res.data._id,
-                mobileNo: '',
-                note: ''
-            }
-        });
-
-    }
-    else {
-        if ($scope.google.hasOwnProperty("email")) {
-
-            var x = 'google+';
-            Getall.getuserid($scope.google.SocialId, x).then(function (res) {
-
-                $scope.data = {
-                    name: '',
-                    date: '',
-                    creator: res.data._id,
-                    mobileNo: '',
-                    note: ''
-                }
-            });
-        }
-        else {
-            $scope.data = {
-                name: '',
-                date: '',
-                creator: '',
-                mobileNo: '',
-                note: ''
-            }
-        }
+    $scope.data = {
+        name: '',
+        date: '',
+        creator: '',
+        mobileNo: '',
+        note: ''
     }
 
     $scope.showConfirmDialog = function ($event) {
@@ -93,7 +42,7 @@ appControllers.controller('bookingCtrl', function ($scope, $mdDialog, $state, Po
             },
             fontfamily: 'Neo Sans Arabic'
         }).then(function () {
-            $state.go('app.login');
+        //    $state.go('app.login');
         }, function () {
             // For cancel button actions.
         });
@@ -120,8 +69,7 @@ appControllers.controller('bookingCtrl', function ($scope, $mdDialog, $state, Po
     }
 
 
-
-    $scope.save = function ($event) {
+    function savedata($event) {
         if ($scope.data.name.length != 0 && $scope.data.date.length != 0 && $scope.data.mobileNo.length != 0 && $scope.data.note.length != 0) {
             if ($scope.data.creator.length != 0) {
 
@@ -131,7 +79,8 @@ appControllers.controller('bookingCtrl', function ($scope, $mdDialog, $state, Po
                         name: '',
                         date: '',
                         mobileNo: '',
-                        note: ''
+                        note: '',
+                        creator:''
                     }
                 });
             }
@@ -141,6 +90,38 @@ appControllers.controller('bookingCtrl', function ($scope, $mdDialog, $state, Po
         }
         else {
             $scope.showConfirmDialog3($event)
+        }
+    }
+
+
+    $scope.save = function ($event) {
+        $scope.face = $localstorage.getObject("localface");
+        $scope.google = $localstorage.getObject("localgoogle");
+
+    
+
+        if ($scope.face.hasOwnProperty("name")) {
+            var x = 'facebook';
+            Getall.getuserid($scope.face.SocialId, x).then(function (res) {
+                $scope.data.creator = res.data._id;
+                savedata($event);
+            });
+
+        }
+        else {
+            if ($scope.google.hasOwnProperty("email")) {
+
+                var x = 'google+';
+                Getall.getuserid($scope.google.SocialId, x).then(function (res) {
+
+                    $scope.data.creator = res.data._id;
+                    savedata();
+                });
+            }
+            else {
+                savedata($event);
+
+            }
         }
     }
 

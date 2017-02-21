@@ -1,5 +1,5 @@
 ﻿
-<ion-view view-title="تواصل معنا" style="font-family:'Neo Sans Arabic';font-size:14px">
+<ion-view view-title="تواصل معنا" style="font-family:'NeoSansArabic'">
 
     <ion-content ng-controller="connectCtrl" style="text-align:right">
         <md-toolbar class="md-tall md-primary toolbar-with-image">
@@ -11,8 +11,7 @@
         <!--end toolbar section-->
         <!--button section-->
         <a class="md-button md-accent md-fab fab-toolbar-medium"
-           ng-click="callTo(contractInfo.telephone)"
-           aria-label="Add" style="background-color:forestgreen">
+           aria-label="Add" style="background-color:forestgreen"  onclick="window.open('tel:0564756555', '_system', 'location=yes')">
             <i class="ion-android-call"></i>
         </a>
         <div class="row header">
@@ -26,15 +25,15 @@
                 {{contractInfo.email}}
             </div>
             <div class="col-25">
-                <i class="ion-android-mail" ng-click="sentEmail(contractInfo.email)"></i>
+                <i class="ion-android-mail sizemiddle " style="color:#ffd800" ng-click="sentEmail(contractInfo.email)"></i>
             </div>
         </div>
         <div class="row content">
             <div class="col-75">
                 {{contractInfo.telephone2}}
             </div>
-            <div class="col-25">
-                <i class="ion-android-call" ng-click="sentSms(contractInfo.telephone2)"></i>
+            <div class="col-25 ">
+                <i class="ion-android-call sizemiddle" style="color:green" ng-click="sentSms(contractInfo.telephone2)"></i>
             </div>
         </div>
 
@@ -43,11 +42,11 @@
                 {{contractInfo.whatsapp}}
             </div>
             <div class="col-25">
-                <i class="ion-social-whatsapp" ng-click="sentSms(contractInfo.whatsapp)"></i>
+                <i class="ion-social-whatsapp sizemiddle" style="color: green" ng-click="sentSms(contractInfo.whatsapp)"></i>
             </div>
         </div>
 
-      
+
 
         <div class="row header">
             <div class="col">
@@ -75,7 +74,7 @@
         </div>
         <br />
         <br />
-    
+
 
         <div class="row content">
             <div class="col-90" style="text-align:center">

@@ -1,6 +1,7 @@
 ﻿
-<ion-view style="font-family:'Neo Sans Arabic'" view-title="صفحتنا على الفيس بوك">
+<ion-view style="font-family:'NeoSansArabic'" view-title="صفحتنا على الفيس بوك">
     <ion-content id="news-feed-content" ng-controller="facebookCtrl">
+        <ion-refresher on-refresh="doRefresh()"></ion-refresher>
 
         <ion-spinner class="spinner-energized spin " ng-hide="data"></ion-spinner>
 

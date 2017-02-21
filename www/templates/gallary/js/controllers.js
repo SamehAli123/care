@@ -16,6 +16,22 @@
         });
     };
 
+    $scope.doRefresh = function () {
+        if ($scope.images.length > 0) {
+
+            //Stop the ion-refresher from spinning
+            $scope.$broadcast('scroll.refreshComplete');
+            $scope.images = [];
+        } else {
+            get();
+            //Stop the ion-refresher from spinning
+            $scope.$broadcast('scroll.refreshComplete');
+
+        }
+    };
+
+
+
     $scope.navigateTo = function (targetPage, objectData) {
         $state.go(targetPage, {
             photo: objectData

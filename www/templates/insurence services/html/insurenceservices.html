@@ -1,5 +1,7 @@
-﻿<ion-view style="font-family:'Neo Sans Arabic'">
+﻿<ion-view style="font-family:'NeoSansArabic'"view-title="الخدمات التأمينيه">
     <ion-content ng-controller="insurenceCtrl">
+        <ion-refresher on-refresh="doRefresh()"></ion-refresher>
+
         <ion-spinner class="spinner-energized spin " ng-hide="images"></ion-spinner>
         <div class="pin  gallary" ng-repeat="image in images">
             <img ng-src="{{image.url}}" ng-click="navigateTo('app.insurenece-details',image)" height="200px" />

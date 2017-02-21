@@ -25,7 +25,6 @@
 
 
                 Postall.createuser($scope.userInfo).then(function () {
-                    $state.go('app.dashboard');
                 });
             });
         },
@@ -77,7 +76,6 @@
 
 
                         Postall.createuser($scope.userInfo).then(function () {
-                            $state.go('app.dashboard');
 
 
                         });

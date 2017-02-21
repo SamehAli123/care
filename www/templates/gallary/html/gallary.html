@@ -1,10 +1,12 @@
 ﻿
-<ion-view view-title="المعرض" style="font-family:'Neo Sans Arabic'">
-    <ion-content ng-controller="gallaryCtrl" id="product-detail-content" >
+<ion-view view-title="المعرض" style="font-family:'NeoSansArabic'">
+    <ion-content ng-controller="gallaryCtrl" id="product-detail-content">
         <div>
-            <ion-spinner class="spinner-energized middle" ng-hide="images"></ion-spinner>
+            <ion-refresher on-refresh="doRefresh()"></ion-refresher>
+
+            <ion-spinner class="spinner-energized spin" ng-hide="images"></ion-spinner>
         </div>
-        <md-card class="pin  gallary" ng-repeat="image in images | orderBy:orderProp" >
+        <md-card class="pin  gallary" ng-repeat="image in images | orderBy:orderProp">
             <img ng-src=" {{image.url}}" ng-click="navigateTo('app.gallary-only-img',image)" />
             <a class="md-button md-accent md-fab fab-toolbar-medium"
                ng-click="sharedProduct($event,image)"
@@ -49,5 +51,4 @@
             </md-list> <!--end list section-->
         </md-bottom-sheet>
     </script>
-
 </ion-view>

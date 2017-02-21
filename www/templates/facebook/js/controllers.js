@@ -40,4 +40,21 @@ appControllers.controller('facebookCtrl', function ($scope, $http) {
            
         })
     }
+
+
+
+    $scope.doRefresh = function () {
+        if ($scope.data.data.length > 0) {
+
+            //Stop the ion-refresher from spinning
+            $scope.$broadcast('scroll.refreshComplete');
+            $scope.data.data = [];
+        } else {
+            get();
+            //Stop the ion-refresher from spinning
+            $scope.$broadcast('scroll.refreshComplete');
+
+        }
+    };
+
 });

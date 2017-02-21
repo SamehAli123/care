@@ -1,7 +1,7 @@
 ﻿
-<ion-view  style= "font-family:'NeoSansArabic'"  view-title="إنستجرام">
+<ion-view style="font-family:'NeoSansArabic'" view-title="إنستجرام">
     <ion-content ng-controller="instagramCtrl">
-     
+
         <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()">
         </ion-refresher>
         <ion-list>
@@ -12,21 +12,21 @@
                         <img ng-src="{{p.user.profile_picture}}"
                              class="md-avatar">
                         <div class="md-list-item-text">
-                           
-                            <h3  style= "font-family:'NeoSansArabic'">{{p.user.full_name}}</h3>
-                            <p  style= "font-family:'NeoSansArabic'">{{p.user.username}}</p>
-                            <p ng-show="p.location.name != null ?  true : false"  style= "font-family:'NeoSansArabic'">
+
+                            <h3 style="font-family:'NeoSansArabic'">{{p.user.full_name}}</h3>
+                            <p style="font-family:'NeoSansArabic'">{{p.user.username}}</p>
+                            <p ng-show="p.location.name != null ?  true : false" style="font-family:'NeoSansArabic'">
                                 <i class="fa fa-location-arrow"></i>
                                 {{p.location.name}}
                             </p>
-                          
+
                         </div>
                         <div class="social-card-image">
-                      
+
                         </div><!--end social card image section-->
-                      
+
                     </md-list-item>
-                    <p  style= "font-family:'NeoSansArabic'">{{p.caption.text}}</p>
+                    <p style="font-family:'NeoSansArabic'">{{p.caption.text}}</p>
                 </md-card-content>
                 <img ng-src="{{p.images.standard_resolution.url}}">
                 <!--social card image section-->
@@ -47,6 +47,5 @@
 
 
 
-</ion-content>
-
+    </ion-content>
 </ion-view>
