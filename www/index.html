@@ -12,7 +12,7 @@
     <!-- end Meta section -->
     <title></title>
     <!-- Font reference section -->
-    <link href="lib/robotodraft/robotodraft.css">
+    <link rel="stylesheet" href="lib/robotodraft/robotodraft.css">
     <!-- end Font reference section -->
     <!-- CSS reference section -->
     <link rel="stylesheet" href="css/ionic.app.css">
@@ -51,7 +51,6 @@
     <script src="templates/material-user-interface/dashboard/js/controllers.js"></script>
     <script src="templates/material-user-interface/dashboard/js/controllers.js"></script>
     <script src="templates/material-user-interface/dashboard/js/controllers.js"></script>
-    <!--<script src="templates/wellcomepage/js/controllers.js"></script>-->
     <script src="templates/gallary/js/controllers.js"></script>
     <script src="templates/aboutus/js/controllers.js"></script>
     <script src="templates/offers/js/controllers.js"></script>
@@ -71,7 +70,6 @@
     <script src="js/shared/getall.js"></script>
     <script src="js/reapt.js"></script>
     <script src="js/shared/localstorge.js"></script>
-    <script src="templates/blank/js/controller.js"></script>
     <script src="js/shared/postall.js"></script>
     <!-- end Controllers section-->
     <!-- jQuery section-->
@@ -82,7 +80,7 @@
     <script src="js/sha1.js"></script>
 </head><!-- end head section-->
 <!--body section-->
-<body ng-app="starter" class="hide-native-scroll-y  style=" font-family:'neo sans arabic'"">
+<body ng-app="starter" class="hide-native-scroll-y">
     <!--Custom Style section-->
     <!-- end Custom Style section-->
     <style type="text/css">
@@ -96,7 +94,7 @@
 <!-- Angular custom template section-->
 <!--Share template confirm-dialog section-->
 <script type="text/ng-template" id="confirm-dialog.html">
-    <md-dialog aria-label="confirm-dialog">
+    <md-dialog aria-label="confirm-dialog" style="font-family:'NeoSansArabic'">
         <form>
             <md-dialog-content>
                 <div>
@@ -117,7 +115,7 @@
 </script> <!-- end share template confirm-dialog section-->
 <!-- Share template toast section-->
 <script type="text/ng-template" id="toast.html">
-    <md-toast class="toast-form">
+    <md-toast class="toast-form" style="font-family:'NeoSansArabic'">
         <span flex>{{displayOption.title}}</span>
     </md-toast>
 </script><!-- end share template toast section-->
