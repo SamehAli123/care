@@ -38,7 +38,7 @@
             })
         },
         getclientask: function (id) {
-            return $http.get(apiUrl + 'client-askdoc/'+id).then(function (response) {
+            return $http.get(apiUrl + 'client-askdoc/'+ id).then(function (response) {
                 return response.data;
             })
         },

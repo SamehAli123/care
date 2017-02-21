@@ -197,7 +197,7 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
 
 
 
-           
+
 
 
 
@@ -242,6 +242,21 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
             }
         }
     })
+
+
+
+
+             .state('app.login', {
+                 url: "/login",
+                 views: {
+                     'menuContent': {
+                         templateUrl: "templates/login/html/login.html",
+                         controller: 'loginCtrl'
+                     }
+                 }
+             })
+
+
 
              .state('app.aboutus', {
                  url: "/aboutus",
@@ -350,6 +365,9 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
 
             .state('app.askdoc', {
                 url: "/askdoc",
+                params: {
+                    back: 'true'
+                },
                 views: {
                     'menuContent': {
                         templateUrl: "templates/askdoc/html/askdoc.html",
