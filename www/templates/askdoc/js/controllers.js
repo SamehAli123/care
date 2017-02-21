@@ -1,13 +1,52 @@
 ﻿
 appControllers.controller('askdocCtrl', function ($scope, $state, Getall, $localstorage, $stateParams) {
+    function getid() {
+        $scope.face = $localstorage.getObject("localface");
+        $scope.google = $localstorage.getObject("localgoogle");
+        if ($scope.face.hasOwnProperty("name")) {
+            var x = 'facebook';
+            Getall.getuserid($scope.face.SocialId, x).then(function (res) {
 
-    if ($stateParams.back) {
-        get();
+         
+                Getall.getclientask(res.data._id).then(function (res) {
+                    $scope.questions = res;
+                    $scope.havedata = 'true';
+                })
+            });
+        }
+        else {
+            if ($scope.google.hasOwnProperty("email")) {
+
+                var x = 'google+';
+                Getall.getuserid($scope.google.SocialId, x).then(function (res) {
+
+                    //$scope.id = res.data._id;
+
+                    Getall.getclientask(res.data._id).then(function (res) {
+                        $scope.questions = res;
+                        $scope.havedata = 'true';
+                    })
+
+
+
+                });
+            }
+            else {
+                $scope.id = '';
+            }
+        }
+
+
     }
+   
+
+    
+
+    getid();
 
 
-
-
+   
+    $scope.havedata = '';
 
     $scope.doRefresh = function () {
         if ($scope.questions.length > 0) {
@@ -16,47 +55,16 @@ appControllers.controller('askdocCtrl', function ($scope, $state, Getall, $local
             $scope.$broadcast('scroll.refreshComplete');
             $scope.questions = [];
         } else {
-            get();
+            $scope.questions = [];
+            getid();
             //Stop the ion-refresher from spinning
             $scope.$broadcast('scroll.refreshComplete');
 
         }
     };
 
+ 
 
-    get();
-    $scope.face = $localstorage.getObject("localface");
-    $scope.google = $localstorage.getObject("localgoogle");
-    if ($scope.face.hasOwnProperty("name")) {
-        var x = 'facebook';
-        Getall.getuserid($scope.face.SocialId, x).then(function (res) {
-
-            $scope.id = res.data._id;
-        });
-    }
-    else {
-        if ($scope.google.hasOwnProperty("email")) {
-
-            var x = 'google+';
-            Getall.getuserid($scope.google.SocialId, x).then(function (res) {
-
-                $scope.id = res.data._id;
-
-
-            });
-        }
-        else {
-            $scope.id = '';
-
-        }
-    }
-
-    function get() {
-        Getall.getclientask($scope.id).then(function (res) {
-            $scope.questions = res;
-
-        })
-    }
 
 
     $scope.navigateTo = function (targetPage, objectData) {
@@ -67,56 +75,19 @@ appControllers.controller('askdocCtrl', function ($scope, $state, Getall, $local
 });
 appControllers.controller('questionCtrl', function ($scope, $mdDialog, $state, $localstorage, Getall, Postall) {
 
+    getuser();
+
+
     $scope.navigateToaskdoc = function () {
-        $state.go('app.askdoc', {
-            back: 'true'
-        });
+        $state.go('app.askdoc');
     };
 
 
 
-
-
-
-
-
-
-    $scope.face = $localstorage.getObject("localface");
-    $scope.google = $localstorage.getObject("localgoogle");
-    if ($scope.face.hasOwnProperty("name")) {
-        var x = 'facebook';
-        Getall.getuserid($scope.face.SocialId, x).then(function (res) {
-
-            $scope.data = {
-                question_creator: res.data._id,
-                question: ''
-            }
-        });
-    }
-    else {
-        if ($scope.google.hasOwnProperty("email")) {
-
-            var x = 'google+';
-            Getall.getuserid($scope.google.SocialId, x).then(function (res) {
-
-                $scope.data = {
-                    question_creator: res.data._id,
-                    question: ''
-                }
-            });
-        }
-        else {
-            $scope.data = {
-                question_creator: '',
-                question: ''
-            }
-        }
-    }
-
+    $scope.navigateTologin = function () {
+        $state.go('app.login');
+    };
     $scope.showConfirmDialog = function ($event) {
-
-
-
         $mdDialog.show({
             controller: 'DialogController',
             templateUrl: 'confirm-dialog.html',
@@ -124,7 +95,7 @@ appControllers.controller('questionCtrl', function ($scope, $mdDialog, $state, $
             locals: {
                 displayOption: {
                     title: "تم",
-                    content: "شكرا لك تم ارسال الشكوى او الاقتراح الى الاداره المختصة",
+                    content: "شكرا لك تم ارسال  السؤال الى الدكتور المختص",
                     cancel: "تم"
                 }
             },
@@ -146,9 +117,9 @@ appControllers.controller('questionCtrl', function ($scope, $mdDialog, $state, $
             },
             fontfamily: 'Neo Sans Arabic'
         }).then(function () {
-            $state.go('app.login');
+           /// $scope.navigateTologin();
         }, function () {
-            // For cancel button actions.
+
         });
 
     }
@@ -174,12 +145,54 @@ appControllers.controller('questionCtrl', function ($scope, $mdDialog, $state, $
 
 
 
+
+    function getuser() {
+        $scope.face = $localstorage.getObject("localface");
+        $scope.google = $localstorage.getObject("localgoogle");
+        if ($scope.face.hasOwnProperty("name")) {
+            var x = 'facebook';
+            Getall.getuserid($scope.face.SocialId, x).then(function (res) {
+
+                $scope.data = {
+                    question_creator: res.data._id,
+                    question: ''
+                }
+            });
+        }
+        else {
+            if ($scope.google.hasOwnProperty("email")) {
+
+                var x = 'google+';
+                Getall.getuserid($scope.google.SocialId, x).then(function (res) {
+
+                    $scope.data = {
+                        question_creator: res.data._id,
+                        question: ''
+                    }
+                });
+            }
+            else {
+                $scope.data = {
+                    question_creator: '',
+                    question: ''
+                }
+            }
+        }
+
+    }
+
+
     $scope.save = function ($event) {
+
+
         if ($scope.data.question.length != 0) {
             if ($scope.data.question_creator.length != 0) {
 
                 Postall.askdoc($scope.data).then(function () {
                     $scope.showConfirmDialog($event);
+
+                   
+
                     $scope.data.question = '';
                 });
             }
