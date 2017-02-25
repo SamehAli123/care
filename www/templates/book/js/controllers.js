@@ -8,7 +8,7 @@ appControllers.controller('bookingCtrl', function ($scope, $mdDialog, $state, Po
         mobileNo: '',
         note: ''
     }
-
+    $scope.today = (new Date(), 'MM/dd/yy');
     $scope.showConfirmDialog = function ($event) {
 
 
@@ -67,7 +67,24 @@ appControllers.controller('bookingCtrl', function ($scope, $mdDialog, $state, Po
         })
 
     }
+    $scope.showConfirmDialog4 = function ($event) {
+        $mdDialog.show({
+            controller: 'DialogController',
+            templateUrl: 'confirm-dialog.html',
+            targetEvent: $event,
+            locals: {
+                displayOption: {
+                    title: "خطأ فى ادخال البيانات",
+                    content: "هذا موعد قديم من فضلك اختار موعد من تاريخ اليوم",
+                    cancel: "انهاء"
 
+
+                }
+            },
+            fontfamily: 'Neo Sans Arabic'
+        })
+
+    }
 
     function savedata($event) {
         if ($scope.data.name.length != 0 && $scope.data.date.length != 0 && $scope.data.mobileNo.length != 0 && $scope.data.note.length != 0) {
@@ -83,6 +100,9 @@ appControllers.controller('bookingCtrl', function ($scope, $mdDialog, $state, Po
                         creator:''
                     }
                 });
+            }
+            else if ($scope.date < $scope.today) {
+                $scope.showConfirmDialog4($event)
             }
             else {
                 $scope.showConfirmDialog2($event)

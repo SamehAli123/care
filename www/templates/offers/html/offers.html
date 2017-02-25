@@ -10,17 +10,21 @@
                     <p>
                         {{offer.Details}}
                     </p>
+                
                     <div class="pin-footer">
                         <span class="pin-footer text-right font-sale">{{offer.PriceBefore}}</span>
                         <span class="pin-footer text-center  font-hot-sale ">{{offer.PriceAfter}}</span>
                     </div>
-
+                    <br />
+                    <br />
+                    <br />
+                    <a class="md-button md-accent md-fab fab-toolbar-medium"
+                       ng-click="sharedProduct($event,offer)"
+                       aria-label="showListBottomSheet" style="margin-right:80px">
+                        <i class="ion-android-share-alt"></i>
+                    </a>
                 </div>
-                <a class="md-button md-accent md-fab fab-toolbar-medium"
-                   ng-click="sharedProduct($event,offer)"
-                   aria-label="showListBottomSheet">
-                    <i class="ion-android-share-alt"></i>
-                </a>
+                
             </ion-slide>
         </ion-slide-box>
     </ion-content>
