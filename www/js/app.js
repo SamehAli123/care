@@ -25,7 +25,7 @@ window.globalVariable = {
     }
 };
 
-angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers', 'ngMaterial', 'ngMessages', 'ngCordova', 'youtube-embed', 'starter.getall', 'starter.rea', 'starter.localstorge', 'starter.postall'])
+angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers', 'ngMaterial', 'ngMessages', 'ngCordova', 'starter.getall', 'starter.rea', 'starter.localstorge', 'starter.postall', 'starter.password'])
     .run(function ($ionicPlatform, $cordovaSQLite, $rootScope, $ionicHistory, $state, $mdDialog, $mdBottomSheet, $cordovaGeolocation) {
 
 
@@ -346,19 +346,6 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
                   })
 
 
-          .state('app.youtube', {
-              url: "/youtube",
-              params: {
-                  isAnimated: true
-              },
-              views: {
-                  'menuContent': {
-                      templateUrl: "templates/youtube/html/youtube.html",
-                      controller: 'youtubeCtrl'
-                  }
-              }
-          })
-
 
 
 
@@ -510,13 +497,36 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
 
 
 
+              .state('app.register', {
+                  url: "/register",
+                  params: {
+                      isAnimated: true
+                  },
+                  views: {
+                      'menuContent': {
+                          templateUrl: "templates/register/html/register.html",
+                          controller: 'registerCtrl'
+                      }
+                  }
+              })
 
 
 
 
 
-
-
+              .state('app.verfiy', {
+                  url: "/verfiy",
+                  params: {
+                      code: null,
+                      object: null
+                  },
+                  views: {
+                      'menuContent': {
+                          templateUrl: "templates/verifynum/html/verfiy.html",
+                          controller: 'verfiyCtrl'
+                      }
+                  }
+              })
 
 
 

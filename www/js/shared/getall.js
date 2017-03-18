@@ -38,13 +38,20 @@
             })
         },
         getclientask: function (id) {
-            return $http.get(apiUrl + 'client-askdoc/'+ id).then(function (response) {
+            return $http.get(apiUrl + 'client-askdoc/' + id).then(function (response) {
                 return response.data;
             })
         },
-
-
+        clientdoc: function (id) {
+            return $http.get(apiUrl + 'client-doc').then(function (response) {
+                return response.data;
+            })
+        },
+        getuseridregister: function (name,email,loginway) {
+            var url = apiUrl + 'user-idregister/' + name + '/' + email + '/' + loginway;
+            return $http.get(url).then(function (response) {
+                return response.data;
+            })
+        }
     }
-
-
 });
